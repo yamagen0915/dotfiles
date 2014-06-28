@@ -1,0 +1,11 @@
+
+" 対応する括弧の色を薄くする。
+hi MatchParen term=standout ctermbg=LightGrey ctermfg=Black guibg=LightGrey guifg=Black
+hi Visual ctermbg=Black ctermfg=LightGray
+hi Pmenu ctermfg=0 ctermbg=255 guifg=BLAK guibg=Grey
+hi PmenuSel ctermfg=DarkBlue ctermbg=LightGrey guifg=DarkBlue guibg=DarkGrey
+hi LineNr ctermfg=3 guifg=Yellow
+hi TabLine cterm=none
+hi TabLineFill ctermbg=7 ctermfg=255 guibg=Grey
+hi Search ctermbg=3 ctermfg=255
+
