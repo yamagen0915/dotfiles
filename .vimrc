@@ -44,6 +44,9 @@ noremap <C-j> 3j
 noremap <C-k> 3k
 noremap <C-l> 3l
 
+" タブ
+noremap <C-t> :tabnew<CR>
+
 " タブラインの設定
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
