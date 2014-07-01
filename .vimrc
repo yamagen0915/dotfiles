@@ -1,10 +1,11 @@
-if filereadable(expand("$HOME/vimconfig/.vimrc.highlight")) 
-	source $HOME/vimconfig/.vimrc.highlight
-endif
-
 " プラグインの読み込み
 if filereadable(expand("$HOME/vimconfig/.vimrc.plugin")) 
 	source $HOME/vimconfig/.vimrc.plugin
+endif
+
+" ハイライトの設定
+if filereadable(expand("$HOME/vimconfig/.vimrc.highlight")) 
+	source $HOME/vimconfig/.vimrc.highlight
 endif
 
 " 環境によって変える設定を記述する
@@ -25,7 +26,6 @@ set shiftwidth=2
 set clipboard+=autoselect
 set clipboard+=unnamed
 set tabline=tabline-layout  
-set mouse=a
 set sidescroll=1
 set autoread
 set hlsearch
@@ -33,8 +33,13 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
+set mouse=a
 
 syntax on
+
+"Enterでいつでも一行挿入
+map <S-Enter> O<ESC>
+map <Enter> o<ESC>
 
 " 移動系
 noremap <Space>h  ^
@@ -45,7 +50,7 @@ noremap <C-k> 3k
 noremap <C-l> 3l
 
 " タブ
-noremap <C-t> :tabnew<CR>
+noremap <C-t> :tabnew .<CR>
 
 " タブラインの設定
 function! s:SID_PREFIX()
