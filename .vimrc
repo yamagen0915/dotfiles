@@ -1,16 +1,16 @@
 " プラグインの読み込み
-if filereadable(expand("$HOME/vimconfig/.vimrc.plugin")) 
-	source $HOME/vimconfig/.vimrc.plugin
+if filereadable(expand("$HOME/dotfile/.vimrc.plugin")) 
+	source $HOME/dotfile/.vimrc.plugin
 endif
 
 " ハイライトの設定
-if filereadable(expand("$HOME/vimconfig/.vimrc.highlight")) 
-	source $HOME/vimconfig/.vimrc.highlight
+if filereadable(expand("$HOME/dotfile/.vimrc.highlight")) 
+	source $HOME/dotfile/.vimrc.highlight
 endif
 
 " 環境によって変える設定を記述する
-if filereadable(expand("$HOME/vimconfig/.vimrc.enviroment")) 
-	source $HOME/vimconfig/.vimrc.enviroment
+if filereadable(expand("$HOME/dotfile/.vimrc.enviroment")) 
+	source $HOME/dotfile/.vimrc.enviroment
 endif
 
 set nocompatible
