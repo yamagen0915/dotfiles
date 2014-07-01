@@ -1,4 +1,8 @@
 
+if [ -e "$HOME/dotfile/.zshrc.enviroment" ]; then
+	source $HOME/dotfile/.zshrc.enviroment
+fi
+
 # 色を使用出来るようにする
 autoload colors
 colors
@@ -32,7 +36,7 @@ FOXDIE=/usr/local/projects/foxdie/current
 LOG_RECEIVER=/usr/local/projects/log_receiver/current
 
 #cdを打ったら自動的にlsを打ってくれる関数
-function chpwd(){ ls; }
+function chpwd(){ ls -G; }
 
 # エイリアス
 alias la='ls -laG'
@@ -61,7 +65,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
  
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
- 
+
+# 補完にもLS_COLORS の設定を反映する
+if [ -n "$LS_COLORS" ]; then
+	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
