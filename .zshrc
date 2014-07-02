@@ -1,4 +1,5 @@
 
+# 環境依存の設定を読み込む 
 if [ -e "$HOME/dotfile/.zshrc.enviroment" ]; then
 	source $HOME/dotfile/.zshrc.enviroment
 fi
@@ -30,10 +31,7 @@ precmd () {
 PROMPT="%{${fg[cyan]}%}%n @ %m [%c] $ %{${reset_color}%}"
 RPROMPT="%1(v|%F{cyan}%1v%f|)"
 
-PATH=$PATH:/usr/local/mysql/bin
-
-FOXDIE=/usr/local/projects/foxdie/current
-LOG_RECEIVER=/usr/local/projects/log_receiver/current
+eval $(dircolors $HOME/dotfile/dircolors.ansi-light)
 
 #cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls -G; }
@@ -52,10 +50,6 @@ alias mkdir='mkdir -p'
 alias sudo='sudo '
 
 alias vi="vim"
-alias vagrant="sudo su - vagrant"
-alias rake="RAILS_ENV=development; bundle exec rake"
-alias mysql="mysql --pager='less -S -F' -u root -p"
-
 alias g="git"
 
 ########################################
