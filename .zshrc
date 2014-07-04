@@ -31,7 +31,14 @@ precmd () {
 PROMPT="%{${fg[cyan]}%}%n @ %m [%c] $ %{${reset_color}%}"
 RPROMPT="%1(v|%F{cyan}%1v%f|)"
 
-eval $(dircolors $HOME/dotfile/dircolors.ansi-light)
+case ${OSTYPE} in
+	darwin*)
+		# Macの設定
+		;;
+	linux*)
+		eval $(dircolors -p $HOME/dotfile/dircolors.ansi-light)
+		;;
+esac
 
 #cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls -G; }
