@@ -29,19 +29,28 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 nnoremap <silent> <Space>um :<C-u>Unite  file_mru <CR>
-nnoremap <silent> <Space>urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
+" Ruby 
+" Controller
+nnoremap <silent> <Space>ucont :<C-u>Unite file_rec/async:app/controllers/ <CR>
 nnoremap <silent> <Space>urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-nnoremap <silent> <Space>urm :<C-u>Unite file_rec/async:app/models/ <CR>
+" Model
+nnoremap <silent> <Space>umodel :<C-u>Unite file_rec/async:app/models/ <CR>
 nnoremap <silent> <Space>urfm :<C-u>Unite file file/new -input=app/models/ <CR>
-nnoremap <silent> <Space>urv :<C-u>Unite file_rec/async:app/views/ <CR>
+" View
+nnoremap <silent> <Space>uview :<C-u>Unite file_rec/async:app/views/ <CR>
 nnoremap <silent> <Space>urfv :<C-u>Unite file file/new -input=app/views/ <CR>
-nnoremap <silent> <Space>urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
+" Css
+nnoremap <silent> <Space>ucss :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
 nnoremap <silent> <Space>urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-nnoremap <silent> <Space>urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
+" JavaScript
+nnoremap <silent> <Space>uja :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
 nnoremap <silent> <Space>urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-nnoremap <silent> <Space>uro :<C-u>Unite file_rec/async:config/ <CR>
+" Config
+nnoremap <silent> <Space>uconf :<C-u>Unite file_rec/async:config/ <CR>
 nnoremap <silent> <Space>urfo :<C-u>Unite file file/new -input=config/ <CR>
-nnoremap <silent> <Space>url :<C-u>Unite file_rec/async:lib/ <CR>
+" Lib
+nnoremap <silent> <Space>ulib :<C-u>Unite file_rec/async:lib/ <CR>
 nnoremap <silent> <Space>urfl :<C-u>Unite file file/new -input=lib/ <CR>
+" Spec
 nnoremap <silent> <Space>urr :<C-u>Unite file_rec/async:spec/ <CR>
 nnoremap <silent> <Space>urfr :<C-u>Unite file file/new -input=spec/ <CR>
