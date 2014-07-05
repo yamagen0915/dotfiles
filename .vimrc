@@ -13,11 +13,10 @@ if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
 	source $HOME/dotfile/.vimrc.enviroment
 endif
 
+" 魔法の設定
 set nocompatible
-
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
-
 set autoindent
 set number
 set nowrap
@@ -26,7 +25,9 @@ set shiftwidth=2
 set clipboard+=autoselect
 set clipboard+=unnamed
 set tabline=tabline-layout  
+" 横にスクロールする際の移動量
 set sidescroll=1
+" Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set autoread
 set hlsearch
 set incsearch
@@ -55,7 +56,8 @@ if !exists('loaded_matchit')
 endif
 
 " タブ
-noremap <C-t> :tabnew<CR>
+nnoremap gr gT
+nnoremap <C-t> :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 
 " タブラインの設定
 function! s:SID_PREFIX()
