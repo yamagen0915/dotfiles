@@ -49,6 +49,11 @@ noremap <C-j> 3j
 noremap <C-k> 3k
 noremap <C-l> 3l
 
+" %でif-endやhtmlタグの最初と最後
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
 " タブ
 noremap <C-t> :tabnew<CR>
 
@@ -56,7 +61,6 @@ noremap <C-t> :tabnew<CR>
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
-
 function! s:my_tabline()  "{{{
   let s = ''
   for i in range(1, tabpagenr('$'))
