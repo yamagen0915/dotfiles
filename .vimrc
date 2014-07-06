@@ -57,7 +57,6 @@ endif
 
 " タブ
 nnoremap gr gT
-nnoremap <C-t> :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 
 " タブラインの設定
 function! s:SID_PREFIX()
