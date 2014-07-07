@@ -38,7 +38,8 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]m :<C-u>Unite  file_mru -default-action=tabopen<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru -default-action=tabopen<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline
 
 " Ruby 
 " Controller
@@ -57,6 +58,7 @@ nnoremap <silent> [unite]conf :<C-u>Unite file_rec/async:config/ <CR>
 nnoremap <silent> [unite]lib :<C-u>Unite file_rec/async:lib/ <CR>
 " Spec
 nnoremap <silent> [unite]spec :<C-u>Unite file_rec/async:spec/ <CR>
+
 " タブで開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
