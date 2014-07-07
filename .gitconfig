@@ -58,3 +58,6 @@
 [push]
     default = simple
 
+[user]
+	email = yamamoto_s@camobile.com
+	name = yamamoto_s
