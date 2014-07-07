@@ -47,7 +47,6 @@ function chpwd(){ ls -G; }
 alias la='ls -laG'
 alias ll='ls -lG'
  
-alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
