@@ -15,7 +15,22 @@ export PATH=$PATH:/usr/local/mysql/bin
 export FOXDIE=/usr/local/projects/foxdie/current
 export LOG_RECEIVER=/usr/local/projects/log_receiver/current
 
-alias vi="vim"
 alias vagrant="sudo su - vagrant"
 alias rake="RAILS_ENV=development; bundle exec rake"
 alias mysql="mysql --pager='less -S -F' -u root -p"
+
+# エイリアス
+alias la='ls -laG'
+alias ll='ls -lG'
+ 
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias mkdir='mkdir -p'
+
+# sudo の後のコマンドでエイリアスを有効にする
+alias sudo='sudo '
+
+alias vi="vim"
+alias g="git"
+
