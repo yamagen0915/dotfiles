@@ -20,8 +20,10 @@ set backspace=indent,eol,start
 set autoindent
 set number
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set autoindent
+set expandtab
+set shiftwidth=4
 set clipboard+=autoselect
 set clipboard+=unnamed
 set tabline=tabline-layout  
