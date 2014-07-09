@@ -8,12 +8,34 @@
     # こちらを参照: http://d.hatena.ne.jp/couichi/20110207/1297101115
     safecrlf = true
     editor = vim
+
+[color]
+    ui = auto
+
+[i18n]
+    commitencoding = utf-8
+ 
+[merge]
+    ff = false
+    tool = extMerge
+
+[mergetool "extMerge"]
+    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGE"
+    trustExitCode = false
+
+[tig "bind"]
+    generic = g move-first-line
+    generic = G move-last-line
+ 
+[push]
+    default = simple
+
 [alias]
     ad = add
     adp = add -p
     co = checkout
     ci = commit
-		cm = commit -m
+    cm = commit -m
     ca = commit -a
     # diff --cached の内容が表示される
     civ = commit -v
@@ -37,24 +59,6 @@
     d3 = diff HEAD~~~
     d4 = diff HEAD~~~~
     d5 = diff HEAD~~~~~
-[color]
-    ui = auto
-[i18n]
-    commitencoding = utf-8
- 
-[merge]
-    ff = false
-    tool = extMerge
-[mergetool "extMerge"]
-    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGE"
-    trustExitCode = false
-#[diff]
-#    external = extDiff
- 
-[tig "bind"]
-    generic = g move-first-line
-    generic = G move-last-line
- 
-[push]
-    default = simple
+    # 登録してるエイリアスの一覧を表示したり
+    alias = !"if test -z $1; then loop=; for k in `git config --get-regexp ^alias\\. | sort | sed -e 's/^alias\\.\\(\\S*\\).*/\\1/g'`; do echo -n $k; loop="${loop}1"; if test ${#loop} -lt 5; then echo -n '\t'; else echo; loop=; fi; done; exit; fi; git config --list | grep ^alias\\.$1= | sed -e s/^alias\\.//; exit;" 	
 

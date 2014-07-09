@@ -39,7 +39,7 @@ let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
 nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
-nnoremap <silent> [unite]o :<C-u>Unite -tab outline<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby 
 " Controller
