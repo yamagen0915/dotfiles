@@ -58,6 +58,8 @@ nnoremap <silent> [unite]conf :<C-u>Unite -tab file_rec/async:config/ <CR>
 nnoremap <silent> [unite]lib :<C-u>Unite -tab file_rec/async:lib/ <CR>
 " Spec
 nnoremap <silent> [unite]spec :<C-u>Unite -tab file_rec/async:spec/ <CR>
+" Db
+nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 
 " タブで開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
