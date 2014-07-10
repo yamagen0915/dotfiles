@@ -13,20 +13,23 @@ if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
 	source $HOME/dotfile/.vimrc.enviroment
 endif
 
+" 魔法の設定
 set nocompatible
-
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
-
 set autoindent
 set number
 set nowrap
 set tabstop=2
+set autoindent
+set expandtab
 set shiftwidth=2
 set clipboard+=autoselect
 set clipboard+=unnamed
 set tabline=tabline-layout  
+" 横にスクロールする際の移動量
 set sidescroll=1
+" Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set autoread
 set hlsearch
 set incsearch
@@ -49,14 +52,18 @@ noremap <C-j> 3j
 noremap <C-k> 3k
 noremap <C-l> 3l
 
+" %でif-endやhtmlタグの最初と最後
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
 " タブ
-noremap <C-t> :tabnew<CR>
+nnoremap gr gT
 
 " タブラインの設定
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
-
 function! s:my_tabline()  "{{{
   let s = ''
   for i in range(1, tabpagenr('$'))
