@@ -36,7 +36,7 @@ case ${OSTYPE} in
 		# Macの設定
 		;;
 	linux*)
-		eval $(dircolors -p $HOME/dotfile/dircolors.ansi-light)
+		eval $(dircolors $HOME/dotfile/dircolors.ansi-light)
 		;;
 esac
 
