@@ -38,29 +38,29 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
-nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
+" nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby 
 " Controller
-nnoremap <silent> [unite]cont :<C-u>Unite -tab file_rec/async:app/controllers/ <CR>
+nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/async:app/controllers/ <CR>
 " Model
-nnoremap <silent> [unite]mode :<C-u>Unite -tab file_rec/async:app/models/ <CR>
+nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
 " View
-nnoremap <silent> [unite]view :<C-u>Unite -tab file_rec/async:app/views/ <CR>
+nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
 " Css
-nnoremap <silent> [unite]css :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript
-nnoremap <silent> [unite]java :<C-u>Unite -tab file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> [unite]ja :<C-u>Unite -tab file_rec/async:app/assets/javascripts/ <CR>
 " Config
-nnoremap <silent> [unite]conf :<C-u>Unite -tab file_rec/async:config/ <CR>
+nnoremap <silent> [unite]cf :<C-u>Unite -tab file_rec/async:config/ <CR>
 " Lib
-nnoremap <silent> [unite]lib :<C-u>Unite -tab file_rec/async:lib/ <CR>
+nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/async:lib/ <CR>
 " Spec
-nnoremap <silent> [unite]spec :<C-u>Unite -tab file_rec/async:spec/ <CR>
+nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 
 " タブで開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
-au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+" au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+" au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
