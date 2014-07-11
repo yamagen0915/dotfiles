@@ -1,48 +1,68 @@
 " プラグインの読み込み
-if filereadable(expand("$HOME/dotfile/.vimrc.plugin")) 
+if filereadable(expand("./.vimrc.plugin")) 
 	source $HOME/dotfile/.vimrc.plugin
 endif
 
 " ハイライトの設定
-if filereadable(expand("$HOME/dotfile/.vimrc.highlight")) 
+if filereadable(expand("./.vimrc.highlight")) 
 	source $HOME/dotfile/.vimrc.highlight
-endif
-
-" 環境によって変える設定を記述する
-if filereadable(expand("$HOME/dotfile/.vimrc.enviroment")) 
-	source $HOME/dotfile/.vimrc.enviroment
 endif
 
 " 魔法の設定
 set nocompatible
+
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
+
+" インデント
 set autoindent
-set number
-set nowrap
 set tabstop=2
 set autoindent
 set expandtab
 set shiftwidth=2
+
+" 行数表示
+set number
+
+" 行の端までいっても折り返さない
+set nowrap
+
+" クリップボードの有効化
+" だけどclipboard有効状態でコンパイルできていないので意味がない！
 set clipboard+=autoselect
 set clipboard+=unnamed
-set tabline=tabline-layout  
+
 " 横にスクロールする際の移動量
 set sidescroll=1
+
 " Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set autoread
+
+" 索対象をハイライトする
 set hlsearch
+
+" インクリメント検索
 set incsearch
+
+" 大文字と小文字を区別しない
 set ignorecase
+
+" 大文字が含まれる場合のみ大文字小文字を区別する。
 set smartcase
+
+" 置換時、同一行に対象の文字列があれば置換を行う
 set gdefault
+
+" マウスの有効化
 set mouse=a
 
+" 対応する括弧を表示する
+set showmatch
 syntax on
 
 "Enterでいつでも一行挿入
-map <S-Enter> O<ESC>
-map <Enter> o<ESC>
+" map <S-Enter> O<ESC>
+" map <Enter> o<ESC>
 
 " 移動系
 noremap <Space>h  ^
@@ -84,4 +104,10 @@ function! s:my_tabline()  "{{{
 endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
+
+" 環境によって変える設定を記述する
+" 設定を上書きするために一番最後に読み込む
+if filereadable(expand("$HOME/dotfile/.vimrc.enviroment")) 
+	source $HOME/dotfile/.vimrc.enviroment
+endif
 
