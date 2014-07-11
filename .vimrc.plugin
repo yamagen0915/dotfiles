@@ -91,17 +91,24 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
 
+inoremap <expr><C-n> <Down>
+
 " 補完をキャンセルし元に戻す 
-inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補の共通部分のみを補完する
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 " タブで候補を選択できるように 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+function! s:my_crinsert()
+    return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
+endfunction
+inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+
 " <C-h>, <BS>補完を中止する
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
 
