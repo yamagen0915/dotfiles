@@ -56,8 +56,6 @@ set gdefault
 " マウスの有効化
 set mouse=a
 
-" 対応する括弧を表示する
-set showmatch
 syntax on
 
 "Enterでいつでも一行挿入
