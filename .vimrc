@@ -1,10 +1,10 @@
 " プラグインの読み込み
-if filereadable(expand("./.vimrc.plugin")) 
+if filereadable(expand("$HOME/dotfile/.vimrc.plugin")) 
 	source $HOME/dotfile/.vimrc.plugin
 endif
 
 " ハイライトの設定
-if filereadable(expand("./.vimrc.highlight")) 
+if filereadable(expand("$HOME/dotfile/.vimrc.highlight")) 
 	source $HOME/dotfile/.vimrc.highlight
 endif
 
@@ -65,20 +65,20 @@ syntax on
 " map <Enter> o<ESC>
 
 " 移動系
-noremap <Space>h  ^
-noremap <Space>l  $
-noremap <C-h> 3h
-noremap <C-j> 3j
-noremap <C-k> 3k
-noremap <C-l> 3l
+nnoremap <Space>h  ^
+nnoremap <Space>l  $
+nnoremap <C-h> 3h
+nnoremap <C-k> 3k
+nnoremap <C-l> 3l
+nnoremap <C-j> 3j
+
+" タブ
+nnoremap gr gT
 
 " %でif-endやhtmlタグの最初と最後
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
-
-" タブ
-nnoremap gr gT
 
 " タブラインの設定
 function! s:SID_PREFIX()
