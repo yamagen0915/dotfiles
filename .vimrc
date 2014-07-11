@@ -1,10 +1,10 @@
 " プラグインの読み込み
-if filereadable(expand("./.vimrc.plugin")) 
+if filereadable(expand("$HOME/dotfile/.vimrc.plugin")) 
 	source $HOME/dotfile/.vimrc.plugin
 endif
 
 " ハイライトの設定
-if filereadable(expand("./.vimrc.highlight")) 
+if filereadable(expand("$HOME/dotfile/.vimrc.highlight")) 
 	source $HOME/dotfile/.vimrc.highlight
 endif
 
