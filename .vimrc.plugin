@@ -66,8 +66,6 @@ nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 
-au FileType unite nnoremap <silent> <expr> <C-k> <C-p>
-
 " タブで開く
 " au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 " au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
@@ -76,9 +74,7 @@ au FileType unite nnoremap <silent> <expr> <C-k> <C-p>
 " ================================================================
 "  neocomplcache 
 " ================================================================
-
-NeoBundle 'Shougo/neocomplcache'
-
+" 
 " neocomplcacheを自動起動する
 let g:neocomplcache_enable_at_startup = 1
 " 大文字が入力されるまで大文字小文字を区別しない
@@ -107,3 +103,5 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+

@@ -4,6 +4,5 @@ hi Visual ctermbg=Black ctermfg=LightGray
 hi Pmenu ctermfg=DarkGrey ctermbg=7 guifg=BLAK guibg=Grey
 hi PmenuSel ctermfg=DarkBlue ctermbg=LightGray guifg=DarkBlue guibg=DarkGrey
 hi LineNr ctermfg=3 guifg=Yellow
-hi TabLine cterm=none
 hi Search ctermbg=3 ctermfg=255
 
