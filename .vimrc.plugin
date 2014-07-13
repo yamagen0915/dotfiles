@@ -15,7 +15,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/vimproc', {
@@ -28,7 +27,8 @@ NeoBundle 'Shougo/vimproc', {
 " ================================================================
 "   Emmet
 " ================================================================
-inoremap <C-e> <C-y>,
+
+imap <C-e> <C-y>,
 
 " ================================================================
 "   Unite 
@@ -43,7 +43,6 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
-" nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby 
