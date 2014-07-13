@@ -62,6 +62,9 @@ syntax on
 " map <S-Enter> O<ESC>
 " map <Enter> o<ESC>
 
+" インサートモードでjjとうつとEscできる！
+inoremap <silent> jj <Esc>
+
 " 移動系
 nnoremap <Space>h  ^
 nnoremap <Space>l  $
