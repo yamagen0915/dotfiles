@@ -56,13 +56,14 @@ set gdefault
 " マウスの有効化
 set mouse=a
 
-" 対応する括弧を表示する
-set showmatch
 syntax on
 
 "Enterでいつでも一行挿入
 " map <S-Enter> O<ESC>
 " map <Enter> o<ESC>
+
+" インサートモードでjjとうつとEscできる！
+inoremap <silent> jj <Esc>
 
 " 移動系
 nnoremap <Space>h  ^
