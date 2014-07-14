@@ -15,7 +15,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/vimproc', {
@@ -28,6 +27,7 @@ NeoBundle 'Shougo/vimproc', {
 " ================================================================
 "   Emmet
 " ================================================================
+
 imap <C-e> <C-y>,
 
 " ================================================================
@@ -43,7 +43,6 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
-" nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby 
@@ -65,6 +64,11 @@ nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/async:lib/ <CR>
 nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
+
+" タブキーで候補を選ぶ
+au FileType unite inoremap <C-k> <Nop>
+au FileType unite imap <C-k> <C-p>
+au FileType unite nmap <C-k> <C-p>
 
 " タブで開く
 " au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
@@ -91,16 +95,19 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
 
-inoremap <expr><C-n> <Down>
-
 " 補完をキャンセルし元に戻す 
 inoremap <expr><C-g> neocomplcache#undo_completion()
+
 " 補完候補の共通部分のみを補完する
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 " タブで候補を選択できるように 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Enterで候補を選択し、改行もされないようにする
 function! s:my_crinsert()
     return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
 endfunction
@@ -109,6 +116,4 @@ inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 " <C-h>, <BS>補完を中止する
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
