@@ -15,7 +15,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/vimproc', {
@@ -25,10 +24,16 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
-" Emmet
+" ================================================================
+"   Emmet
+" ================================================================
+
 imap <C-e> <C-y>,
 
-" Unite 
+" ================================================================
+"   Unite 
+" ================================================================
+
 " Prefix
 nnoremap [unite] <Nop>
 nmap <Space>u [unite]
@@ -38,29 +43,77 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
-nnoremap <silent> [unite]m :<C-u>Unite -tab file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby 
 " Controller
-nnoremap <silent> [unite]cont :<C-u>Unite -tab file_rec/async:app/controllers/ <CR>
+nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/async:app/controllers/ <CR>
 " Model
-nnoremap <silent> [unite]mode :<C-u>Unite -tab file_rec/async:app/models/ <CR>
+nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
 " View
-nnoremap <silent> [unite]view :<C-u>Unite -tab file_rec/async:app/views/ <CR>
+nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
 " Css
-nnoremap <silent> [unite]css :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript
-nnoremap <silent> [unite]java :<C-u>Unite -tab file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> [unite]ja :<C-u>Unite -tab file_rec/async:app/assets/javascripts/ <CR>
 " Config
-nnoremap <silent> [unite]conf :<C-u>Unite -tab file_rec/async:config/ <CR>
+nnoremap <silent> [unite]cf :<C-u>Unite -tab file_rec/async:config/ <CR>
 " Lib
-nnoremap <silent> [unite]lib :<C-u>Unite -tab file_rec/async:lib/ <CR>
+nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/async:lib/ <CR>
 " Spec
-nnoremap <silent> [unite]spec :<C-u>Unite -tab file_rec/async:spec/ <CR>
+nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 
+" タブキーで候補を選ぶ
+au FileType unite inoremap <C-k> <Nop>
+au FileType unite imap <C-k> <C-p>
+au FileType unite nmap <C-k> <C-p>
+
 " タブで開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
-au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+" au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+" au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+
+
+" ================================================================
+"  neocomplcache 
+" ================================================================
+" 
+" neocomplcacheを自動起動する
+let g:neocomplcache_enable_at_startup = 1
+" 大文字が入力されるまで大文字小文字を区別しない
+let g:neocomplcache_enable_smart_case = 1
+" シンタックスをキャッシュする際の最小文字長
+let g:neocomplcache_min_syntax_length = 3
+" バッファ名のパターンを指定する 
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" _区切りの補完を有効化する
+let g:neocomplcache_enable_underbar_completion = 1
+
+" ファイルタイプ毎の補完のディクショナリを指定
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : ''
+    \ }
+
+" 補完をキャンセルし元に戻す 
+inoremap <expr><C-g> neocomplcache#undo_completion()
+
+" 補完候補の共通部分のみを補完する
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" タブで候補を選択できるように 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Enterで候補を選択し、改行もされないようにする
+function! s:my_crinsert()
+    return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
+endfunction
+inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+
+" <C-h>, <BS>補完を中止する
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+
