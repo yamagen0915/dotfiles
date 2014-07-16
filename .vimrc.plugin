@@ -65,11 +65,6 @@ nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 
-" タブキーで候補を選ぶ
-au FileType unite inoremap <C-k> <Nop>
-au FileType unite imap <C-k> <C-p>
-au FileType unite nmap <C-k> <C-p>
-
 " タブで開く
 " au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 " au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
@@ -104,8 +99,6 @@ inoremap <expr><C-l> neocomplcache#complete_common_string()
 " タブで候補を選択できるように 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Enterで候補を選択し、改行もされないようにする
 function! s:my_crinsert()

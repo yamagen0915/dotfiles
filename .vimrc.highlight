@@ -2,7 +2,8 @@
 hi MatchParen term=standout ctermbg=LightGrey ctermfg=Black guibg=LightGrey guifg=Black
 hi Visual ctermbg=Black ctermfg=LightGray
 hi Pmenu ctermfg=LightGrey ctermbg=Black guifg=BLAK guibg=Grey
-hi PmenuSel ctermfg=LightBlue ctermbg=Black guifg=DarkBlue guibg=DarkGrey
+hi PmenuSel ctermfg=87 ctermbg=Black guifg=DarkBlue guibg=DarkGrey
+hi TabLine cterm=none
 hi LineNr ctermfg=3 guifg=Yellow
 hi Search ctermbg=3 ctermfg=255
 
