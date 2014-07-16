@@ -73,6 +73,11 @@ nnoremap <C-k> 3k
 nnoremap <C-l> 3l
 nnoremap <C-j> 3j
 
+vnoremap <C-h> 3h
+vnoremap <C-k> 3k
+vnoremap <C-l> 3l
+vnoremap <C-j> 3j
+
 " タブ
 nnoremap gr gT
 
