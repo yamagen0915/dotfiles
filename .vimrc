@@ -1,11 +1,11 @@
 " プラグインの読み込み
-if filereadable(expand("$HOME/dotfile/.vimrc.plugin")) 
-	source $HOME/dotfile/.vimrc.plugin
+if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))
+  source $HOME/dotfile/.vimrc.plugin
 endif
 
 " ハイライトの設定
-if filereadable(expand("$HOME/dotfile/.vimrc.highlight")) 
-	source $HOME/dotfile/.vimrc.highlight
+if filereadable(expand("$HOME/dotfile/.vimrc.highlight"))
+  source $HOME/dotfile/.vimrc.highlight
 endif
 
 " 魔法の設定
@@ -73,11 +73,6 @@ nnoremap <C-k> 3k
 nnoremap <C-l> 3l
 nnoremap <C-j> 3j
 
-vnoremap <C-h> 3h
-vnoremap <C-k> 3k
-vnoremap <C-l> 3l
-vnoremap <C-j> 3j
-
 " タブ
 nnoremap gr gT
 
@@ -95,7 +90,7 @@ function! s:my_tabline()  "{{{
   for i in range(1, tabpagenr('$'))
     let bufnrs = tabpagebuflist(i)
     let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no  = getbufvar(bufnr, '&modified') ? i : ' ' . i 
+    let no  = getbufvar(bufnr, '&modified') ? i : ' ' . i
     let mod = getbufvar(bufnr, '&modified') ? '+ ' : ''
     let title = fnamemodify(bufname(bufnr), ':t')
     let title = title . ' '
@@ -111,9 +106,27 @@ endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
+"タブ、空白、改行の可視化
+set list
+set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
+
+"全角スペースをハイライト表示
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
+
 " 環境によって変える設定を記述する
 " 設定を上書きするために一番最後に読み込む
-if filereadable(expand("$HOME/dotfile/.vimrc.enviroment")) 
-	source $HOME/dotfile/.vimrc.enviroment
+if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
+  source $HOME/dotfile/.vimrc.enviroment
 endif
 
