@@ -124,6 +124,9 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
+" ファイル保存時に行末の不要な空白を取り除く
+autocmd BufWritePre * :%s/\s\+$//ge
+
 " 環境によって変える設定を記述する
 " 設定を上書きするために一番最後に読み込む
 if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
