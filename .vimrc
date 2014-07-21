@@ -14,8 +14,8 @@ set nocompatible
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
 
-nnoremap : ;
-nnoremap ; :
+noremap : ;
+noremap ; :
 
 " インデント
 set autoindent
