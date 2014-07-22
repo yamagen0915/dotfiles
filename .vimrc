@@ -14,6 +14,9 @@ set nocompatible
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
 
+noremap : ;
+noremap ; :
+
 " インデント
 set autoindent
 set tabstop=2
