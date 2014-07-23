@@ -19,10 +19,8 @@ noremap ; :
 
 " インデント
 set autoindent
-set tabstop=2
-set autoindent
 set expandtab
-set shiftwidth=2
+set tabstop=2 shiftwidth=2
 
 " 行数表示
 set number
