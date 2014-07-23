@@ -14,12 +14,13 @@ set nocompatible
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
 
+noremap : ;
+noremap ; :
+
 " インデント
 set autoindent
-set tabstop=2
-set autoindent
 set expandtab
-set shiftwidth=2
+set tabstop=2 shiftwidth=2
 
 " 行数表示
 set number
@@ -72,6 +73,11 @@ nnoremap <C-h> 3h
 nnoremap <C-k> 3k
 nnoremap <C-l> 3l
 nnoremap <C-j> 3j
+
+vnoremap <C-h> 3h
+vnoremap <C-k> 3k
+vnoremap <C-l> 3l
+vnoremap <C-j> 3j
 
 " タブ
 nnoremap gr gT
