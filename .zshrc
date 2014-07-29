@@ -28,7 +28,7 @@ precmd () {
 }
 
 # プロンプト
-PROMPT="%{${fg[cyan]}%}%n @%m %1(v|%1v|)$ %{${reset_color}%}"
+PROMPT="%{${fg[cyan]}%}%n @ %m %1(v|%1v|)$ %{${reset_color}%}"
 RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 
 case ${OSTYPE} in
