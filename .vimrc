@@ -17,6 +17,9 @@ set backspace=indent,eol,start
 noremap : ;
 noremap ; :
 
+" 折り畳み文字を有効化
+set foldmethod=marker
+
 " インデント
 set autoindent
 set expandtab
