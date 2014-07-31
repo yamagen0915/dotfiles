@@ -17,6 +17,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
+" vimでgit diff をみる
+NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
