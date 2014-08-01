@@ -6,4 +6,7 @@ hi PmenuSel ctermfg=6 ctermbg=7 guifg=DarkBlue guibg=DarkGrey
 hi TabLine cterm=none
 hi LineNr ctermfg=3 guifg=Yellow
 hi Search ctermbg=3 ctermfg=255
-
+hi DiffAdd ctermbg=7 ctermfg=6
+hi DiffChange ctermbg=7 ctermfg=3
+hi DiffDelete ctermbg=7 ctermfg=1
+hi DiffText term=bold ctermbg=7 ctermfg=10
