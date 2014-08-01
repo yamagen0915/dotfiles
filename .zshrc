@@ -58,6 +58,11 @@ alias sudo='sudo '
 alias vi="vim"
 alias g="git"
 
+# tmuxが起動していない場合にalias設定を行う
+if [ $SHLVL = 1 ]; then
+  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfile/.tmux.auto_split"
+fi
+
 ########################################
 
 # 補完で小文字でも大文字にマッチさせる
