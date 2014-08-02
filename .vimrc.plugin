@@ -7,16 +7,19 @@ filetype plugin on
 filetype plugin indent on " required!
 filetype indent on
 
-" プラグイン
 " Emmet
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Shougo/neocomplcache'
+" " 補完
+" NeoBundle 'Shougo/neocomplete.vim'
 " ファイラー的な
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
 NeoBundle 'Shougo/unite-outline'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
+" vimでgit diff をみる
+NeoBundle 'tpope/vim-fugitive'
+
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'mac' : 'make -f make_mac.mak',
@@ -24,15 +27,11 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
-" ================================================================
-"   Emmet
-" ================================================================
-
+" Emmet. "{{{
 imap <C-e> <C-y>,
+"}}}
 
-" ================================================================
-"   Unite
-" ================================================================
+" Unite "{{{
 
 " Prefix
 nnoremap [unite] <Nop>
@@ -69,46 +68,54 @@ nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 " au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 " au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 
+"}}}
 
-" ================================================================
-"  neocomplcache
-" ================================================================
+" neocomplete. "{{{
 "
-" neocomplcacheを自動起動する
-let g:neocomplcache_enable_at_startup = 1
-" 大文字が入力されるまで大文字小文字を区別しない
-let g:neocomplcache_enable_smart_case = 1
-" シンタックスをキャッシュする際の最小文字長
-let g:neocomplcache_min_syntax_length = 3
-" バッファ名のパターンを指定する
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" _区切りの補完を有効化する
-let g:neocomplcache_enable_underbar_completion = 1
-" ポップアップで表示される候補の数
-let g:neocomplcache_max_list = 20
+" " neocomplcacheを自動起動する
+" let g:neocomplete#enable_at_startup = 1
+" " 大文字が入力されるまで大文字小文字を区別しない
+" let g:neocomplete#enable_smart_case = 1
+" " シンタックスをキャッシュする際の最小文字長
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" " バッファ名のパターンを指定する
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" " ポップアップで表示される候補の数
+" let g:neocomplete#max_list = 20
+"
+" " ファイルタイプ毎の補完のディクショナリを指定
+" let g:neocomplcache_dictionary_filetype_lists = {
+"     \ 'default' : ''
+"     \ }
+"
+" " 補完をキャンセルし元に戻す
+" inoremap <expr><C-g> neocomplete#undo_completion()
+"
+" " 補完候補の共通部分のみを補完する
+" inoremap <expr><C-l> neocomplete#complete_common_string()
+"
+" " タブで候補を選択できるように
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"
+" " Enterで候補を選択し、改行もされないようにする
+" function! s:my_crinsert()
+"     return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
+" endfunction
+" inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+"
+" " <C-h>, <BS>補完を中止する
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"
+" }}}
 
-" ファイルタイプ毎の補完のディクショナリを指定
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+" vim-fugitive " {{{
 
-" 補完をキャンセルし元に戻す
-inoremap <expr><C-g> neocomplcache#undo_completion()
+" Prefix
+nnoremap [fugitive] <Nop>
+nmap <Space>g [fugitive]
 
-" 補完候補の共通部分のみを補完する
-inoremap <expr><C-l> neocomplcache#complete_common_string()
+nnoremap <silent> [fugitive]di :Gdiff<CR>
 
-" タブで候補を選択できるように
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Enterで候補を選択し、改行もされないようにする
-function! s:my_crinsert()
-    return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
-endfunction
-inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
-
-" <C-h>, <BS>補完を中止する
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-
+" }}}

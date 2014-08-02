@@ -19,8 +19,8 @@ autoload -Uz vcs_info
 # 表示フォーマットの指定
 # %b ブランチ情報
 # %a アクション名(mergeなど)
-zstyle ':vcs_info:*' formats ' [%b] '
-zstyle ':vcs_info:*' actionformats ' [%b|%a] '
+zstyle ':vcs_info:*' formats '[%b] '
+zstyle ':vcs_info:*' actionformats '[%b|%a] '
 precmd () {
   psvar=()
   LANG=en_US.UTF-8 vcs_info
@@ -28,7 +28,7 @@ precmd () {
 }
 
 # プロンプト
-PROMPT="%{${fg[cyan]}%}%n @%m %1(v|%1v|)$ %{${reset_color}%}"
+PROMPT="%{${fg[cyan]}%}%n @ %m %1(v|%1v|)$ %{${reset_color}%}"
 RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 
 case ${OSTYPE} in
@@ -57,6 +57,11 @@ alias sudo='sudo '
 
 alias vi="vim"
 alias g="git"
+
+# tmuxが起動していない場合にalias設定を行う
+if [ $SHLVL = 1 ]; then
+  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfile/.tmux.auto_split"
+fi
 
 ########################################
 
