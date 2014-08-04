@@ -19,6 +19,8 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tpope/vim-endwise'
 " vimでgit diff をみる
 NeoBundle 'tpope/vim-fugitive'
+" :RTとかで対応するviewとかに移動できる
+NeoBundle 'tpope/vim-rails'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
