@@ -21,6 +21,8 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 " :RTとかで対応するviewとかに移動できる
 NeoBundle 'tpope/vim-rails'
+" テキストを特定の文字で囲んだりする
+NeoBundle 'tpope/vim-surround'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
