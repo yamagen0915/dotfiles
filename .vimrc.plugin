@@ -19,6 +19,10 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tpope/vim-endwise'
 " vimでgit diff をみる
 NeoBundle 'tpope/vim-fugitive'
+" :RTとかで対応するviewとかに移動できる
+NeoBundle 'tpope/vim-rails'
+" テキストを特定の文字で囲んだりする
+NeoBundle 'tpope/vim-surround'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -51,6 +55,8 @@ nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/async:app/controllers/ <CR
 nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
 " View
 nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
+" Form
+nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
 " Css
 nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript
