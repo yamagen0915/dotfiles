@@ -23,6 +23,10 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 " テキストを特定の文字で囲んだりする
 NeoBundle 'tpope/vim-surround'
+" = の前後に自動的にスペースをいれたりする
+NeoBundle 'smartchr'
+" trueとfalseをきりかえたり
+NeoBundle 'taku-o/vim-toggle'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -128,5 +132,48 @@ nnoremap <silent> [fugitive]di :Gdiff<CR>
 
 " surround.vim " {{{
 
+nnoremap [surround] <Nop>
+nmap , [surround]
+
+nmap [surround]( csw(
+nmap [surround]) csw)
+nmap [surround]{ csw{
+nmap [surround]} csw}
+nmap [surround][ csw[
+nmap [surround]] csw]
+nmap [surround]' csw'
+nmap [surround]" csw"
+
 " }}}
 
+" smartchr " {{{
+inoremap <buffer> <expr>  = smartchr#loop(' = ', ' == ', ' => ')
+inoremap <buffer> <expr>  . smartchr#loop('.',  '->', '=>')
+
+" 演算子の間に空白を入れる
+inoremap <buffer> <expr>  + smartchr#one_of(' + ', ' ++ ', ' += ')
+inoremap <buffer> <expr>  - smartchr#one_of(' - ', ' -- ', ' -= ')
+inoremap <buffer> <expr>  / smartchr#one_of(' / ', ' // ', ' /= ')
+inoremap <buffer> <expr>  * smartchr#one_of(' * ', ' ** ', ' *= ')
+inoremap <buffer> <expr>  & smartchr#one_of(' & ', ' && ', '&')
+inoremap <buffer> <expr>  % smartchr#one_of(' % ', '%')
+inoremap <buffer> <expr>  <-   smartchr#one_of(' <-  ')
+inoremap <buffer> <expr>  , smartchr#one_of(', ', ',')
+" 3項演算子の場合は、後ろのみ空白を入れる
+inoremap <buffer> <expr>  ? smartchr#one_of('? ', '?')
+
+" if文直後の(は自動で間に空白を入れる
+inoremap <buffer> <expr>  ( search('¥<¥if¥%#', 'bcn')? ' (': '('
+
+" }}}
+
+" toggle.vim " {{{
+
+
+imap <C-A> <Plug>ToggleI
+nmap <C-A> <Plug>ToggleN
+vmap <C-A> <Plug>ToggleV
+
+let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
+
+" }}}
