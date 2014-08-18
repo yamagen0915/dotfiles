@@ -8,10 +8,6 @@ set nocompatible
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
 
-" ; と : の入れ替え。英字配列用　
-noremap : ;
-noremap ; :
-
 " 折り畳み文字を有効化
 set foldmethod=marker
 
@@ -62,30 +58,6 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 " 常にタブラインを表示
 set showtabline=2
 
-"Enterでいつでも一行挿入
-" map <S-Enter> O<ESC>
-" map <Enter> o<ESC>
-
-" インサートモードでjjとうつとEscできる！
-inoremap <silent> jj <Esc>
-
-" 移動系
-nnoremap <Space>h  ^
-nnoremap <Space>l  $
-nnoremap <C-h> 3h
-nnoremap <C-k> 3k
-nnoremap <C-l> 3l
-nnoremap <C-j> 3j
-vnoremap <C-h> 3h
-vnoremap <C-k> 3k
-vnoremap <C-l> 3l
-vnoremap <C-j> 3j
-
-" タブ
-nnoremap gr gT
-
-"Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 " ファイル保存時に行末の不要な空白を取り除く
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -140,6 +112,11 @@ endif
 " ハイライトの設定
 if filereadable(expand("$HOME/dotfile/.vimrc.highlight"))
   source $HOME/dotfile/.vimrc.highlight
+endif
+
+" ハイライトの設定
+if filereadable(expand("$HOME/dotfile/.vimrc.keymap"))
+  source $HOME/dotfile/.vimrc.keymap
 endif
 
 " %でif-endやhtmlタグの最初と最後に移動できるようにする
