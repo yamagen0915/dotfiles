@@ -25,8 +25,8 @@ vnoremap <C-k> 3k
 vnoremap <C-l> 3l
 vnoremap <C-j> 3j
 
-nnoremap J <C-D>
-nnoremap K <C-U>
+nnoremap ff F
+vnoremap ff F
 
 
 " タブ
