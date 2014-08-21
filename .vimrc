@@ -1,66 +1,50 @@
-
 " シンタックスハイライトを有効にする
 syntax on
-
 " 魔法の設定
 set nocompatible
-
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
-
 " 折り畳み文字を有効化
 set foldmethod=marker
-
 " インデント
 set autoindent
 set expandtab
 set tabstop=2 shiftwidth=2
-
 " 行数表示
 set number
-
 " 行の端までいっても折り返さない
 set nowrap
-
 " クリップボードの有効化
 " だけどclipboard有効状態でコンパイルできていないので意味がない！
 set clipboard+=autoselect
 set clipboard+=unnamed
-
 " 横にスクロールする際の移動量
 set sidescroll=1
-
 " Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set autoread
-
 " 索対象をハイライトする
 set hlsearch
-
 " インクリメント検索
 set incsearch
-
 " 大文字と小文字を区別しない
 set ignorecase
-
 " 大文字が含まれる場合のみ大文字小文字を区別する。
 set smartcase
-
 " 置換時、同一行に対象の文字列があれば置換を行う
 set gdefault
-
 " マウスの有効化
 set mouse=a
-
 " タブ、空白、改行の可視化
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
-
 " 常にタブラインを表示
 set showtabline=2
 
-
 " ファイル保存時に行末の不要な空白を取り除く
 autocmd BufWritePre * :%s/\s\+$//ge
+
+" CoffeeScriptのファイルにはjsのシンタックスハイライトを利用する
+au BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
 
 " タブラインの設定 " {{{
 function! s:SID_PREFIX()
