@@ -40,10 +40,10 @@ case ${OSTYPE} in
     ;;
 esac
 
-# cdを打ったら自動的にlsを打ってくれる関数
+#cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls -G; }
 
-# エイリアス #{{{
+# エイリアス
 alias la='ls -laG'
 alias ll='ls -lG'
 
@@ -55,18 +55,15 @@ alias mkdir='mkdir -p'
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-alias vi='vim'
-alias g='git'
-
-alias pd='popd'
+alias vi="vim"
+alias g="git"
 
 # tmuxが起動していない場合にalias設定を行う
 if [ $SHLVL = 1 ]; then
   alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfile/.tmux.auto_split"
 fi
-#}}}
 
-# オプション #{{{
+########################################
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -86,6 +83,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
+########################################
+
+# オプション
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
 
@@ -94,9 +94,6 @@ setopt no_beep
 
 # ディレクトリ名だけでcdする
 setopt auto_cd
-
-# pushd, popd したときにdirsを表示しないようにする
-setopt pushd_silent
 
 # cd したら自動的にpushdする
 setopt auto_pushd
@@ -138,4 +135,3 @@ setopt globdots
 
 # Ctrl+wで､直前の/までを削除する｡
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-#}}}
