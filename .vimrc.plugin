@@ -39,6 +39,8 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-entire'
 " Rubyのブロックを対象にするテキストオブジェクト
 NeoBundle 'rhysd/vim-textobj-ruby'
+"行単位でGitのdiffをみるためのプラグイン
+NeoBundle 'AndrewRadev/linediff.vim'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
