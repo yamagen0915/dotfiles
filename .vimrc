@@ -45,6 +45,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " CoffeeScriptのファイルにはjsのシンタックスハイライトを利用する
 au BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
+" lessのファイルにはcssのシンタックスハイライトを利用する
+au BufRead,BufNewFile *.less set ft=css syntax=css
 
 " タブラインの設定 " {{{
 function! s:SID_PREFIX()

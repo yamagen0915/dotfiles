@@ -10,7 +10,7 @@ filetype indent on
 " Emmet
 NeoBundle 'mattn/emmet-vim'
 " " 補完
-NeoBundle 'Shougo/neocomplete.vim'
+" NeoBundle 'Shougo/neocomplete.vim'
 " ファイラー的な
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
@@ -39,7 +39,7 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-entire'
 " Rubyのブロックを対象にするテキストオブジェクト
 NeoBundle 'rhysd/vim-textobj-ruby'
-" 行単位でGitのdiffをみるためのプラグイン
+"行単位でGitのdiffをみるためのプラグイン
 NeoBundle 'AndrewRadev/linediff.vim'
 
 NeoBundle 'Shougo/vimproc', {
@@ -102,50 +102,50 @@ nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 " neocomplete. "{{{
 
 " neocomplcacheを自動起動する
-let g:neocomplete#enable_at_startup = 1
-" 大文字が入力されるまで大文字小文字を区別しない
-let g:neocomplete#enable_smart_case = 1
-" シンタックスをキャッシュする際の最小文字長
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-" バッファ名のパターンを指定する
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" ポップアップで表示される候補の数
-let g:neocomplete#max_list = 20
-" キャッシュしないファイル名
-let g:neocomplete#sources#buffer#disabled_pattern = '\.log\|\.log\.\|\.jax'
-" 自動補完を行わないバッファ名
-let g:neocomplete#lock_buffer_name_pattern = '\.log\|\.log\.\|.*quickrun.*\|.jax'
-
-" rubyのオムニ補完
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-" ファイルタイプ毎の補完のディクショナリを指定
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
-" 補完をキャンセルし元に戻す
-inoremap <expr><C-g> neocomplete#undo_completion()
-
-" 補完候補の共通部分のみを補完する
-inoremap <expr><C-l> neocomplete#complete_common_string()
-
-" タブで候補を選択できるように
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Enterで候補を選択し、改行もされないようにする
-function! s:my_crinsert()
-    return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
-endfunction
-inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
-
-" <C-h>, <BS>補完を中止する
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"let g:neocomplete#enable_at_startup = 1
+"" 大文字が入力されるまで大文字小文字を区別しない
+"let g:neocomplete#enable_smart_case = 1
+"" シンタックスをキャッシュする際の最小文字長
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"" バッファ名のパターンを指定する
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" ポップアップで表示される候補の数
+"let g:neocomplete#max_list = 20
+"" キャッシュしないファイル名
+"let g:neocomplete#sources#buffer#disabled_pattern = '\.log\|\.log\.\|\.jax'
+"" 自動補完を行わないバッファ名
+"let g:neocomplete#lock_buffer_name_pattern = '\.log\|\.log\.\|.*quickrun.*\|.jax'
+"
+"" rubyのオムニ補完
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+"
+"" ファイルタイプ毎の補完のディクショナリを指定
+"let g:neocomplcache_dictionary_filetype_lists = {
+"    \ 'default' : ''
+"    \ }
+"
+"" 補完をキャンセルし元に戻す
+"inoremap <expr><C-g> neocomplete#undo_completion()
+"
+"" 補完候補の共通部分のみを補完する
+"inoremap <expr><C-l> neocomplete#complete_common_string()
+"
+"" タブで候補を選択できるように
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"
+"" Enterで候補を選択し、改行もされないようにする
+"function! s:my_crinsert()
+"    return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
+"endfunction
+"inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+"
+"" <C-h>, <BS>補完を中止する
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " }}}
 
@@ -212,8 +212,21 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 
 " vim-over " {{{
 
-nnoremap <silent> ,s :OverCommandLine<CR>s/
-nnoremap <silent> ,%s :OverCommandLine<CR>%s/
+" Prefix
+nnoremap [over] <Nop>
+nmap ,s [over]
+
+nnoremap <silent> [over]s :OverCommandLine<CR>s/
+nnoremap <silent> [over]% :OverCommandLine<CR>%s/
+nnoremap <silent> [over]1 :OverCommandLine<CR>1
+nnoremap <silent> [over]2 :OverCommandLine<CR>2
+nnoremap <silent> [over]3 :OverCommandLine<CR>3
+nnoremap <silent> [over]4 :OverCommandLine<CR>4
+nnoremap <silent> [over]5 :OverCommandLine<CR>5
+nnoremap <silent> [over]6 :OverCommandLine<CR>6
+nnoremap <silent> [over]7 :OverCommandLine<CR>7
+nnoremap <silent> [over]8 :OverCommandLine<CR>8
+nnoremap <silent> [over]9 :OverCommandLine<CR>9
 
 " }}}
 
@@ -224,9 +237,5 @@ nnoremap <silent> ,%s :OverCommandLine<CR>%s/
 " vim-rails " {{{
 
 nnoremap <silent> gp :bp<CR>
-
-" }}}
-
-" linediff.vim " {{{
 
 " }}}

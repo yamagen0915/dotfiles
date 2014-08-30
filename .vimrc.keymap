@@ -12,8 +12,8 @@ inoremap <silent> jj <Esc>
 
 " 早く移動する移動系
 nnoremap <Space>h  ^
-nnoremap <Space>l  $
 vnoremap <Space>h  ^
+nnoremap <Space>l  $
 vnoremap <Space>l  $
 
 nnoremap <C-h> 3h
@@ -28,7 +28,6 @@ vnoremap <C-j> 3j
 nnoremap ff F
 vnoremap ff F
 
-
 " タブ
 nnoremap gr gT
 
@@ -40,4 +39,3 @@ nnoremap P Pa<Space><ESC>
 
 " Yで行末までコピーする
 nnoremap Y y$
-
