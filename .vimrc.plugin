@@ -41,6 +41,10 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'rhysd/vim-textobj-ruby'
 "行単位でGitのdiffをみるためのプラグイン
 NeoBundle 'AndrewRadev/linediff.vim'
+" シンタックスエラーを見つけてくれるやつ
+NeoBundle 'scrooloose/syntastic.git'
+" 画面上の見えている範囲の移動を早くするためのプラグイン
+NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -237,5 +241,16 @@ nnoremap <silent> [over]9 :OverCommandLine<CR>9
 " vim-rails " {{{
 
 nnoremap <silent> gp :bp<CR>
+
+" }}}
+
+" vim-easymotion " {{{
+
+"Disable default mappings
+let g:EasyMotion_do_mapping = 0
+" 大文字小文字を区別しない
+let g:EasyMotion_smartcase = 1
+
+nmap ,e <Plug>(easymotion-s2)
 
 " }}}
