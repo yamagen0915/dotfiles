@@ -116,8 +116,9 @@ if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
 endif
 " }}}
 
-" 数字を選択し、[?],[co]で数字順に変換する
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/tips
+" 数字を選択し、自動的にインクリメントする "{{{
 nnoremap <silent> co :ContinuousNumber <C-a><CR>
 vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
+" }}}
+

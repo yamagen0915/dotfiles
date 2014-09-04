@@ -64,6 +64,14 @@ if [ $SHLVL = 1 ]; then
   alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfile/.tmux.auto_split"
 fi
 
+# コマンドラインスタック
+show_buffer_stack() {
+  POSTDISPLAY="
+  stack: $LBUFFER"
+  zle push-line-or-edit
+}
+zle -N show_buffer_stack
+
 # オプション # {{{
 
 # 補完で小文字でも大文字にマッチさせる
