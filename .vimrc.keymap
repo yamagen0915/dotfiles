@@ -25,6 +25,9 @@ vnoremap <C-k> 3k
 vnoremap <C-l> 3l
 vnoremap <C-j> 3j
 
+nnoremap ff F
+vnoremap ff F
+
 " タブ
 nnoremap gr gT
 
@@ -36,3 +39,9 @@ nnoremap P Pa<Space><ESC>
 
 " Yで行末までコピーする
 nnoremap Y y$
+
+" <TAB>キーでインデントする<Tab>と<C-i>が同一視されるため回避している
+nnoremap <TAB> >>
+nnoremap \<C-i> <C-i>
+vnoremap <TAB> >>
+vnoremap \<C-i> <C-i>
