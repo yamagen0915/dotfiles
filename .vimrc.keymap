@@ -39,3 +39,9 @@ nnoremap P Pa<Space><ESC>
 
 " Yで行末までコピーする
 nnoremap Y y$
+
+" <TAB>キーでインデントする<Tab>と<C-i>が同一視されるため回避している
+nnoremap <TAB> >>
+nnoremap \<C-i> <C-i>
+vnoremap <TAB> >>
+vnoremap \<C-i> <C-i>
