@@ -44,9 +44,9 @@ set showtabline=2
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " CoffeeScriptのファイルにはjsのシンタックスハイライトを利用する
-au BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
+autocmd BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
 " lessのファイルにはcssのシンタックスハイライトを利用する
-au BufRead,BufNewFile *.less set ft=css syntax=css
+autocmd BufRead,BufNewFile *.less set ft=css syntax=css
 
 " タブラインの設定 " {{{
 function! s:SID_PREFIX()
@@ -89,6 +89,21 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 " }}}
+
+function! RemoveDebugCode()
+  g/\[DEBUG_CODE\]/d
+endfunction
+
+function! MarkDebigCode()
+  call setline('.', getline('.').' # [DEBUG_CODE]')
+endfunction
+
+augroup RemoveDebugCode
+  autocmd!
+  autocmd VimLeave * call RemoveDebugCode()
+  command! RemoveDebugCode :call RemoveDebugCode()
+  command! MarkDebigCode :call MarkDebigCode()
+augroup END
 
 " プラグインの読み込み " {{{
 if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))

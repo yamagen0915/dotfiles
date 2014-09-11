@@ -89,7 +89,7 @@ nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
 " Form
 nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
 " Helper
-nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
+nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/async:app/helpers/ <CR>
 " Css
 nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript
