@@ -122,7 +122,10 @@ setopt transient_rprompt
 setopt auto_param_slash
 # ドットなしでドットファイルの補完を行う
 setopt globdots
+# #の後をコメントとして扱う
+setopt INTERACTIVE_COMMENTS
 # Ctrl+wで､直前の/までを削除する｡
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 
 # }}}

@@ -92,17 +92,18 @@ endif
 
 function! RemoveDebugCode()
   g/\[DEBUG_CODE\]/d
+  write
 endfunction
 
-function! MarkDebigCode()
+function! MarkDebugCode()
   call setline('.', getline('.').' # [DEBUG_CODE]')
 endfunction
 
 augroup RemoveDebugCode
   autocmd!
-  autocmd VimLeave * call RemoveDebugCode()
+  autocmd VimLeave [^\.vimrc] call RemoveDebugCode()
   command! RemoveDebugCode :call RemoveDebugCode()
-  command! MarkDebigCode :call MarkDebigCode()
+  command! MarkDebugCode :call MarkDebugCode()
 augroup END
 
 " プラグインの読み込み " {{{
