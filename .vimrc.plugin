@@ -46,7 +46,7 @@ NeoBundle 'scrooloose/syntastic.git'
 " 画面上の見えている範囲の移動を早くするためのプラグイン
 NeoBundle 'Lokaltog/vim-easymotion'
 " =の位置とかそろえられるやつ！
-NeoBundle 'Align'
+NeoBundle 'junegunn/vim-easy-align'
 " fの検索機能を強化する
 NeoBundle 'rhysd/clever-f.vim'
 
