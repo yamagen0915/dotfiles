@@ -98,6 +98,7 @@ endfunction
 
 function! MarkDebugCode()
   call setline('.', getline('.').' # [DEBUG_CODE]')
+  write
 endfunction
 
 augroup RemoveDebugCode
