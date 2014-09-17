@@ -72,6 +72,14 @@ show_buffer_stack() {
 }
 zle -N show_buffer_stack
 
+tailf() {
+  if [ $# -eq 1 ]; then
+    tail -f $1
+  elif [ $# -eq 2 ]; then
+    tail -f $1 | grep $2;
+  fi
+}
+
 # オプション # {{{
 
 # 補完で小文字でも大文字にマッチさせる

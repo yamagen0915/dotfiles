@@ -25,9 +25,6 @@ vnoremap <C-k> 3k
 vnoremap <C-l> 3l
 vnoremap <C-j> 3j
 
-nnoremap ff F
-vnoremap ff F
-
 " タブ
 nnoremap gr gT
 
@@ -45,3 +42,4 @@ nnoremap <TAB> >>
 nnoremap \<C-i> <C-i>
 vnoremap <TAB> >>
 vnoremap \<C-i> <C-i>
+
