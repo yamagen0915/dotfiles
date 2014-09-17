@@ -98,12 +98,11 @@ endfunction
 
 function! MarkDebugCode()
   call setline('.', getline('.').' # [DEBUG_CODE]')
-  write
 endfunction
 
 augroup RemoveDebugCode
   autocmd!
-  autocmd VimLeave [^\.vimrc] call RemoveDebugCode()
+  autocmd VimLeave * call RemoveDebugCode()
   command! RemoveDebugCode :call RemoveDebugCode()
   command! MarkDebugCode :call MarkDebugCode()
 augroup END
@@ -115,7 +114,6 @@ nnoremap <silent> co :ContinuousNumber <C-a><CR>
 vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 " }}}
-
 
 " プラグインの読み込み " {{{
 if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))
