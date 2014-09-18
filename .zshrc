@@ -19,8 +19,8 @@ autoload -Uz vcs_info
 # 表示フォーマットの指定
 # %b ブランチ情報
 # %a アクション名(mergeなど)
-zstyle ':vcs_info:*' formats '[%b] '
-zstyle ':vcs_info:*' actionformats '[%b|%a] '
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () {
   psvar=()
   LANG=en_US.UTF-8 vcs_info
@@ -28,8 +28,9 @@ precmd () {
 }
 
 # プロンプト
-PROMPT="%{${fg[cyan]}%}%n @ %m %1(v|%1v|)$ %{${reset_color}%}"
-RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+PROMPT="%{${fg[cyan]}%}[%~/]
+%n @ %m $ %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}%1(v|%1v|)%{${reset_color}%}"
 
 case ${OSTYPE} in
   darwin*)
