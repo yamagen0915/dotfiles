@@ -9,4 +9,4 @@ split-window -v
 
 select-pane -t 0
 
-resize-pane -R 40
+resize-pane -R 20

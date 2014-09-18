@@ -19,6 +19,36 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tpope/vim-endwise'
 " vimでgit diff をみる
 NeoBundle 'tpope/vim-fugitive'
+" :RTとかで対応するviewとかに移動できる
+NeoBundle 'tpope/vim-rails'
+" テキストを特定の文字で囲んだりする
+NeoBundle 'tpope/vim-surround'
+" = の前後に自動的にスペースをいれたりする
+" NeoBundle 'smartchr'
+" trueとfalseをきりかえたり
+NeoBundle 'taku-o/vim-toggle'
+" 視覚的にreplaceできるやつ
+NeoBundle 'osyo-manga/vim-over'
+" 選択範囲を外側に広げて検索できる
+NeoBundle 'terryma/vim-expand-region'
+" 独自のテキストオブジェクトを追加するためのプラグイン
+NeoBundle 'kana/vim-textobj-user'
+" 1行を表すテキストオブジェクトを追加する
+NeoBundle 'kana/vim-textobj-line'
+" バッファのなんかのテキストオブジェクト
+NeoBundle 'kana/vim-textobj-entire'
+" Rubyのブロックを対象にするテキストオブジェクト
+NeoBundle 'rhysd/vim-textobj-ruby'
+"行単位でGitのdiffをみるためのプラグイン
+NeoBundle 'AndrewRadev/linediff.vim'
+" シンタックスエラーを見つけてくれるやつ
+NeoBundle 'scrooloose/syntastic.git'
+" 画面上の見えている範囲の移動を早くするためのプラグイン
+NeoBundle 'Lokaltog/vim-easymotion'
+" =の位置とかそろえられるやつ！
+NeoBundle 'junegunn/vim-easy-align'
+" fの検索機能を強化する
+NeoBundle 'rhysd/clever-f.vim'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -26,6 +56,11 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
+
+" CoffeeScriptのシンタックスハイライト
+" NeoBundle 'kchmck/vim-coffee-script'
+" jQueryのシンタックスハイライト
+" NeoBundle 'jquery.vim'
 
 " Emmet. "{{{
 imap <C-e> <C-y>,
@@ -51,6 +86,10 @@ nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/async:app/controllers/ <CR
 nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
 " View
 nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
+" Form
+nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
+" Helper
+nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/async:app/helpers/ <CR>
 " Css
 nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript
@@ -71,43 +110,53 @@ nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
 "}}}
 
 " neocomplete. "{{{
+
+" neocomplcacheを自動起動する
+"let g:neocomplete#enable_at_startup = 1
+"" 大文字が入力されるまで大文字小文字を区別しない
+"let g:neocomplete#enable_smart_case = 1
+"" シンタックスをキャッシュする際の最小文字長
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"" バッファ名のパターンを指定する
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" ポップアップで表示される候補の数
+"let g:neocomplete#max_list = 20
+"" キャッシュしないファイル名
+"let g:neocomplete#sources#buffer#disabled_pattern = '\.log\|\.log\.\|\.jax'
+"" 自動補完を行わないバッファ名
+"let g:neocomplete#lock_buffer_name_pattern = '\.log\|\.log\.\|.*quickrun.*\|.jax'
 "
-" " neocomplcacheを自動起動する
-" let g:neocomplete#enable_at_startup = 1
-" " 大文字が入力されるまで大文字小文字を区別しない
-" let g:neocomplete#enable_smart_case = 1
-" " シンタックスをキャッシュする際の最小文字長
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" " バッファ名のパターンを指定する
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" " ポップアップで表示される候補の数
-" let g:neocomplete#max_list = 20
+"" rubyのオムニ補完
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 "
-" " ファイルタイプ毎の補完のディクショナリを指定
-" let g:neocomplcache_dictionary_filetype_lists = {
-"     \ 'default' : ''
-"     \ }
+"" ファイルタイプ毎の補完のディクショナリを指定
+"let g:neocomplcache_dictionary_filetype_lists = {
+"    \ 'default' : ''
+"    \ }
 "
-" " 補完をキャンセルし元に戻す
-" inoremap <expr><C-g> neocomplete#undo_completion()
+"" 補完をキャンセルし元に戻す
+"inoremap <expr><C-g> neocomplete#undo_completion()
 "
-" " 補完候補の共通部分のみを補完する
-" inoremap <expr><C-l> neocomplete#complete_common_string()
+"" 補完候補の共通部分のみを補完する
+"inoremap <expr><C-l> neocomplete#complete_common_string()
 "
-" " タブで候補を選択できるように
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"" タブで候補を選択できるように
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "
-" " Enterで候補を選択し、改行もされないようにする
-" function! s:my_crinsert()
-"     return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
-" endfunction
-" inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+"" Enterで候補を選択し、改行もされないようにする
+"function! s:my_crinsert()
+"    return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
+"endfunction
+"inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 "
-" " <C-h>, <BS>補完を中止する
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"
+"" <C-h>, <BS>補完を中止する
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
 " }}}
 
 " vim-fugitive " {{{
@@ -117,5 +166,97 @@ nnoremap [fugitive] <Nop>
 nmap <Space>g [fugitive]
 
 nnoremap <silent> [fugitive]di :Gdiff<CR>
+
+" }}}
+
+" surround.vim " {{{
+
+nnoremap [surround] <Nop>
+nmap , [surround]
+
+nmap [surround]( csw(
+nmap [surround]) csw)
+nmap [surround]{ csw{
+nmap [surround]} csw}
+nmap [surround][ csw[
+nmap [surround]] csw]
+nmap [surround]' csw'
+nmap [surround]" csw"
+
+" }}}
+
+" smartchr " {{{
+" inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', ' => ')
+" inoremap <buffer> <expr> . smartchr#loop('.',  '->', '=>')
+"
+" " 演算子の間に空白を入れる
+" inoremap <buffer> <expr> + smartchr#one_of(' + ', ' ++ ', ' += ')
+" inoremap <buffer> <expr> - smartchr#one_of(' - ', ' -- ', ' -= ')
+" inoremap <buffer> <expr> / smartchr#one_of(' / ', ' // ', ' /= ')
+" inoremap <buffer> <expr> * smartchr#one_of(' * ', ' ** ', ' *= ')
+" inoremap <buffer> <expr> & smartchr#one_of(' & ', ' && ', '&')
+" inoremap <buffer> <expr> % smartchr#one_of(' % ', '%')
+" inoremap <buffer> <expr> , smartchr#one_of(', ', ',')
+"
+" " 3項演算子の場合は、後ろのみ空白を入れる
+" inoremap <buffer> <expr> ? smartchr#one_of('? ', '?')
+"
+" " if文直後の(は自動で間に空白を入れる
+" inoremap <buffer> <expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
+"
+" }}}
+
+" toggle.vim " {{{
+
+" Prefix
+nnoremap [toggle] <Nop>
+nmap ,t [toggle]
+
+imap [toggle] <Plug>ToggleI
+nmap [toggle] <Plug>ToggleN
+vmap [toggle] <Plug>ToggleV
+
+let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
+
+" }}}
+
+" vim-over " {{{
+
+" Prefix
+nnoremap [over] <Nop>
+nmap ,s [over]
+
+nnoremap <silent> [over]s :OverCommandLine<CR>s/
+nnoremap <silent> [over]% :OverCommandLine<CR>%s/
+nnoremap <silent> [over]1 :OverCommandLine<CR>1
+nnoremap <silent> [over]2 :OverCommandLine<CR>2
+nnoremap <silent> [over]3 :OverCommandLine<CR>3
+nnoremap <silent> [over]4 :OverCommandLine<CR>4
+nnoremap <silent> [over]5 :OverCommandLine<CR>5
+nnoremap <silent> [over]6 :OverCommandLine<CR>6
+nnoremap <silent> [over]7 :OverCommandLine<CR>7
+nnoremap <silent> [over]8 :OverCommandLine<CR>8
+nnoremap <silent> [over]9 :OverCommandLine<CR>9
+
+" }}}
+
+" vim-expand-region " {{{
+
+" }}}
+
+" vim-rails " {{{
+
+nnoremap <silent> gp :bp<CR>
+
+" }}}
+
+" vim-easymotion " {{{
+
+"Disable default mappings
+let g:EasyMotion_do_mapping = 0
+" 大文字小文字を区別しない
+let g:EasyMotion_smartcase = 1
+
+nmap ,e <Plug>(easymotion-s2)
 
 " }}}
