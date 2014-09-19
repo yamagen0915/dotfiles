@@ -43,3 +43,5 @@ nnoremap \<C-i> <C-i>
 vnoremap <TAB> >>
 vnoremap \<C-i> <C-i>
 
+nnoremap J gJ
+nnoremap gJ J
