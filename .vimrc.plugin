@@ -49,6 +49,11 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'junegunn/vim-easy-align'
 " fの検索機能を強化する
 NeoBundle 'rhysd/clever-f.vim'
+" SQLUtilitiesが依存してるプラグイン
+NeoBundle 'Align'
+" SQLをフォーマットする
+NeoBundle 'vim-scripts/SQLUtilities'
+
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
