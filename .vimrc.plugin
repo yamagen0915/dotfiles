@@ -45,6 +45,15 @@ NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'scrooloose/syntastic.git'
 " 画面上の見えている範囲の移動を早くするためのプラグイン
 NeoBundle 'Lokaltog/vim-easymotion'
+" =の位置とかそろえられるやつ！
+NeoBundle 'junegunn/vim-easy-align'
+" fの検索機能を強化する
+NeoBundle 'rhysd/clever-f.vim'
+" SQLUtilitiesが依存してるプラグイン
+NeoBundle 'Align'
+" SQLをフォーマットする
+NeoBundle 'vim-scripts/SQLUtilities'
+
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -84,6 +93,8 @@ nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
 nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
 " Form
 nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
+" Helper
+nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/async:app/helpers/ <CR>
 " Css
 nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
 " JavaScript

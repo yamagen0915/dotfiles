@@ -19,8 +19,8 @@ autoload -Uz vcs_info
 # 表示フォーマットの指定
 # %b ブランチ情報
 # %a アクション名(mergeなど)
-zstyle ':vcs_info:*' formats '[%b] '
-zstyle ':vcs_info:*' actionformats '[%b|%a] '
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () {
   psvar=()
   LANG=en_US.UTF-8 vcs_info
@@ -28,8 +28,9 @@ precmd () {
 }
 
 # プロンプト
-PROMPT="%{${fg[cyan]}%}%n @ %m %1(v|%1v|)$ %{${reset_color}%}"
-RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+PROMPT="[%~/]
+%{${fg[cyan]}%}%n @ %m $ %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}%1(v|%1v|)%{${reset_color}%}"
 
 case ${OSTYPE} in
   darwin*)
@@ -71,6 +72,14 @@ show_buffer_stack() {
   zle push-line-or-edit
 }
 zle -N show_buffer_stack
+
+tailf() {
+  if [ $# -eq 1 ]; then
+    tail -f $1
+  elif [ $# -eq 2 ]; then
+    tail -f $1 | grep $2;
+  fi
+}
 
 # オプション # {{{
 
@@ -122,7 +131,10 @@ setopt transient_rprompt
 setopt auto_param_slash
 # ドットなしでドットファイルの補完を行う
 setopt globdots
+# #の後をコメントとして扱う
+setopt INTERACTIVE_COMMENTS
 # Ctrl+wで､直前の/までを削除する｡
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 
 # }}}

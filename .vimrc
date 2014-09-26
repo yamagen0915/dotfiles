@@ -44,9 +44,9 @@ set showtabline=2
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " CoffeeScriptのファイルにはjsのシンタックスハイライトを利用する
-au BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
+autocmd BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
 " lessのファイルにはcssのシンタックスハイライトを利用する
-au BufRead,BufNewFile *.less set ft=css syntax=css
+autocmd BufRead,BufNewFile *.less set ft=css syntax=css
 
 " タブラインの設定 " {{{
 function! s:SID_PREFIX()
@@ -90,6 +90,31 @@ if has('syntax')
 endif
 " }}}
 
+" デバッグコードを削除したりマーカー文字列を付与したり " {{{
+function! RemoveDebugCode()
+  g/\[DEBUG_CODE\]/d
+  write
+endfunction
+
+function! MarkDebugCode()
+  call setline('.', getline('.').' # [DEBUG_CODE]')
+endfunction
+
+augroup RemoveDebugCode
+  autocmd!
+  autocmd VimLeave * call RemoveDebugCode()
+  command! RemoveDebugCode :call RemoveDebugCode()
+  command! MarkDebugCode :call MarkDebugCode()
+augroup END
+
+" }}}
+
+" 数字を選択し、自動的にインクリメントする "{{{
+nnoremap <silent> co :ContinuousNumber <C-a><CR>
+vnoremap <silent> co :ContinuousNumber <C-a><CR>
+command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
+" }}}
+
 " プラグインの読み込み " {{{
 if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))
   source $HOME/dotfile/.vimrc.plugin
@@ -114,11 +139,5 @@ endif
 if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
   source $HOME/dotfile/.vimrc.enviroment
 endif
-" }}}
-
-" 数字を選択し、自動的にインクリメントする "{{{
-nnoremap <silent> co :ContinuousNumber <C-a><CR>
-vnoremap <silent> co :ContinuousNumber <C-a><CR>
-command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 " }}}
 
