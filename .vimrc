@@ -97,7 +97,10 @@ function! RemoveDebugCode()
 endfunction
 
 function! MarkDebugCode()
-  call setline('.', getline('.').' # [DEBUG_CODE]')
+  :let position = getpos('.')
+  :let marker_str = " # [DEBUG_CODE]"
+  :execute ":normal A".marker_str
+  :call setpos('.', position)
 endfunction
 
 augroup RemoveDebugCode
