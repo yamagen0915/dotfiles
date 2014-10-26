@@ -23,8 +23,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 " テキストを特定の文字で囲んだりする
 NeoBundle 'tpope/vim-surround'
-" = の前後に自動的にスペースをいれたりする
-" NeoBundle 'smartchr'
 " trueとfalseをきりかえたり
 NeoBundle 'taku-o/vim-toggle'
 " 視覚的にreplaceできるやつ
@@ -54,7 +52,6 @@ NeoBundle 'Align'
 " SQLをフォーマットする
 NeoBundle 'vim-scripts/SQLUtilities'
 
-
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'mac' : 'make -f make_mac.mak',
@@ -63,9 +60,9 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 " CoffeeScriptのシンタックスハイライト
-" NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 " jQueryのシンタックスハイライト
-" NeoBundle 'jquery.vim'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 " Emmet. "{{{
 imap <C-e> <C-y>,
@@ -107,10 +104,6 @@ nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/async:lib/ <CR>
 nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
-
-" タブで開く
-" au FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
-" au FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 
 "}}}
 
@@ -190,32 +183,11 @@ nmap [surround]" csw"
 
 " }}}
 
-" smartchr " {{{
-" inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', ' => ')
-" inoremap <buffer> <expr> . smartchr#loop('.',  '->', '=>')
-"
-" " 演算子の間に空白を入れる
-" inoremap <buffer> <expr> + smartchr#one_of(' + ', ' ++ ', ' += ')
-" inoremap <buffer> <expr> - smartchr#one_of(' - ', ' -- ', ' -= ')
-" inoremap <buffer> <expr> / smartchr#one_of(' / ', ' // ', ' /= ')
-" inoremap <buffer> <expr> * smartchr#one_of(' * ', ' ** ', ' *= ')
-" inoremap <buffer> <expr> & smartchr#one_of(' & ', ' && ', '&')
-" inoremap <buffer> <expr> % smartchr#one_of(' % ', '%')
-" inoremap <buffer> <expr> , smartchr#one_of(', ', ',')
-"
-" " 3項演算子の場合は、後ろのみ空白を入れる
-" inoremap <buffer> <expr> ? smartchr#one_of('? ', '?')
-"
-" " if文直後の(は自動で間に空白を入れる
-" inoremap <buffer> <expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
-"
-" }}}
-
 " toggle.vim " {{{
 
 " Prefix
 nnoremap [toggle] <Nop>
-nmap ,t [toggle]
+nmap <Space>t [toggle]
 
 imap [toggle] <Plug>ToggleI
 nmap [toggle] <Plug>ToggleN
@@ -245,10 +217,6 @@ nnoremap <silent> [over]9 :OverCommandLine<CR>9
 
 " }}}
 
-" vim-expand-region " {{{
-
-" }}}
-
 " vim-rails " {{{
 
 nnoremap <silent> gp :bp<CR>
@@ -262,14 +230,21 @@ let g:EasyMotion_do_mapping = 0
 " 大文字小文字を区別しない
 let g:EasyMotion_smartcase = 1
 
-nmap ,e <Plug>(easymotion-s2)
+nnoremap <Space>e <Plug>(easymotion-s2)
 
 " }}}
 
 " vim-easy-align " {{{
 vnoremap [easy-align] <nop>
-vmap ,e [easy-align]
+vmap <Space>e [easy-align]
 
 vnoremap <silent> [easy-align]= :EasyAlign =<CR>
-vnoremap <silent> [easy-align]= :EasyAlign :<CR>
+vnoremap <silent> [easy-align]: :EasyAlign :<CR>
 "
+
+" SQLUtilities " {{{
+
+vnoremap <silent> <Space>s :SQLUFormatter<CR>
+
+" }}}
+
