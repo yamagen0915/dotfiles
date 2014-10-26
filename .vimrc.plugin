@@ -230,7 +230,7 @@ let g:EasyMotion_do_mapping = 0
 " 大文字小文字を区別しない
 let g:EasyMotion_smartcase = 1
 
-nnoremap <Space>e <Plug>(easymotion-s2)
+nmap <Space>e <Plug>(easymotion-s2)
 
 " }}}
 
