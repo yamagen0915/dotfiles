@@ -103,9 +103,8 @@ function! MarkDebugCode()
   :call setpos('.', position)
 endfunction
 
-augroup RemoveDebugCode
+augroup DebugCode
   autocmd!
-  autocmd VimLeave * call RemoveDebugCode()
   command! RemoveDebugCode :call RemoveDebugCode()
   command! MarkDebugCode :call MarkDebugCode()
 augroup END
