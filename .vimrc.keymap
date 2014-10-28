@@ -39,6 +39,9 @@ nnoremap yD D
 nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
+vnoremap x "_x
+vnoremap d "_d
+vnoremap D "_D
 
 " Yで行末までコピーする
 nnoremap Y y$
