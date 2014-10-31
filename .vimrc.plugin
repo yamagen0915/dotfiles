@@ -83,27 +83,27 @@ nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby
 " Controller
-nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/async:app/controllers/ <CR>
+nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/git:app/controllers/ <CR>
 " Model
-nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/async:app/models/ <CR>
+nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/git:app/models/ <CR>
 " View
-nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/async:app/views/ <CR>
+nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/git:app/views/ <CR>
 " Form
-nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/async:app/forms/ <CR>
+nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/git:app/forms/ <CR>
 " Helper
-nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/async:app/helpers/ <CR>
+nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/git:app/helpers/ <CR>
 " Css
-nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/git:app/assets/stylesheets/ <CR>
 " JavaScript
-nnoremap <silent> [unite]js :<C-u>Unite -tab file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> [unite]js :<C-u>Unite -tab file_rec/git:app/assets/javascripts/ <CR>
 " Config
-nnoremap <silent> [unite]cf :<C-u>Unite -tab file_rec/async:config/ <CR>
+nnoremap <silent> [unite]cf :<C-u>Unite -tab file_rec/git:config/ <CR>
 " Lib
-nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/async:lib/ <CR>
+nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/git:lib/ <CR>
 " Spec
-nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/async:spec/ <CR>
+nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/git:spec/ <CR>
 " Db
-nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/async:db/ <CR>
+nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/git:db/ <CR>
 
 "}}}
 
