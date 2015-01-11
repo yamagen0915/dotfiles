@@ -118,28 +118,13 @@ command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <co
 " }}}
 
 " 分割した設定ファイルの読み込み " {{{
-if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))
-  source $HOME/dotfile/.vimrc.plugin
-endif
-
-" ハイライトの設定
-if filereadable(expand("$HOME/dotfile/.vimrc.highlight"))
-  source $HOME/dotfile/.vimrc.highlight
-endif
-
-" ハイライトの設定
-if filereadable(expand("$HOME/dotfile/.vimrc.keymap"))
-  source $HOME/dotfile/.vimrc.keymap
-endif
+set runtimepath+=$HOME/dotfile
+runtime! .vimrc.*
 
 " %でif-endやhtmlタグの最初と最後に移動できるようにする
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-" 環境別の設定ファイルを読み込む
-if filereadable(expand("$HOME/dotfile/.vimrc.enviroment"))
-  source $HOME/dotfile/.vimrc.enviroment
-endif
 " }}}
 
