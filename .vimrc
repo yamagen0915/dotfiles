@@ -117,7 +117,7 @@ vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 " }}}
 
-" プラグインの読み込み " {{{
+" 分割した設定ファイルの読み込み " {{{
 if filereadable(expand("$HOME/dotfile/.vimrc.plugin"))
   source $HOME/dotfile/.vimrc.plugin
 endif
