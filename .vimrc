@@ -118,7 +118,7 @@ command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <co
 " }}}
 
 " 分割した設定ファイルの読み込み " {{{
-set runtimepath+=$HOME/dotfile
+set runtimepath+=$HOME/dotfile/vim
 runtime! .vimrc.*
 
 " %でif-endやhtmlタグの最初と最後に移動できるようにする
