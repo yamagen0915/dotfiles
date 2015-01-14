@@ -45,6 +45,7 @@ esac
 function chpwd(){ ls -G; }
 
 # エイリアス
+alias ls='ls -G'
 alias la='ls -laG'
 alias ll='ls -lG'
 
@@ -52,6 +53,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 alias mkdir='mkdir -p'
+
+alias gr='grep -rn --color'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
