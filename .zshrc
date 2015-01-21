@@ -45,9 +45,9 @@ esac
 function chpwd(){ ls -G; }
 
 # エイリアス
-alias ls='ls -G'
+alias ls='ls --color=auto -F'
 alias la='ls -laG'
-alias ll='ls -lG'
+alias ll='ls -l'
 
 alias cp='cp -i'
 alias mv='mv -i'
