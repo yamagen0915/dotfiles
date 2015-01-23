@@ -2,11 +2,10 @@
 create_file()
 {
   if [ -e $HOME/$2 ]; then
-    echo "${2}が既に存在します。削除してシンボリックリンクを新たに作成しますか?(yes or no)"
+    echo "${2}が既に存在します。置き換えますか?(yes or no)"
     read answer
     case "$answer" in
       yes)
-        echo "${2}のシンボリックリンクを作成します。"
         rm $HOME/$2
         ln -s $HOME/dotfiles/$1 $HOME/$2
         ;;
@@ -20,11 +19,11 @@ create_file()
   fi
 }
 
-create_file vim/.vimrc .vimrc
-create_file .zshrc .zshrc
-create_file .gitconfig .gitconfig
-create_file .bashrc .bashrc
-create_file .tmux.conf .tmux.conf
+create_file 'vim/.vimrc' '.vimrc'
+create_file '.zshrc' '.zshrc'
+create_file '.gitconfig' '.gitconfig'
+create_file '.bashrc' '.bashrc'
+create_file '.tmux.conf' '.tmux.conf'
 
 echo 'NeoBundleをインストールします。'
 if [ ! -d $HOME/.vim/bundle ]; then
