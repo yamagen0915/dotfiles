@@ -14,7 +14,7 @@ create_file()
        ;;
     esac
   else
-    echo "${2}のシンボリックリンクを作成します。"
+    echo "${2}を作成します。"
     ln -s $HOME/dotfiles/$1 $HOME/$2
   fi
 }
