@@ -15,6 +15,8 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
 NeoBundle 'Shougo/unite-outline'
+" Rails用のunite
+NeoBundle 'basyura/unite-rails'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
 " vimでgit diff をみる
@@ -83,28 +85,25 @@ nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby
 " Controller
-nnoremap <silent> [unite]co :<C-u>Unite -tab file_rec/git:app/controllers/ <CR>
+nnoremap <silent> [unite]co :<C-u>Unite -tab rails/controller <CR>
 " Model
-nnoremap <silent> [unite]mo :<C-u>Unite -tab file_rec/git:app/models/ <CR>
+nnoremap <silent> [unite]mo :<C-u>Unite -tab rails/model <CR>
 " View
-nnoremap <silent> [unite]vi :<C-u>Unite -tab file_rec/git:app/views/ <CR>
-" Form
-nnoremap <silent> [unite]fo :<C-u>Unite -tab file_rec/git:app/forms/ <CR>
+nnoremap <silent> [unite]vi :<C-u>Unite -tab rails/view <CR>
 " Helper
-nnoremap <silent> [unite]he :<C-u>Unite -tab file_rec/git:app/helpers/ <CR>
+nnoremap <silent> [unite]he :<C-u>Unite -tab rails/helper <CR>
 " Css
-nnoremap <silent> [unite]cs :<C-u>Unite -tab file_rec/git:app/assets/stylesheets/ <CR>
+nnoremap <silent> [unite]cs :<C-u>Unite -tab rails/stylesheet <CR>
 " JavaScript
-nnoremap <silent> [unite]js :<C-u>Unite -tab file_rec/git:app/assets/javascripts/ <CR>
+nnoremap <silent> [unite]js :<C-u>Unite -tab rails/javascript <CR>
 " Config
-nnoremap <silent> [unite]cf :<C-u>Unite -tab file_rec/git:config/ <CR>
+nnoremap <silent> [unite]cf :<C-u>Unite -tab rails/config <CR>
 " Lib
-nnoremap <silent> [unite]li :<C-u>Unite -tab file_rec/git:lib/ <CR>
+nnoremap <silent> [unite]li :<C-u>Unite -tab rails/lib <CR>
 " Spec
-nnoremap <silent> [unite]sp :<C-u>Unite -tab file_rec/git:spec/ <CR>
+nnoremap <silent> [unite]sp :<C-u>Unite -tab rails/spec <CR>
 " Db
-nnoremap <silent> [unite]db :<C-u>Unite -tab file_rec/git:db/ <CR>
-
+nnoremap <silent> [unite]db :<C-u>Unite -tab rails/db <CR>
 "}}}
 
 " neocomplete. "{{{
