@@ -8,7 +8,7 @@ create_file()
       yes)
         echo "${1}のシンボリックリンクを作成します。"
         rm $HOME/$1
-        ln -s $HOME/dotfile/$1 $HOME/$1
+        ln -s $HOME/dotfiles/$1 $HOME/$1
         ;;
      *)
        echo '中断します。'
@@ -16,7 +16,7 @@ create_file()
     esac
   else
     echo "${1}のシンボリックリンクを作成します。"
-    ln -s $HOME/dotfile/$1 $HOME/$1
+    ln -s $HOME/dotfiles/$1 $HOME/$1
   fi
 }
 

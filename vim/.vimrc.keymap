@@ -14,7 +14,7 @@ inoremap <silent> jj <Esc>
 nnoremap <Space>h  ^
 vnoremap <Space>h  ^
 nnoremap <Space>l  $
-vnoremap <Space>l  $
+vnoremap <Space>l  $h
 
 nnoremap <C-h> 3h
 nnoremap <C-k> 3k
@@ -28,11 +28,23 @@ vnoremap <C-j> 3j
 " タブ
 nnoremap gr gT
 
-"Escの2回押しでハイライト消去
+" Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
-" Pでペーストしたときに後ろにスペースを挿入する
-nnoremap P Pa<Space><ESC>
+" 通常のx, d, Dではyankに保存せず先頭にyをつけてyankに保存するようにする
+nnoremap yx x
+nnoremap yd d
+nnoremap yD D
+vnoremap yx x
+vnoremap yd d
+vnoremap yD D
+
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap x "_x
+vnoremap d "_d
+vnoremap D "_D
 
 " Yで行末までコピーする
 nnoremap Y y$
@@ -43,3 +55,4 @@ nnoremap \<C-i> <C-i>
 vnoremap <TAB> >>
 vnoremap \<C-i> <C-i>
 
+nnoremap <silent> ,m :call MarkDebugCode()<CR>
