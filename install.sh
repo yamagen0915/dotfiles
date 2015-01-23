@@ -1,30 +1,30 @@
 
 create_file()
 {
-  if [ -e $HOME/$1 ]; then
-    echo "${1}が既に存在します。削除してシンボリックリンクを新たに作成しますか?(yes or no)"
+  if [ -e $HOME/$2 ]; then
+    echo "${2}が既に存在します。削除してシンボリックリンクを新たに作成しますか?(yes or no)"
     read answer
     case "$answer" in
       yes)
-        echo "${1}のシンボリックリンクを作成します。"
-        rm $HOME/$1
-        ln -s $HOME/dotfiles/$1 $HOME/$1
+        echo "${2}のシンボリックリンクを作成します。"
+        rm $HOME/$2
+        ln -s $HOME/dotfiles/$1 $HOME/$2
         ;;
      *)
        echo '中断します。'
        ;;
     esac
   else
-    echo "${1}のシンボリックリンクを作成します。"
-    ln -s $HOME/dotfiles/$1 $HOME/$1
+    echo "${2}のシンボリックリンクを作成します。"
+    ln -s $HOME/dotfiles/$1 $HOME/$2
   fi
 }
 
-create_file '.vimrc'
-create_file '.zshrc'
-create_file '.gitconfig'
-create_file '.bashrc'
-create_file '.tmux.conf'
+create_file vim/.vimrc .vimrc
+create_file .zshrc .zshrc
+create_file .gitconfig .gitconfig
+create_file .bashrc .bashrc
+create_file .tmux.conf .tmux.conf
 
 echo 'NeoBundleをインストールします。'
 if [ ! -d $HOME/.vim/bundle ]; then
