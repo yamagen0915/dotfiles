@@ -1,7 +1,7 @@
 
 # 環境依存の設定を読み込む
-if [ -e "$HOME/dotfile/.zshrc.enviroment" ]; then
-  source $HOME/dotfile/.zshrc.enviroment
+if [ -e "$HOME/dotfiles/.zshrc.enviroment" ]; then
+  source $HOME/dotfiles/.zshrc.enviroment
 fi
 
 # 色を使用出来るようにする
@@ -37,17 +37,27 @@ case ${OSTYPE} in
     # Macの設定
     ;;
   linux*)
-    eval $(dircolors $HOME/dotfile/dircolors.ansi-light)
+    eval $(dircolors $HOME/dotfiles/dircolors.ansi-light)
     ;;
 esac
 
-#cdを打ったら自動的にlsを打ってくれる関数
-function chpwd(){ ls -G; }
-
 # エイリアス
-alias ls='ls --color=auto -F'
-alias la='ls -laG'
+case ${OSTYPE} in
+  darwin*)
+    #ここにMac向けの設定
+    alias ls='ls -G'
+    ;;
+  linux*)
+    #ここにLinux向けの設定
+    alias ls='ls --color=auto -F'
+    ;;
+esac
+alias la='ls -la'
 alias ll='ls -l'
+
+#cdを打ったら自動的にlsを打ってくれる関数
+function chpwd(){ ls; }
+
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -65,7 +75,7 @@ alias pd='popd'
 
 # tmuxが起動していない場合にalias設定を行う
 if [ $SHLVL = 1 ]; then
-  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfile/.tmux.auto_split"
+  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfiles/.tmux.auto_split"
 fi
 
 # コマンドラインスタック
