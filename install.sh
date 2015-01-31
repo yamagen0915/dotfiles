@@ -10,7 +10,7 @@ function main()
 
 function make_symbolic_link()
 {
-  # ホームディレクトリにシンボリックリンクがあるかを調べる
+  # ホームディレクトリにファイルがなければ作成する
   if [ ! -e ~/`filename ${1}` ]; then
     echo "`filename ${1}`を作成します。"
     ln -s ~/dotfiles/$1 ~/`filename ${1}`
