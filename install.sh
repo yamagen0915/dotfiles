@@ -3,7 +3,7 @@ function main()
 {
   make_symbolic_link './vim/.vimrc'
   make_symbolic_link './zsr/.zshrc'
-  make_symbolic_link './.bashrc'
+  make_symbolic_link './bash/.bashrc'
   make_symbolic_link './.gitconfig'
   make_symbolic_link './.tmux.conf'
 }
