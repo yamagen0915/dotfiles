@@ -1,20 +1,24 @@
+function load_file()
+{
+  if [ -f $1 ];then
+    source $1
+  fi
+}
 
 # OS別の設定ファイルを読み込む
 case ${OSTYPE} in
   darwin*)
-    source ~/dotfiles/zsh/mac/.zshrc
+    load_file ~/dotfiles/zsh/mac/.zshrc
     ;;
   linux*)
-    source ~/dotfiles/zsh/linux/.zshrc
+    load_file ~/dotfiles/zsh/linux/.zshrc
     ;;
 esac
 
 # 共通設定を読み込む
-source ~/dotfiles/zsh/.zshrc.options
-source ~/dotfiles/zsh/.zshrc.alias
-if [ -f ~/dotfiles/zsh/.zshrc.enviroment ]; then
-  source ~/dotfiles/zsh/.zshrc.enviroment
-fi
+load_file ~/dotfiles/zsh/.zshrc.options
+load_file ~/dotfiles/zsh/.zshrc.alias
+load_file ~/dotfiles/zsh/.zshrc.enviroment
 
 # git-completetionのロード
 fpath=(~/.zsh/contrib/completion/ $fpath)
