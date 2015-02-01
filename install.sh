@@ -32,8 +32,7 @@ function make_symbolic_link()
 
 function filename()
 {
-  file_path=$1
-  echo ${file_path##*/}
+  echo ${1##*/}
 }
 
 # main関数の実行
