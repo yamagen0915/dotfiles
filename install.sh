@@ -1,14 +1,20 @@
 
+dotfiles=(
+  'vim/.vimrc'
+  'zsh/.zshrc'
+  'bash/.bashrc'
+  '.gitconfig'
+  '.tmux.conf'
+)
+
 function main()
 {
-  make_symbolic_link 'vim/.vimrc'
-  make_symbolic_link 'zsr/.zshrc'
-  make_symbolic_link 'bash/.bashrc'
-  make_symbolic_link '.gitconfig'
-  make_symbolic_link '.tmux.conf'
+  for file in ${dotfiles[@]}; do
+    install $file
+  done
 }
 
-function make_symbolic_link()
+function install()
 {
   # ホームディレクトリにファイルがなければ作成する
   if [ ! -e ~/`filename ${1}` ]; then
@@ -24,8 +30,8 @@ function make_symbolic_link()
       rm ~/`filename ${1}`
       ln -s ~/dotfiles/$1 ~/`filename ${1}`
       ;;
-   *)
-     ;;
+    *)
+      ;;
   esac
 
 }
