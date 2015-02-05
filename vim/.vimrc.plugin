@@ -9,8 +9,11 @@ filetype indent on
 
 " Emmet
 NeoBundle 'mattn/emmet-vim'
-" " 補完
-" NeoBundle 'Shougo/neocomplete.vim'
+" 補完
+NeoBundle 'Shougo/neocomplete.vim'
+" スニペット
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 " ファイラー的な
 NeoBundle 'Shougo/unite.vim'
 " Uniteで関数一覧などのアウトラインを表示する
@@ -39,19 +42,18 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-entire'
 " Rubyのブロックを対象にするテキストオブジェクト
 NeoBundle 'rhysd/vim-textobj-ruby'
-"行単位でGitのdiffをみるためのプラグイン
+"行単位でdiffをみるためのプラグイン
 NeoBundle 'AndrewRadev/linediff.vim'
 " シンタックスエラーを見つけてくれるやつ
 NeoBundle 'scrooloose/syntastic.git'
 " 画面上の見えている範囲の移動を早くするためのプラグイン
 NeoBundle 'Lokaltog/vim-easymotion'
-" =の位置とかそろえられるやつ！
+" = の位置とかそろえられるやつ！
 NeoBundle 'junegunn/vim-easy-align'
 " fの検索機能を強化する
 NeoBundle 'rhysd/clever-f.vim'
-" SQLUtilitiesが依存してるプラグイン
-NeoBundle 'Align'
 " SQLをフォーマットする
+NeoBundle 'Align'
 NeoBundle 'vim-scripts/SQLUtilities'
 
 NeoBundle 'Shougo/vimproc', {

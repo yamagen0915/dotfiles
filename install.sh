@@ -36,8 +36,7 @@ function install()
 
 }
 
-function filename()
-{
+function filename() {
   echo ${1##*/}
 }
 
