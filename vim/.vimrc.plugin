@@ -65,11 +65,14 @@ NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 " jQueryのシンタックスハイライト
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
-" Emmet. "{{{
+" ==================================================
+" Emmet.
+" ==================================================
 imap <C-e> <C-y>,
-"}}}
 
-" Unite "{{{
+" ==================================================
+" Unite
+" ==================================================
 
 " Prefix
 nnoremap [unite] <nop>
@@ -163,9 +166,9 @@ nmap <Space>g [fugitive]
 
 nnoremap <silent> [fugitive]di :Gdiff<CR>
 
-" }}}
-
-" surround.vim " {{{
+" ==================================================
+" surround.vim
+" ==================================================
 
 nnoremap [surround] <Nop>
 nmap , [surround]
@@ -179,9 +182,9 @@ nmap [surround]] csw]
 nmap [surround]' csw'
 nmap [surround]" csw"
 
-" }}}
-
-" toggle.vim " {{{
+" ==================================================
+" toggle.vim
+" ==================================================
 
 " Prefix
 nnoremap [toggle] <Nop>
@@ -195,9 +198,11 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 
 " }}}
 
-" vim-over " {{{
+" vim-over
 
+" ==================================================
 " Prefix
+" ==================================================
 nnoremap [over] <Nop>
 nmap ,s [over]
 
@@ -213,15 +218,15 @@ nnoremap <silent> [over]7 :OverCommandLine<CR>7
 nnoremap <silent> [over]8 :OverCommandLine<CR>8
 nnoremap <silent> [over]9 :OverCommandLine<CR>9
 
-" }}}
-
-" vim-rails " {{{
+" ==================================================
+" vim-rails
+" ==================================================
 
 nnoremap <silent> gp :bp<CR>
 
-" }}}
-
-" vim-easymotion " {{{
+" ==================================================
+" vim-easymotion
+" ==================================================
 
 "Disable default mappings
 let g:EasyMotion_do_mapping = 0
