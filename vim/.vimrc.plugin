@@ -52,9 +52,6 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'junegunn/vim-easy-align'
 " fの検索機能を強化する
 NeoBundle 'rhysd/clever-f.vim'
-" SQLをフォーマットする
-NeoBundle 'Align'
-NeoBundle 'vim-scripts/SQLUtilities'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -233,19 +230,13 @@ let g:EasyMotion_smartcase = 1
 
 nmap <Space>e <Plug>(easymotion-s2)
 
-" }}}
+" ==================================================
+" vim-easy-align
+" ==================================================
 
-" vim-easy-align " {{{
 vnoremap [easy-align] <nop>
 vmap <Space>e [easy-align]
 
 vnoremap <silent> [easy-align]= :EasyAlign =<CR>
 vnoremap <silent> [easy-align]: :EasyAlign :<CR>
-"
-
-" SQLUtilities " {{{
-
-vnoremap <silent> <Space>s :SQLUFormatter<CR>
-
-" }}}
 
