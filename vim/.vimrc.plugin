@@ -161,7 +161,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " neosnippet
 " ==================================================
 
-call vam#ActivateAddons(['neosnippet', 'neosnippet-snippets'])
 
 " ==================================================
 " vim-fugitive
