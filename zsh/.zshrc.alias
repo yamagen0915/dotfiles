@@ -29,14 +29,14 @@ tailf() {
 }
 
 backup() {
-  make_backup_file $1 0
-}
-
-function make_backup_file() {
   if [ $# -lt 1 ];then
     echo '引数にファイル名を指定してください'
     return;
   fi
+  make_backup_file $1 0
+}
+
+function make_backup_file() {
 
   if [ -e `backup_filename $@` ]; then
     # カウントをインクリメントして、再帰的に呼び出す
