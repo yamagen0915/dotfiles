@@ -27,3 +27,37 @@ tailf() {
     tail -f $1 | grep $2;
   fi
 }
+
+backup() {
+  if [ $# -lt 1 ];then
+    echo '引数にファイル名を指定してください'
+    return;
+  fi
+  make_backup_file $1 0
+}
+
+function make_backup_file() {
+
+  if [ -e `backup_filename $@` ]; then
+    # カウントをインクリメントして、再帰的に呼び出す
+    make_backup_file $1 $(($2+1))
+    return;
+  fi
+
+  # バックアップファイルを作成する
+  echo " ${1} -> `backup_filename ${@}`"
+  cp $1 `backup_filename ${@}`
+
+}
+
+function backup_filename() {
+  if [ $2 -gt 0 ]; then
+    echo $1.`today`.$2
+  else
+    echo $1.`today`
+  fi
+}
+
+function today(){
+  echo $(date +%Y%m%d)
+}
