@@ -152,8 +152,8 @@ function s:plugin ()
   inoremap <expr><C-l> neocomplete#complete_common_string()
 
   " タブで候補を選択できるように
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
   " Enterで候補を選択し、改行もされないようにする
   function! s:my_crinsert()
@@ -168,7 +168,10 @@ function s:plugin ()
   " ==================================================
   " neosnippet
   " ==================================================
-
+  imap <C-h> <Plug>(neosnippet_expand_or_jump)
+  smap <C-h> <Plug>(neosnippet_expand_or_jump)
+  imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
   " ==================================================
   " vim-fugitive
