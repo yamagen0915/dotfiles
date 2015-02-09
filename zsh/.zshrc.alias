@@ -46,7 +46,11 @@ function make_backup_file() {
 
   # バックアップファイルを作成する
   echo " ${1} -> `backup_filename ${@}`"
-  cp $1 `backup_filename ${@}`
+  if [ -f $1 ]; then
+    cp $1 `backup_filename ${@}`
+  else
+    cp -r $1 `backup_filename ${@}`
+  fi
 
 }
 
