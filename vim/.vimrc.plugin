@@ -64,6 +64,8 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 " jQueryのシンタックスハイライト
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" scalaのシンタックスハイライト
+NeoBundle 'derekwyatt/vim-scala'
 
 " ==================================================
 " Emmet.
