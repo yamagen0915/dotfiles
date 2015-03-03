@@ -64,6 +64,8 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 " jQueryのシンタックスハイライト
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" scalaのシンタックスハイライト
+NeoBundle 'derekwyatt/vim-scala'
 
 " ==================================================
 " Emmet.
@@ -160,6 +162,9 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " ==================================================
 " neosnippet
 " ==================================================
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/dotfiles/vim/snippets'
+
 " <TAB>: completion.
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
