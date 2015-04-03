@@ -40,8 +40,8 @@ precmd () {
 }
 
 # プロンプト
-PROMPT="[%~/]
-%{${fg[cyan]}%}%n @ %m $ %{${reset_color}%}"
+PROMPT="[%*] [%~/]
+%{${fg[cyan]}%}%n@%m $ %{${reset_color}%}"
 RPROMPT="%{${fg[cyan]}%}%1(v|%1v|)%{${reset_color}%}"
 
 # コマンドラインスタック

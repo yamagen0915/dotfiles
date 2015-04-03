@@ -14,6 +14,7 @@ alias sudo='sudo '
 alias vi="vim"
 alias g="git"
 alias pd='popd'
+alias grep='grep --color'
 
 # tmuxが起動していない場合にalias設定を行う
 if [ $SHLVL = 1 ]; then
