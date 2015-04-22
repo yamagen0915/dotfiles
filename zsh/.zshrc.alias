@@ -12,6 +12,8 @@ alias g="git"
 alias pd='popd'
 alias grep='grep -n --color'
 
+# tail -f とgrep を1つのコマンドでできるようにする
+# 例) tailf /path/to/logfile '検索文字列'
 tailf() {
   if [ $# -eq 1 ]; then
     tail -f $1
@@ -20,6 +22,9 @@ tailf() {
   fi
 }
 
+# 引数に指定したログファイルのバックアップファイルを作成する
+# 例) backup hoge.rb
+#       -> hoge.rb.20150422 が作成される
 backup() {
   if [ $# -lt 1 ];then
     echo '引数にファイル名を指定してください'
