@@ -1,14 +1,14 @@
-alias la='ls -la'
-alias ll='ls -l'
-
-alias cp='cp -i'
-alias mv='mv -i'
-
-alias mkdir='mkdir -p'
 
 alias vi="vim"
 alias g="git"
 alias pd='popd'
+alias his='history'
+
+alias la='ls -la'
+alias ll='ls -l'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
 alias grep='grep -n --color'
 
 # tmuxが起動していない場合にalias設定を行う
