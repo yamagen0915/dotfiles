@@ -1,3 +1,4 @@
+
 alias la='ls -la'
 alias ll='ls -l'
 
@@ -6,18 +7,10 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
-# sudo の後のコマンドでエイリアスを有効にする
-alias sudo='sudo '
-
 alias vi="vim"
 alias g="git"
 alias pd='popd'
 alias grep='grep -n --color'
-
-# tmuxが起動していない場合にalias設定を行う
-if [ $SHLVL = 1 ]; then
-  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfiles/.tmux.auto_split"
-fi
 
 tailf() {
   if [ $# -eq 1 ]; then

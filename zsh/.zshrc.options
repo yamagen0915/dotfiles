@@ -1,3 +1,25 @@
+
+# 表示フォーマットの指定
+# %b ブランチ情報
+# %a アクション名(mergeなど)
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+# プロンプトの設定
+PROMPT="[%*] [%~/]
+%{${fg[cyan]}%}%n@%m $ %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}%1(v|%1v|)%{${reset_color}%}"
+
+# tmuxが起動していない場合にalias設定を行う
+if [ $shlvl = 1 ]; then
+  alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfiles/.tmux.auto_split"
+fi
+
 # 色を使用出来るようにする
 autoload colors
 colors
