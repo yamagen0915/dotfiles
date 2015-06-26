@@ -1,5 +1,5 @@
 [include]
-	path=~/dotfiles/.gitconfig.enviroment
+	path=~/.gitconfig.local
 
 [core]
     # Windows, Linux, Mac の間で改行コードを変換してくれる。

@@ -18,7 +18,7 @@ esac
 # 共通設定を読み込む
 load_file ~/dotfiles/zsh/zshrc.options
 load_file ~/dotfiles/zsh/zshrc.alias
-load_file ~/dotfiles/zsh/zshrc.enviroment
+load_file ~/.zshrc.local
 
 # git-completetionのロード
 fpath=(~/.zsh/contrib/completion/ $fpath)
