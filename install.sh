@@ -9,10 +9,12 @@ dotfiles=(
 
 function main()
 {
+  # 各種dotfileをインストールする
   for file in ${dotfiles[@]}; do
     install $file
   done
 
+  # NeoBundleのインストール
   echo "------ intstall NeoBundle to ${HOME}/.vim/bundle/neobundle.vim ------"
   if [ ! -d $HOME/.vim/bundle ]; then
     mkdir -p ~/.vim/bundle
@@ -51,10 +53,25 @@ function install()
   echo ""
 }
 
+#
+# パスからファイル名だけを抜き取る
+#
+# = Arg
+# vim/.vimrc
+#
+# = Return
+# .vimrc
+#
 function filename() {
   echo ${1##*/}
 }
 
+#
+# 今日の日付を返す
+#
+# = Return
+# 20150626
+#
 function today(){
   echo $(date +%Y%m%d)
 }
