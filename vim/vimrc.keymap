@@ -58,6 +58,9 @@ vnoremap \<C-i> <C-i>
 nnoremap <silent> ,m :call MarkDebugCode()<CR>
 
 nnoremap <Space>w :w<CR>
+nnoremap <Space>W :wq<CR>
+nnoremap <Space>q :q<CR>
+nnoremap <Space>Q :!q<CR>
 nmap <Space><Space> V
 
 
