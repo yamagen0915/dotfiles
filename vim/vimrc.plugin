@@ -230,7 +230,7 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " Prefix
 " ==================================================
 nnoremap [over] <Nop>
-nmap ,s [over]
+nmap <Space>s [over]
 
 nnoremap <silent> [over]s :OverCommandLine<CR>s/
 nnoremap <silent> [over]% :OverCommandLine<CR>%s/
