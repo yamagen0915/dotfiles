@@ -191,13 +191,15 @@ nnoremap [fugitive] <Nop>
 nmap <Space>g [fugitive]
 
 nnoremap <silent> [fugitive]di :Gdiff<CR>
+nnoremap <silent> [fugitive]ad :Gwrite<CR>
+nnoremap <silent> [fugitive]bl :Gblame<CR>
 
 " ==================================================
 " surround.vim
 " ==================================================
 
 nnoremap [surround] <Nop>
-nmap , [surround]
+nmap <Space> [surround]
 
 nmap [surround]( csw(
 nmap [surround]) csw)
@@ -249,6 +251,7 @@ nnoremap <silent> [over]9 :OverCommandLine<CR>9
 " ==================================================
 
 nnoremap <silent> gp :bp<CR>
+nnoremap gf <C-w>gf
 
 " ==================================================
 " vim-easymotion

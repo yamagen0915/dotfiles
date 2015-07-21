@@ -61,6 +61,6 @@ nnoremap <Space>w :w<CR>
 nnoremap <Space>ww :wq<CR>
 nnoremap <Space>q :q<CR>
 nnoremap <Space>Q :!q<CR>
-nmap <Space><Space> V
+nmap <Space><Space> *
 
 
