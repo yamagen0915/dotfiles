@@ -193,6 +193,7 @@ nmap <Space>g [fugitive]
 nnoremap <silent> [fugitive]di :Gdiff<CR>
 nnoremap <silent> [fugitive]ad :Gwrite<CR>
 nnoremap <silent> [fugitive]bl :Gblame<CR>
+nnoremap <silent> [fugitive]st :Gstatus<CR>
 
 " ==================================================
 " surround.vim
@@ -250,6 +251,7 @@ nnoremap <silent> [over]9 :OverCommandLine<CR>9
 " vim-rails
 " ==================================================
 
+nnoremap :R :RT<CR>
 nnoremap <silent> gp :bp<CR>
 nnoremap gf <C-w>gf
 

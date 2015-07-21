@@ -103,12 +103,6 @@ function! MarkDebugCode()
   :call setpos('.', position)
 endfunction
 
-augroup DebugCode
-  autocmd!
-  command! RemoveDebugCode :call RemoveDebugCode()
-  command! MarkDebugCode :call MarkDebugCode()
-augroup END
-
 " }}}
 
 " 数字を選択し、自動的にインクリメントする "{{{

@@ -1,4 +1,3 @@
-
 " ; と : の入れ替え。英字配列用
 noremap : ;
 noremap ; :
@@ -57,10 +56,5 @@ vnoremap \<C-i> <C-i>
 
 nnoremap <silent> ,m :call MarkDebugCode()<CR>
 
-nnoremap <Space>w :w<CR>
-nnoremap <Space>ww :wq<CR>
-nnoremap <Space>q :q<CR>
-nnoremap <Space>Q :!q<CR>
+nnoremap <Space>jj :w<CR>
 nmap <Space><Space> *
-
-
