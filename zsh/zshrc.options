@@ -57,3 +57,5 @@ wordchars='*?_-.[]~=&;!#$%^(){}<>'
 
 #cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls; }
+
+export TERM=xterm-256color

@@ -284,6 +284,7 @@ vnoremap <silent> [easy-align]: :EasyAlign :<CR>
 " vim-lightline
 " ==================================================
 set laststatus=2
+set t_Co=256
 
 let g:lightline = {
   \   'mode_map': {'c': 'NORMAL'},
