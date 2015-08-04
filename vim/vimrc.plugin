@@ -286,22 +286,31 @@ vnoremap <silent> [easy-align]: :EasyAlign :<CR>
 set laststatus=2
 
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode','paste' ], [ 'fugitive','filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightLineModified',
-        \   'readonly': 'LightLineReadonly',
-        \   'fugitive': 'LightLineFugitive',
-        \   'filename': 'LightLineFilename',
-        \   'fileformat': 'LightLineFileformat',
-        \   'filetype': 'LightLineFiletype',
-        \   'fileencoding': 'LightLineFileencoding',
-        \   'mode': 'LightLineMode'
-        \ }
-        \ }
+  \   'mode_map': {'c': 'NORMAL'},
+  \   'active': {
+  \     'right': [
+  \        [ 'syntastic', 'lineinfo'],
+  \        [ 'percent' ],
+  \        [ 'fileformat', 'fileencoding', 'filetype' ]
+  \      ],
+  \     'left':  [ [ 'mode'], ['fugitive'] ]
+  \   },
+  \   'component_function': {
+  \     'modified': 'LightLineModified',
+  \     'readonly': 'LightLineReadonly',
+  \     'fugitive': 'LightLineFugitive',
+  \     'filename': 'LightLineFilename',
+  \     'fileformat': 'LightLineFileformat',
+  \     'filetype': 'LightLineFiletype',
+  \     'mode': 'LightLineMode',
+  \   },
+  \   'component_expand': {
+  \     'syntastic': 'SyntasticStatuslineFlag'
+  \   },
+  \   'component_type': {
+  \     'syntastic': 'error'
+  \   }
+  \ }
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -344,5 +353,16 @@ endfunction
 
 function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost * call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
 endfunction
 
