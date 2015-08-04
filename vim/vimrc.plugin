@@ -52,6 +52,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'junegunn/vim-easy-align'
 " fの検索機能を強化する
 NeoBundle 'rhysd/clever-f.vim'
+" ステータスラインを更新
+NeoBundle 'bling/vim-airline'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -187,13 +189,13 @@ endif
 " ==================================================
 
 " Prefix
-nnoremap [fugitive] <Nop>
-nmap <Space>g [fugitive]
-
-nnoremap <silent> [fugitive]di :Gdiff<CR>
-nnoremap <silent> [fugitive]ad :Gwrite<CR>
-nnoremap <silent> [fugitive]bl :Gblame<CR>
-nnoremap <silent> [fugitive]st :Gstatus<CR>
+" nnoremap [fugitive] <Nop>
+" nmap ,g [fugitive]
+"
+" nnoremap <silent> [fugitive]di :Gdiff<CR>
+" nnoremap <silent> [fugitive]ad :Gwrite<CR>
+" nnoremap <silent> [fugitive]bl :Gblame<CR>
+" nnoremap <silent> [fugitive]st :Gstatus<CR>
 
 " ==================================================
 " surround.vim
@@ -251,9 +253,11 @@ nnoremap <silent> [over]9 :OverCommandLine<CR>9
 " vim-rails
 " ==================================================
 
-nnoremap :R :RT<CR>
+nnoremap [rails] <Nop>
+nmap <Space>r [rails]
+
 nnoremap <silent> gp :bp<CR>
-nnoremap gf <C-w>gf
+
 
 " ==================================================
 " vim-easymotion
@@ -276,4 +280,8 @@ vmap <Space>e [easy-align]
 vnoremap <silent> [easy-align]= :EasyAlign =<CR>
 vnoremap <silent> [easy-align]: :EasyAlign :<CR>
 
+" ==================================================
+" vim-airline
+" ==================================================
 
+let g:airline_thema='solarized light'
