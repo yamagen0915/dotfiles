@@ -54,6 +54,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'rhysd/clever-f.vim'
 " ステータスラインをかっこよく
 NeoBundle 'itchyny/lightline.vim'
+" コーディングのログを収集してくれるサービス
+NeoBundle 'wakatime/vim-wakatime'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -288,8 +290,6 @@ set t_Co=256
 
 let g:lightline = {
   \   'mode_map': {'c': 'NORMAL'},
-  \   'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-  \   'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
   \   'active': {
   \     'right': [
   \        [ 'syntastic', 'lineinfo'],
