@@ -36,9 +36,7 @@
     co = checkout
     ci = commit
     cm = commit -m
-    ca = commit -a
-    # diff --cached の内容が表示される
-    civ = commit -v
+    cv = commit -v
     cam = commit --amend
     sh = show
     so = remote show origin
