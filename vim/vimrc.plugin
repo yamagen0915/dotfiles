@@ -56,6 +56,8 @@ NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'itchyny/lightline.vim'
 " コーディングのログを収集してくれるサービス
 NeoBundle 'wakatime/vim-wakatime'
+" vimのハイライト
+NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -369,3 +371,8 @@ function! s:syntastic()
   call lightline#update()
 endfunction
 
+
+" ==================================================
+" vim-scala
+" ==================================================
+au BufNewFile,BufRead *.scala setf scala
