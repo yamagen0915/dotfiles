@@ -49,6 +49,7 @@
     type = cat-file -t
     dump = cat-file -p
     cherry = cherry-pick
+    ref = reflog
     # diff 関連
     df = diff --ignore-space-change
     dm = diff master
