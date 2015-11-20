@@ -32,7 +32,7 @@
 
 [alias]
     ad = add
-    adp = add -p
+    ap = add -p
     co = checkout
     ci = commit
     cm = commit -m
@@ -48,6 +48,7 @@
     hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
     type = cat-file -t
     dump = cat-file -p
+    cherry = cherry-pick
     # diff 関連
     df = diff --ignore-space-change
     dm = diff master
