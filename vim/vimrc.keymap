@@ -59,3 +59,8 @@ nnoremap <silent> ,m :call MarkDebugCode()<CR>
 nnoremap <Space>jj :w<CR>
 
 nnoremap <Space><Space> *
+
+" Ctr + P でペーストモードになり、インサートモードから抜けると自動でペースト解除されるように
+noremap <C-P> :set paste
+autocmd InsertLeave * set nopaste
+
