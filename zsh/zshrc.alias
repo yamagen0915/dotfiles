@@ -66,3 +66,24 @@ function backup_filename() {
 function today(){
   echo $(date +%Y%m%d)
 }
+
+# pecoがインストールされている場合だけ ^r を拡張する
+if [ `which peco` ]; then
+  function peco-select-history() {
+      local tac
+      if which tac > /dev/null; then
+          tac="tac"
+      else
+          tac="tail -r"
+      fi
+      BUFFER=$(history -n 1 | \
+          eval $tac | \
+          peco --query "$LBUFFER")
+      CURSOR=$#BUFFER
+      zle clear-screen
+  }
+  zle -N peco-select-history
+
+  bindkey '^r' peco-select-history
+fi
+
