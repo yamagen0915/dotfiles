@@ -56,6 +56,8 @@ NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'itchyny/lightline.vim'
 " コーディングのログを収集してくれるサービス
 NeoBundle 'wakatime/vim-wakatime'
+" Gitの変更を見やすくする
+NeoBundle 'airblade/vim-gitgutter'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
