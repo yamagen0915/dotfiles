@@ -56,7 +56,7 @@ NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'itchyny/lightline.vim'
 " コーディングのログを収集してくれるサービス
 NeoBundle 'wakatime/vim-wakatime'
-" vimのハイライト
+" vimのScalaハイライト
 NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'Shougo/vimproc', {
