@@ -16,7 +16,6 @@ set number
 set nowrap
 " クリップボードの有効化
 " だけどclipboard有効状態でコンパイルできていないので意味がない！
-set clipboard+=autoselect
 set clipboard+=unnamed
 " 横にスクロールする際の移動量
 set sidescroll=1
