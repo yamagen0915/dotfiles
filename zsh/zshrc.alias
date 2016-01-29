@@ -11,6 +11,12 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias grep='grep -n --color'
 
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+
 # tmuxが起動していない場合にalias設定を行う
 if [ $SHLVL = 1 ]; then
   alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfiles/.tmux.auto_split"
