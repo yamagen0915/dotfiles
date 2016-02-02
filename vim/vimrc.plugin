@@ -378,6 +378,13 @@ function! s:syntastic()
   call lightline#update()
 endfunction
 
+" ==================================================
+" syntastic
+" ==================================================
+"  mode に active を指定すると保存するたびに、
+"          passiveを指定すると :SyntasticCheck を実行時に検出されます
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = [ 'rubocop' ]
 
 " ==================================================
 " vim-scala
