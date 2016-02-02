@@ -390,6 +390,7 @@ let g:syntastic_javascript_checkers = [ 'eslint' ]
 " カレントディレクトリが Rails プロジェクトのディレクトリ以下であれば、
 " rails.vim によって b:rails_root がセットされる
 " これがセットされているときだけ RuboCop に --rails オプションを渡す
+" これ使えばプロジェクトごとの.rubocop.yml読めるようになりそうな気がする
 au FileType ruby if exists('b:rails_root') |
   \ let b:syntastic_ruby_rubocop_options = '--rails' | endif
 
