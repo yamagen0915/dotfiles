@@ -72,11 +72,9 @@ NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 " scalaのシンタックスハイライト
 NeoBundle 'derekwyatt/vim-scala'
-" vimのScalaハイライト
-NeoBundle 'derekwyatt/vim-scala'
 " vimのReactハイライト
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mxw/vim-jsx'
+NeoBundle 'mxw/vim-jsx', {'autoload':{'filetypes':['jsx']}}
 " hamlのハイライト
 NeoBundle 'tpope/vim-haml'
 
