@@ -351,15 +351,6 @@ function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost * call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
-
 " ==================================================
 " syntastic
 " ==================================================
@@ -370,12 +361,15 @@ let g:syntastic_ruby_checkers = [ 'rubocop' ]
 let g:syntastic_javascript_checkers = [ 'eslint' ]
 let g:syntastic_scss_checkers = ['scss_lint']
 
-" カレントディレクトリが Rails プロジェクトのディレクトリ以下であれば、
-" rails.vim によって b:rails_root がセットされる
-" これがセットされているときだけ RuboCop に --rails オプションを渡す
-" これ使えばプロジェクトごとの.rubocop.yml読めるようになりそうな気がする
-au FileType ruby if exists('b:rails_root') |
-  \ let b:syntastic_ruby_rubocop_options = '--rails' | endif
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost * call s:syntastic()
+augroup END
+
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
 
 " ==================================================
 " vim-scala
