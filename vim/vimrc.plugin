@@ -29,7 +29,7 @@ NeoBundle 'tpope/vim-rails'
 " テキストを特定の文字で囲んだりする
 NeoBundle 'tpope/vim-surround'
 " trueとfalseをきりかえたり
-NeoBundle 'taku-o/vim-toggle'
+NeoBundle 'AndrewRadev/switch.vim'
 " 視覚的にreplaceできるやつ
 NeoBundle 'osyo-manga/vim-over'
 " 選択範囲を外側に広げて検索できる
@@ -213,36 +213,24 @@ endif
 nnoremap [surround] <Nop>
 nmap <Space> [surround]
 
-nmap [surround]( csw(
-nmap [surround]) csw)
-nmap [surround]{ csw{
-nmap [surround]} csw}
-nmap [surround][ csw[
-nmap [surround]] csw]
-nmap [surround]' csw'
-nmap [surround]" csw"
-
 " ==================================================
-" toggle.vim
+" switch.vim
 " ==================================================
 
 " Prefix
-nnoremap [toggle] <Nop>
-nmap <Space>t [toggle]
+nnoremap [switch] <Nop>
+nmap <Space>t [switch]
 
-imap [toggle] <Plug>ToggleI
-nmap [toggle] <Plug>ToggleN
-vmap [toggle] <Plug>ToggleV
+imap [switch] :Switch<CR>
+nmap [switch] :Switch<CR>
+vmap [switch] :Switch<CR>
 
 let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
 
-" }}}
-
+" ==================================================
 " vim-over
+" ==================================================
 
-" ==================================================
-" Prefix
-" ==================================================
 nnoremap [over] <Nop>
 nmap <Space>s [over]
 
