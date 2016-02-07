@@ -40,17 +40,17 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 set showtabline=2
 
 " ファイル保存時に行末の不要な空白を取り除く
-autocmd BufWritePre * :%s/\s\+$//ge
+au BufWritePre * :%s/\s\+$//ge
 
-" CoffeeScriptのファイルにはjsのシンタックスハイライトを利用する
-autocmd BufRead,BufNewFile *.coffee set ft=javascript syntax=javascript
-" lessのファイルにはcssのシンタックスハイライトを利用する
-autocmd BufRead,BufNewFile *.less set ft=css syntax=css
+" ==================================================
+" ファイル識別設定
+" ==================================================
+au BufRead,BufNewFile *.coffee set filetype=javascript syntax=javascript
+au BufRead,BufNewFile *.haml   set filetype=haml syntax=haml
 
-" Hamlを認識させる
-au! BufRead,BufNewFile *.haml setfiletype=haml syntax=haml
-
-" タブラインの設定 " {{{
+" ==================================================
+" タブラインの設定
+" ==================================================
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
@@ -75,9 +75,11 @@ function! s:my_tabline()
 endfunction
 
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-" }}}
 
-" 全角スペースをハイライト表示 "{{{
+
+" ==================================================
+" 全角スペースをハイライト表示
+" ==================================================
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
@@ -90,9 +92,11 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
-" }}}
 
-" デバッグコードを削除したりマーカー文字列を付与したり " {{{
+
+" ==================================================
+" デバッグコードを削除したりマーカー文字列を付与したり
+" ==================================================
 function! RemoveDebugCode()
   g/\[DEBUG_CODE\]/d
   write
@@ -113,11 +117,9 @@ endfunction
 
 nnoremap <silent> ,b :call InsertBrake()<CR>k
 
-
-" }}}
-
-" 数字を選択し、自動的にインクリメントする "{{{
+" ==================================================
+" 数字を選択し、自動的にインクリメントする
+" ==================================================
 nnoremap <silent> co :ContinuousNumber <C-a><CR>
 vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
-" }}}

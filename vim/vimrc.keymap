@@ -2,11 +2,7 @@
 noremap : ;
 noremap ; :
 
-"Enterでいつでも一行挿入
-" map <S-Enter> O<ESC>
-" map <Enter> o<ESC>
-
-" インサートモードでjjとうつとEscできる！
+" インサートモードでjjとうつとEscできる
 inoremap <silent> jj <Esc>
 
 " 早く移動する移動系
@@ -57,8 +53,6 @@ vnoremap \<C-i> <C-i>
 nnoremap <silent> ,m :call MarkDebugCode()<CR>
 
 nnoremap <Space>jj :w<CR>
-
-nnoremap <Space><Space> *
 
 " Ctr + P でペーストモードになり、インサートモードから抜けると自動でペースト解除されるように
 noremap <C-P> :set paste<CR>

@@ -68,13 +68,11 @@ NeoBundle 'Shougo/vimproc', {
 
 " CoffeeScriptのシンタックスハイライト
 NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
-" jQueryのシンタックスハイライト
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 " scalaのシンタックスハイライト
 NeoBundle 'derekwyatt/vim-scala'
 " vimのReactハイライト
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mxw/vim-jsx', {'autoload':{'filetypes':['jsx']}}
+NeoBundle 'mxw/vim-jsx'
 " hamlのハイライト
 NeoBundle 'tpope/vim-haml'
 
@@ -95,7 +93,7 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " 通常のUnite
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files -tab file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite -tab file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby
@@ -166,7 +164,7 @@ function! s:my_crinsert()
 endfunction
 inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 
-" <C-h>, <BS>補完を中止する
+" <C-h>, <BS>補完を禁止
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
@@ -176,8 +174,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/dotfiles/vim/snippets/'
 
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
@@ -198,13 +194,15 @@ endif
 " ==================================================
 
 " Prefix
-" nnoremap [fugitive] <Nop>
-" nmap ,g [fugitive]
-"
-" nnoremap <silent> [fugitive]di :Gdiff<CR>
-" nnoremap <silent> [fugitive]ad :Gwrite<CR>
-" nnoremap <silent> [fugitive]bl :Gblame<CR>
-" nnoremap <silent> [fugitive]st :Gstatus<CR>
+nnoremap [fugitive] <Nop>
+nmap <Space>g [fugitive]
+
+nnoremap <silent> [fugitive]di :Gdiff<CR>
+nnoremap <silent> [fugitive]ad :Gwrite<CR>
+nnoremap <silent> [fugitive]cv :Gcommit -v<CR>
+nnoremap <silent> [fugitive]ca :Gcommit --amend<CR>
+nnoremap <silent> [fugitive]bl :Gblame<CR>
+nnoremap <silent> [fugitive]st :Gstatus<CR>
 
 " ==================================================
 " surround.vim
@@ -253,7 +251,6 @@ nmap <Space>r [rails]
 
 nnoremap <silent> gp :bp<CR>
 
-
 " ==================================================
 " vim-easymotion
 " ==================================================
@@ -270,7 +267,7 @@ nmap <Space>e <Plug>(easymotion-s2)
 " ==================================================
 
 vnoremap [easy-align] <nop>
-vmap <Space>e [easy-align]
+vmap <Space><Space> [easy-align]
 
 vnoremap <silent> [easy-align]= :EasyAlign =<CR>
 vnoremap <silent> [easy-align]: :EasyAlign :<CR>
@@ -375,3 +372,4 @@ endfunction
 " vim-scala
 " ==================================================
 au BufNewFile,BufRead *.scala setf scala
+
