@@ -46,8 +46,9 @@ au BufWritePre * :%s/\s\+$//ge
 " ファイル識別設定
 " ==================================================
 au BufRead,BufNewFile *.coffee set filetype=javascript syntax=javascript
-au BufRead,BufNewFile *.haml   set filetype=haml syntax=haml
-au BufRead,BufNewFile *.scala  set filetype=scala
+au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
+au BufRead,BufNewFile *.haml set filetype=haml syntax=haml
+au BufRead,BufNewFile *.scala set filetype=scala
 
 " ==================================================
 " タブラインの設定
