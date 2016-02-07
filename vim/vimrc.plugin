@@ -92,6 +92,8 @@ nmap <space>u [unite]
 let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
+let g:unite_default_action = 'tabopen'
+
 " 通常のUnite
 nnoremap <silent> [unite]f :<C-u>Unite -tab file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
@@ -106,9 +108,9 @@ nnoremap <silent> [unite]vi :<C-u>Unite -tab rails/view <CR>
 " Helper
 nnoremap <silent> [unite]he :<C-u>Unite -tab rails/helper <CR>
 " Css
-nnoremap <silent> [unite]cs :<C-u>Unite -tab rails/stylesheet <CR>
+nnoremap <silent> [unite]cs :call Unitetabopen(b:rails_root.'/app/frontend/stylesheets')<CR>
 " JavaScript
-nnoremap <silent> [unite]js :<C-u>Unite -tab rails/javascript <CR>
+nnoremap <silent> [unite]js :call Unitetabopen(b:rails_root.'/app/frontend/javascripts')<CR>
 " Config
 nnoremap <silent> [unite]cf :<C-u>Unite -tab rails/config <CR>
 " Lib
@@ -117,6 +119,14 @@ nnoremap <silent> [unite]li :<C-u>Unite -tab rails/lib <CR>
 nnoremap <silent> [unite]sp :<C-u>Unite -tab rails/spec <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab rails/db <CR>
+
+nnoremap <silent> [unite]tb :call Unitetabopen()
+
+" 結構無理やりな実装で辛い。。。
+function! Unitetabopen(path)
+  tabnew
+  call unite#start([['file_rec/async', a:path]])
+endfunction
 
 " ==================================================
 " neocomplete
