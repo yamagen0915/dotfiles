@@ -368,8 +368,3 @@ function! s:syntastic()
   call lightline#update()
 endfunction
 
-" ==================================================
-" vim-scala
-" ==================================================
-au BufNewFile,BufRead *.scala setf scala
-
