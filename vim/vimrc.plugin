@@ -108,9 +108,9 @@ nnoremap <silent> [unite]vi :<C-u>Unite -tab rails/view <CR>
 " Helper
 nnoremap <silent> [unite]he :<C-u>Unite -tab rails/helper <CR>
 " Css
-nnoremap <silent> [unite]cs :call Unitetabopen(b:rails_root.'/app/frontend/stylesheets')<CR>
+nnoremap <silent> [unite]cs :call unite#start#standard([['file_rec/async', b:rails_root.'/app/frontend/stylesheets']], {"tab": 1})<CR>
 " JavaScript
-nnoremap <silent> [unite]js :call Unitetabopen(b:rails_root.'/app/frontend/javascripts')<CR>
+nnoremap <silent> [unite]js :call unite#start#standard([['file_rec/async', b:rails_root.'/app/frontend/javascripts']], {"tab": 1})<CR>
 " Config
 nnoremap <silent> [unite]cf :<C-u>Unite -tab rails/config <CR>
 " Lib
@@ -121,12 +121,6 @@ nnoremap <silent> [unite]sp :<C-u>Unite -tab rails/spec <CR>
 nnoremap <silent> [unite]db :<C-u>Unite -tab rails/db <CR>
 
 nnoremap <silent> [unite]tb :call Unitetabopen()
-
-" 結構無理やりな実装で辛い。。。
-function! Unitetabopen(path)
-  tabnew
-  call unite#start([['file_rec/async', a:path]])
-endfunction
 
 " ==================================================
 " neocomplete
