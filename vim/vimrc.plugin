@@ -1,3 +1,4 @@
+
 if has("vim_starting")
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
@@ -24,6 +25,8 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-endwise'
 " vimでGitを扱う
 NeoBundle 'tpope/vim-fugitive'
+" Gitの変更を見やすくする
+NeoBundle 'airblade/vim-gitgutter'
 " :RTとかで対応するviewとかに移動できる
 NeoBundle 'tpope/vim-rails'
 " テキストを特定の文字で囲んだりする
@@ -34,16 +37,6 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'osyo-manga/vim-over'
 " 選択範囲を外側に広げて検索できる
 NeoBundle 'terryma/vim-expand-region'
-" 独自のテキストオブジェクトを追加するためのプラグイン
-NeoBundle 'kana/vim-textobj-user'
-" 1行を表すテキストオブジェクトを追加する
-NeoBundle 'kana/vim-textobj-line'
-" バッファのなんかのテキストオブジェクト
-NeoBundle 'kana/vim-textobj-entire'
-" Rubyのブロックを対象にするテキストオブジェクト
-NeoBundle 'rhysd/vim-textobj-ruby'
-" Urlのテキストオブジェクト
-NeoBundle 'mattn/vim-textobj-url'
 "行単位でdiffをみるためのプラグイン
 NeoBundle 'AndrewRadev/linediff.vim'
 " シンタックスエラーを見つけてくれるやつ
@@ -58,8 +51,6 @@ NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'itchyny/lightline.vim'
 " コーディングのログを収集してくれるサービス
 NeoBundle 'wakatime/vim-wakatime'
-" Gitの変更を見やすくする
-NeoBundle 'airblade/vim-gitgutter'
 
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -68,14 +59,31 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
-" CoffeeScriptのシンタックスハイライト
+" ==================================================
+" テキストオブジェクト
+" ==================================================
+" テキストオブジェクト系のプラグインが依存しているプラグイン
+NeoBundle 'kana/vim-textobj-user'
+" [ al, il ] カーソル行
+NeoBundle 'kana/vim-textobj-line'
+" [ ae, ie ] バッファ全体
+NeoBundle 'kana/vim-textobj-entire'
+" [ au, iu ] Url
+NeoBundle 'mattn/vim-textobj-url'
+" [ ac, ic ] コメント
+NeoBundle "thinca/vim-textobj-comment"
+
+" ==================================================
+" シンタックスハイライト
+" ==================================================
+" Coffee
 NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
-" scalaのシンタックスハイライト
+" Scala
 NeoBundle 'derekwyatt/vim-scala'
-" vimのReactハイライト
+" React
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
-" hamlのハイライト
+" haml
 NeoBundle 'tpope/vim-haml'
 
 " ==================================================
