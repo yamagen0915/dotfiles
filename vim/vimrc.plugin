@@ -22,7 +22,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'basyura/unite-rails'
 " ifやdoを入力したら自動的にendを挿入してくれる
 NeoBundle 'tpope/vim-endwise'
-" vimでgit diff をみる
+" vimでGitを扱う
 NeoBundle 'tpope/vim-fugitive'
 " :RTとかで対応するviewとかに移動できる
 NeoBundle 'tpope/vim-rails'
@@ -42,6 +42,8 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-entire'
 " Rubyのブロックを対象にするテキストオブジェクト
 NeoBundle 'rhysd/vim-textobj-ruby'
+" Urlのテキストオブジェクト
+NeoBundle 'mattn/vim-textobj-url'
 "行単位でdiffをみるためのプラグイン
 NeoBundle 'AndrewRadev/linediff.vim'
 " シンタックスエラーを見つけてくれるやつ
