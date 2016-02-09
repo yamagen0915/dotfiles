@@ -33,8 +33,13 @@
 [alias]
     ad = add
     ap = add -p
-    # fileの変更をclear的な
-    co = !enhance_checkout
+    co = "!f () {\
+      if [ $# -eq 0 ]; then\
+        git checkout `git branch | peco`;\
+      elif [ $# -eq 1 ]; then\
+        git checkout ${1};\
+      fi;\
+    };f"
     ci = commit
     cm = commit -m
     cv = commit -v
