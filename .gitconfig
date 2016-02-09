@@ -45,11 +45,12 @@
     cv = commit -v
     cam = commit --amend
     sh = show
+    br = branch
     so = remote show origin
     st = status --branch --short
     gr = grep --line-number --show-function --color --heading --break
-    ft = fetch
-    br = branch
+    fe = fetch
+    pu = pull --rebase
     hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
     hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
     type = cat-file -t
