@@ -100,3 +100,16 @@ if [ `which peco` ]; then
 fi
 
 
+# =============================================================
+# git checkout を拡張
+# =============================================================
+function enhance_checkout() {
+  if [ $# -eq 0 ]; then
+    # 引数がない時はpecoを使ってブランチを選択する
+    git checkout `git branch | peco`
+  elif [ $# -eq 1 ]; then
+    # 引数がある時は通常のcheckout として扱う
+    git checkout $1
+  fi
+}
+

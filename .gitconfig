@@ -34,8 +34,7 @@
     ad = add
     ap = add -p
     # fileの変更をclear的な
-    cl = checkout
-    co = !git checkout `git branch | peco`
+    co = !enhance_checkout
     ci = commit
     cm = commit -m
     cv = commit -v
