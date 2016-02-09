@@ -36,8 +36,8 @@
     co = "!f () {\
       if [ $# -eq 0 ]; then\
         git checkout `git branch | peco`;\
-      elif [ $# -eq 1 ]; then\
-        git checkout ${1};\
+      elif [ $# -ge 1 ]; then\
+        git checkout ${@};\
       fi;\
     };f"
     ci = commit
