@@ -22,9 +22,11 @@ if [ $SHLVL = 1 ]; then
   alias tmux="tmux -2 attach || tmux -2 new-session \; source-file ~/dotfiles/.tmux.auto_split"
 fi
 
-# tail -f とgrep を1つのコマンドでできるようにする
+# =============================================================
+# tail -f の拡張
 # 例) tailf /path/to/logfile '検索文字列'
-tailf() {
+# =============================================================
+function tailf() {
   if [ $# -eq 1 ]; then
     tail -f $1
   elif [ $# -eq 2 ]; then
@@ -32,36 +34,38 @@ tailf() {
   fi
 }
 
-# 引数に指定したログファイルのバックアップファイルを作成する
+# =============================================================
+# バックファイル作成関数
 # 例) backup hoge.rb
 #       -> hoge.rb.20150422 が作成される
-backup() {
+# =============================================================
+function backup() {
   if [ $# -lt 1 ];then
     echo '引数にファイル名を指定してください'
     return;
   fi
-  make_backup_file $1 0
+  _make_backup_file $1 0
 }
 
-function make_backup_file() {
+function _make_backup_file() {
 
-  if [ -e `backup_filename $@` ]; then
+  if [ -e `_backup_filename $@` ]; then
     # カウントをインクリメントして、再帰的に呼び出す
-    make_backup_file $1 $(($2+1))
+    _make_backup_file $1 $(($2+1))
     return;
   fi
 
   # バックアップファイルを作成する
-  echo " ${1} -> `backup_filename ${@}`"
+  echo " ${1} -> `_backup_filename ${@}`"
   if [ -f $1 ]; then
-    cp $1 `backup_filename ${@}`
+    cp $1 `_backup_filename ${@}`
   else
-    cp -r $1 `backup_filename ${@}`
+    cp -r $1 `_backup_filename ${@}`
   fi
 
 }
 
-function backup_filename() {
+function _backup_filename() {
   if [ $2 -gt 0 ]; then
     echo $1.`today`.$2
   else
@@ -73,7 +77,9 @@ function today(){
   echo $(date +%Y%m%d)
 }
 
-# pecoがインストールされている場合だけ ^r を拡張する
+# =============================================================
+# ^rを拡張
+# =============================================================
 if [ `which peco` ]; then
   function peco-select-history() {
       local tac
@@ -92,4 +98,5 @@ if [ `which peco` ]; then
 
   bindkey '^r' peco-select-history
 fi
+
 
