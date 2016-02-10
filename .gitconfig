@@ -31,19 +31,14 @@
     default = simple
 
 [alias]
+    alias = !git config --get-regexp alias
     ad = add
     ap = add -p
-    co = "!f () {\
-      if [ $# -eq 0 ]; then\
-        git checkout `git branch | peco`;\
-      elif [ $# -ge 1 ]; then\
-        git checkout ${@};\
-      fi;\
-    };f"
     ci = commit
     cm = commit -m
     cv = commit -v
     cam = commit --amend
+    ref = reflog
     sh = show
     br = branch
     so = remote show origin
@@ -52,14 +47,19 @@
     fe = fetch
     pl = pull --rebase
     ps = push origin HEAD
+    df = diff --ignore-space-change
+    dm = diff master
     hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
     hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
     type = cat-file -t
     dump = cat-file -p
-    ref = reflog
-    unstage = reset HEAD~
-    # diff 関連
-    df = diff --ignore-space-change
-    dm = diff master
-    alias = !"if test -z $1; then loop=; for k in `git config --get-regexp ^alias\\. | sort | sed -e 's/^alias\\.\\(\\S*\\).*/\\1/g'`; do echo -n $k; loop="${loop}1"; if test ${#loop} -lt 5; then echo -n '\t'; else echo; loop=; fi; done; exit; fi; git config --list | grep ^alias\\.$1= | sed -e s/^alias\\.//; exit;"
+    unstage = reset HEAD
+    cancel = reset --soft HEAD
+    co = "!f () {\
+      if [ $# -eq 0 ]; then\
+        git checkout `git branch | peco`;\
+      elif [ $# -ge 1 ]; then\
+        git checkout ${@};\
+      fi;\
+    };f"
 
