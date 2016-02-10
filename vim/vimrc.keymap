@@ -5,7 +5,11 @@ noremap ; :
 " インサートモードでjjとうつとEscできる
 inoremap <silent> jj <Esc>
 
-nnoremap <expr><silent> getreg(v:register) =~# '\r\?\n$' ? 'P' : 'p'
+" デフォルトの貼り付けが感覚と一致しないので、
+" 行ごとコピーした時は p で貼り付け
+" 行ごとでない場合は P で貼り付けられるように
+nnoremap <expr><silent> p getregtype() ==# 'V' ? 'p' : 'P'
+nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
 
 " Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
