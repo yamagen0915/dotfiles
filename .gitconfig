@@ -53,7 +53,7 @@
     hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
     type = cat-file -t
     dump = cat-file -p
-    unstage = reset HEAD
+    unstage = reset HEAD~
     cancel = reset --soft HEAD
     cr = "!f () { git checkout -b ${1} origin/${1}; };f"
     co = "!f () {\
