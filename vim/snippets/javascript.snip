@@ -1,9 +1,6 @@
 
-snippet import
-  import ${1} from '${0}';
-
-snippet reactclass
-  export default class ${0:classname} extends React.Component {
+snippet classreact
+  export default class `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')` extends React.Component {
 
     constructor(props) {
       super(props);
@@ -18,8 +15,70 @@ snippet reactclass
 
   }
 
-snippet export
+  `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`.defaultProps = {
+  };
+
+  `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`.propTypes = {
+  };
+
+snippet import
+  import ${1} from '${0}';
+
+snippet expobj
   export default {
     ${0}
   }
+
+snippet render
+  render() {
+    return (
+      ${0}
+    );
+  }
+
+# ==================================================
+# State
+# ==================================================
+snippet sta
+  this.state = {
+    ${0}
+  };
+
+snippet stas
+  this.setState({
+    ${0}
+  });
+
+
+# ==================================================
+# PropTypes
+# ==================================================
+snippet defprop
+  `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`.defaultProps = {
+    ${0}
+  };
+
+snippet proptyp
+  `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`.propTypes = {
+    ${0}
+  };
+
+snippet propfunc
+  React.PropTypes.func
+
+snippet proparr
+  React.PropTypes.array
+
+snippet propobj
+  React.PropTypes.object
+
+snippet propstr
+  React.PropTypes.string
+
+snippet propnum
+  React.PropTypes.number
+
+snippet propbool
+  React.PropTypes.boolean
+
 
