@@ -97,20 +97,8 @@ endif
 
 
 " ==================================================
-" デバッグコードを削除したりマーカー文字列を付与したり
+" デバッグコードを挿入
 " ==================================================
-function! RemoveDebugCode()
-  g/\[DEBUG_CODE\]/d
-  write
-endfunction
-
-function! MarkDebugCode()
-  :let position = getpos('.')
-  :let marker_str = " # [DEBUG_CODE]"
-  :execute ":normal A".marker_str
-  :call setpos('.', position)
-endfunction
-
 function! InsertBrake()
   :let line = line('.') - 1
   :call append(line, 'binding.pry')
