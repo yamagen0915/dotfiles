@@ -54,7 +54,6 @@
     type = cat-file -t
     dump = cat-file -p
     unstage = reset HEAD~
-    cancel = reset --soft HEAD
     cr = "!f () { git checkout -b ${1} origin/${1}; };f"
     co = "!f () {\
       if [ $# -eq 0 ]; then\

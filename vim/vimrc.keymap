@@ -5,28 +5,37 @@ noremap ; :
 " インサートモードでjjとうつとEscできる
 inoremap <silent> jj <Esc>
 
+nnoremap <expr><silent> getreg(v:register) =~# '\r\?\n$' ? 'P' : 'p'
+
+" Escの2回押しでハイライト消去
+nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+
+" ==================================================
 " 早く移動する移動系
+" ==================================================
 nnoremap <Space>h  ^
 vnoremap <Space>h  ^
 nnoremap <Space>l  $
 vnoremap <Space>l  $h
 
-nnoremap <C-h> 3h
-nnoremap <C-k> 3k
+nnoremap <C-h> 5h
+nnoremap <C-k> 5k
 nnoremap <C-l> 3l
 nnoremap <C-j> 3j
-vnoremap <C-h> 3h
+vnoremap <C-h> 5h
 vnoremap <C-k> 3k
-vnoremap <C-l> 3l
+vnoremap <C-l> 5l
 vnoremap <C-j> 3j
 
+" ==================================================
 " タブ
+" ==================================================
 nnoremap gr gT
 
-" Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
-
-" 通常のx, d, Dではyankに保存せず先頭にyをつけてyankに保存するようにする
+" ==================================================
+" 削除・ヤンク
+" ==================================================
+" 通常のx, d, Dではヤンクせず、yをつけた時だけヤンクするように
 nnoremap yx x
 nnoremap yd d
 nnoremap yD D
@@ -44,17 +53,11 @@ vnoremap D "_D
 " Yで行末までコピーする
 nnoremap Y y$
 
+" ==================================================
+" インデント
+" ==================================================
 " <TAB>キーでインデントする<Tab>と<C-i>が同一視されるため回避している
 nnoremap <TAB> >>
 nnoremap \<C-i> <C-i>
 vnoremap <TAB> >>
 vnoremap \<C-i> <C-i>
-
-nnoremap <silent> ,m :call MarkDebugCode()<CR>
-
-nnoremap <Space>jj :w<CR>
-
-" Ctr + P でペーストモードになり、インサートモードから抜けると自動でペースト解除されるように
-noremap <C-P> :set paste<CR>
-autocmd InsertLeave * set nopaste
-
