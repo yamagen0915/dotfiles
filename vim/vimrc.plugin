@@ -129,8 +129,6 @@ nnoremap <silent> [unite]sp :<C-u>Unite -tab rails/spec <CR>
 " Db
 nnoremap <silent> [unite]db :<C-u>Unite -tab rails/db <CR>
 
-nnoremap <silent> [unite]tb :call Unitetabopen()
-
 " ==================================================
 " neocomplete
 " ==================================================
