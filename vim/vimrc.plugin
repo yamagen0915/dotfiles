@@ -197,7 +197,6 @@ endif
 " vim-fugitive
 " ==================================================
 
-" Prefix
 nnoremap [fugitive] <Nop>
 nmap <Space>g [fugitive]
 
@@ -211,9 +210,6 @@ nnoremap <silent> [fugitive]st :Gstatus<CR>
 " ==================================================
 " surround.vim
 " ==================================================
-
-nnoremap [surround] <Nop>
-nmap <Space> [surround]
 
 " ==================================================
 " switch.vim

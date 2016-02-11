@@ -12,7 +12,9 @@ nnoremap <expr><silent> p getregtype() ==# 'V' ? 'p' : 'P'
 nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
 
 " Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+nnoremap <ESC><ESC> ;nohlsearch<CR><ESC>
+
+nnoremap <Space><Space> *
 
 " ==================================================
 " 早く移動する移動系
@@ -22,14 +24,15 @@ vnoremap <Space>h  ^
 nnoremap <Space>l  $
 vnoremap <Space>l  $h
 
-nnoremap <C-h> 5h
-nnoremap <C-k> 5k
-nnoremap <C-l> 3l
+nnoremap <C-h> 10h
 nnoremap <C-j> 3j
-vnoremap <C-h> 5h
-vnoremap <C-k> 3k
-vnoremap <C-l> 5l
+nnoremap <C-k> 3k
+nnoremap <C-l> 10l
+
+vnoremap <C-h> 10h
 vnoremap <C-j> 3j
+vnoremap <C-k> 3k
+vnoremap <C-l> 10l
 
 " ==================================================
 " タブ
