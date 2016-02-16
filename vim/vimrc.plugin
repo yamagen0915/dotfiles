@@ -386,3 +386,8 @@ function! s:syntastic()
   call lightline#update()
 endfunction
 
+
+" ==================================================
+" Emmet
+" ==================================================
+let g:user_emmet_expandabbr_key='<c-e>'
