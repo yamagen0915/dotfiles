@@ -12,7 +12,7 @@ nnoremap <expr><silent> p getregtype() ==# 'V' ? 'p' : 'P'
 nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
 
 " Escの2回押しでハイライト消去
-nnoremap <ESC><ESC> ;nohlsearch<CR><ESC>
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 nnoremap <Space><Space> *
 
@@ -68,3 +68,4 @@ nnoremap <TAB> >>
 nnoremap \<C-i> <C-i>
 vnoremap <TAB> >>
 vnoremap \<C-i> <C-i>
+
