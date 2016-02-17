@@ -284,11 +284,8 @@ nmap <Space>e <Plug>(easymotion-s2)
 " vim-easy-align
 " ==================================================
 
-vnoremap [easy-align] <nop>
-vmap <Space><Space> [easy-align]
-
-vnoremap <silent> [easy-align]= :EasyAlign =<CR>
-vnoremap <silent> [easy-align]: :EasyAlign :<CR>
+xmap <Space>e <Plug>(EasyAlign)
+nmap <Space>e <Plug>(EasyAlign)
 
 " ==================================================
 " vim-lightline
