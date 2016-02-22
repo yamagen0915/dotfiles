@@ -218,10 +218,10 @@ endif
 nnoremap [fugitive] <Nop>
 nmap <Space>g [fugitive]
 
-nnoremap <silent> [fugitive]di :Gdiff<CR>
+nnoremap <silent> [fugitive]df :Gdiff<CR>
 nnoremap <silent> [fugitive]ad :Gwrite<CR>
 nnoremap <silent> [fugitive]cv :Gcommit -v<CR>
-nnoremap <silent> [fugitive]ca :Gcommit --amend<CR>
+nnoremap <silent> [fugitive]cam :Gcommit --amend<CR>
 nnoremap <silent> [fugitive]bl :Gblame<CR>
 nnoremap <silent> [fugitive]st :Gstatus<CR>
 
@@ -285,7 +285,6 @@ nmap <Space>e <Plug>(easymotion-s2)
 " ==================================================
 
 xmap <Space>e <Plug>(EasyAlign)
-nmap <Space>e <Plug>(EasyAlign)
 
 " ==================================================
 " vim-lightline
