@@ -103,7 +103,7 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 
 " 通常のUnite
-nnoremap <silent> [unite]ff :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby
@@ -120,7 +120,7 @@ nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
 nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
 " JavaScript
 nnoremap <silent> [unite]js :call UniteFileRec('/app/assets/javascripts')<CR>
-nnoremap <silent> [unite]fs :call UniteFileRec('/app/frontend/javascripts')<CR>
+nnoremap <silent> [unite]fj :call UniteFileRec('/app/frontend/javascripts')<CR>
 " Config
 nnoremap <silent> [unite]cf :call UniteFileRec('/config')<CR>
 " Lib
@@ -129,6 +129,8 @@ nnoremap <silent> [unite]li :call UniteFileRec('/lib')<CR>
 nnoremap <silent> [unite]sp :call UniteFileRec('/spec')<CR>
 " Db
 nnoremap <silent> [unite]db :call UniteFileRec('/db')<CR>
+" Test
+nnoremap <silent> [unite]tj :call UniteFileRec('/test/js/unit')<CR>
 
 " Grep
 nnoremap <silent> [unite]g :<C-u>Unite -tab grep -buffer-name=grep<CR>
