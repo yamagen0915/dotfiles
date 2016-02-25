@@ -103,7 +103,7 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 
 " 通常のUnite
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
+nnoremap <silent> [unite]ff :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 
 " Ruby
