@@ -61,27 +61,36 @@ snippet defprop
     ${0}
   };
 
-snippet proptyp
+snippet prptyp
   `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`.propTypes = {
     ${0}
   };
 
-snippet propfunc
+snippet prpany
+  React.PropTypes.any
+
+snippet prpfunc
   React.PropTypes.func
 
-snippet proparr
+snippet prparr
   React.PropTypes.array
 
-snippet propobj
+snippet prparrof
+  React.PropTypes.arrayOf
+
+snippet prpobj
   React.PropTypes.object
 
-snippet propstr
+snippet prpshape
+  React.PropTypes.shape
+
+snippet prpstr
   React.PropTypes.string
 
-snippet propnum
+snippet prpnum
   React.PropTypes.number
 
-snippet propbool
+snippet prpbool
   React.PropTypes.bool
 
 
