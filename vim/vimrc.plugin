@@ -116,9 +116,11 @@ nnoremap <silent> [unite]vi :call UniteFileRec('/app/views')<CR>
 " Helper
 nnoremap <silent> [unite]he :call UniteFileRec('/app/helpers')<CR>
 " Css
-nnoremap <silent> [unite]cs :call UniteFileRec('/app/frontend/stylesheets')<CR>
+nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
+nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
 " JavaScript
-nnoremap <silent> [unite]js :call UniteFileRec('/app/frontend/javascripts')<CR>
+nnoremap <silent> [unite]js :call UniteFileRec('/app/assets/javascripts')<CR>
+nnoremap <silent> [unite]fs :call UniteFileRec('/app/frontend/javascripts')<CR>
 " Config
 nnoremap <silent> [unite]cf :call UniteFileRec('/config')<CR>
 " Lib
