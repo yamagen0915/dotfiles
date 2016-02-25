@@ -1,4 +1,7 @@
 
+snippet classname
+  `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`
+
 snippet classreact
   export default class `substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')` extends React.Component {
 
