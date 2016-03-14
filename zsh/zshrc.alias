@@ -3,6 +3,7 @@ alias vi="vim"
 alias g="git"
 alias pd='popd'
 alias his='history'
+alias reload='source ~/.zshrc'
 
 alias la='ls -la'
 alias ll='ls -l'
