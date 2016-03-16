@@ -380,10 +380,10 @@ augroup AutoSyntastic
   autocmd BufWritePost * call s:syntastic()
 augroup END
 
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
+" function! s:syntastic()
+"   SyntasticCheck
+"   call lightline#update()
+" endfunction
 
 " ==================================================
 " Emmet
