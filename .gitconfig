@@ -33,7 +33,6 @@
 [alias]
     alias = !git config --get-regexp alias
     ad = add
-    ap = add -p
     ci = commit
     cm = commit -m
     cv = commit -v
@@ -41,7 +40,6 @@
     ref = reflog
     sh = show
     br = branch
-    so = remote show origin
     st = status --branch --short
     gr = grep --line-number --show-function --color --heading --break
     fe = fetch
@@ -55,7 +53,19 @@
     type = cat-file -t
     dump = cat-file -p
     unstage = reset HEAD~
+    refresh = fetch --prune
+    me = !git config --get-regexp user
+    # リモートブランチをローカルにチェックアウト
     cr = "!f () { git checkout -b ${1} origin/${1}; };f"
+    # cherry-pick
+    cp = "!f () {\
+      if [ $# -eq 0 -a `which peco` ]; then\
+        git log --branches --oneline | peco --prompt 'cherry-pick\\> ' | awk '{print $1}' | xargs git cherry-pick;\
+      elif [ $# -ge 1 ]; then\
+        git cherry-pick ${@};\
+      fi;\
+    };f"
+    # checkout
     co = "!f () {\
       if [ $# -eq 0 -a `which peco` ]; then\
         git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
@@ -63,6 +73,7 @@
         git checkout ${@};\
       fi;\
     };f"
+    # merge
     mb = "!f () {\
       if [ $# -eq 0 -a `which peco` ]; then\
         git branch -a | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'merge\\> ' | tr -d ' \\*' | xargs -n 1 git merge;\
