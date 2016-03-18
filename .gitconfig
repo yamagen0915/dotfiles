@@ -57,10 +57,17 @@
     unstage = reset HEAD~
     cr = "!f () { git checkout -b ${1} origin/${1}; };f"
     co = "!f () {\
-      if [ $# -eq 0 ]; then\
-        git checkout `git branch | peco`;\
+      if [ $# -eq 0 -a `which peco` ]; then\
+        git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
       elif [ $# -ge 1 ]; then\
         git checkout ${@};\
+      fi;\
+    };f"
+    mb = "!f () {\
+      if [ $# -eq 0 -a `which peco` ]; then\
+        git branch -a | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'merge\\> ' | tr -d ' \\*' | xargs -n 1 git merge;\
+      elif [ $# -ge 1 ]; then\
+        git merge ${@};\
       fi;\
     };f"
 
