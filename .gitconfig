@@ -54,7 +54,7 @@
     dump = cat-file -p
     unstage = reset HEAD~
     refresh = fetch --prune
-    find = "!git ls-files | grep -i"
+    find = "!git ls-files | grep -i --color"
     me = !git config --get-regexp user
     # リモートブランチをローカルにチェックアウト
     cr = "!f () { git checkout -b ${1} origin/${1}; };f"
