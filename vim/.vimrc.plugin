@@ -21,6 +21,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'Shougo/unite.vim'
   " Uniteで関数一覧などのアウトラインを表示する
   NeoBundle 'Shougo/unite-outline'
+  " Unite で最近開いたファイルを見れる
+  NeoBundle 'Shougo/neomru.vim'
   " ifやdoを入力したら自動的にendを挿入してくれる
   NeoBundle 'tpope/vim-endwise'
   " vimでGitを扱う
@@ -102,9 +104,10 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 
-" 通常のUnite
+" Unite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
 
 " Ruby
 " Controller
