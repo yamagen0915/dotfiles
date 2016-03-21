@@ -180,10 +180,6 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 " 補完候補の共通部分のみを補完する
 inoremap <expr><C-l> neocomplete#complete_common_string()
 
-" タブで候補を選択できるように
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
 " Enterで候補を選択し、改行もされないようにする
 function! s:my_crinsert()
     return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
