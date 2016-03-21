@@ -216,7 +216,7 @@ endif
 " ==================================================
 
 nnoremap [fugitive] <Nop>
-nmap <Space>g [fugitive]
+nmap ff [fugitive]
 
 nnoremap <silent> [fugitive]df :Gdiff<CR>
 nnoremap <silent> [fugitive]ad :Gwrite<CR>
