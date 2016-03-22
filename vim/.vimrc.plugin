@@ -118,6 +118,8 @@ nnoremap <silent> [unite]mo :call UniteFileRec('/app/models')<CR>
 nnoremap <silent> [unite]vi :call UniteFileRec('/app/views')<CR>
 " Helper
 nnoremap <silent> [unite]he :call UniteFileRec('/app/helpers')<CR>
+" Decorator
+nnoremap <silent> [unite]de :call UniteFileRec('/app/decorators')<CR>
 " Css
 nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
 nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
