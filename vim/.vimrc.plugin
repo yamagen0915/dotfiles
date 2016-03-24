@@ -120,6 +120,10 @@ nnoremap <silent> [unite]vi :call UniteFileRec('/app/views')<CR>
 nnoremap <silent> [unite]he :call UniteFileRec('/app/helpers')<CR>
 " Decorator
 nnoremap <silent> [unite]de :call UniteFileRec('/app/decorators')<CR>
+" Validator
+nnoremap <silent> [unite]va :call UniteFileRec('/app/validators')<CR>
+" Factory
+nnoremap <silent> [unite]fa :call UniteFileRec('/app/factories')<CR>
 " Css
 nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
 nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
