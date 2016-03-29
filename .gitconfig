@@ -43,8 +43,8 @@
     st = status --branch --short
     gr = grep --line-number --show-function --color --heading --break
     fe = fetch
-    pl = pull
-    pr = pull --rebase
+    pl = pull origin HEAD
+    pr = pull --rebase origin HEAD
     ps = push origin HEAD
     df = diff --ignore-space-change
     dm = diff master
