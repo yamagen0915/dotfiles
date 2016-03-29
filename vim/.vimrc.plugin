@@ -107,7 +107,7 @@ let g:unite_winwidth = 40
 " Unite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -tab file_mru buffer<CR>
 
 " Ruby
 " Controller
