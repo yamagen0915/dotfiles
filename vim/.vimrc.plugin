@@ -124,6 +124,8 @@ nnoremap <silent> [unite]de :call UniteFileRec('/app/decorators')<CR>
 nnoremap <silent> [unite]va :call UniteFileRec('/app/validators')<CR>
 " Factory
 nnoremap <silent> [unite]fa :call UniteFileRec('/app/factories')<CR>
+" Form
+nnoremap <silent> [unite]fo :call UniteFileRec('/app/forms')<CR>
 " Css
 nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
 nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
