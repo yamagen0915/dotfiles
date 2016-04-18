@@ -79,24 +79,16 @@ function today(){
 }
 
 # =============================================================
-# ^rを拡張
+# Macにおいてデスクトップ通知を表示する
 # =============================================================
-if [ `which peco` ]; then
-  function peco-select-history() {
-      local tac
-      if which tac > /dev/null; then
-          tac="tac"
-      else
-          tac="tail -r"
-      fi
-      BUFFER=$(history -n 1 | \
-          eval $tac | \
-          peco --query "$LBUFFER")
-      CURSOR=$#BUFFER
-      zle clear-screen
-  }
-  zle -N peco-select-history
+function display_message () {
+  reattach-to-user-namespace osascript -e 'on run argv
+    display notification current date as text sound name "Purr" with title item 1 of argv
+  end run' -- "$*"
+}
 
-  bindkey '^r' peco-select-history
-fi
+function notify () {
+  "$@"
+  display_message "($?)" "$@"
+}
 
