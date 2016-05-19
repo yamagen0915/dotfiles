@@ -4,89 +4,84 @@ set nocompatible
 
 call dein#begin(expand('~/.vim/dein'))
 
-call dein#add('Shougo/dein.vim')
+  " dein自身をdeinで管理する
+  call dein#add('Shougo/dein.vim')
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  " Emmet
+  call dein#add('mattn/emmet-vim')
+  " 補完
+  call dein#add('Shougo/neocomplete.vim')
+  " スニペット
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  " ファイラー的な
+  call dein#add('Shougo/unite.vim')
+  " Uniteで関数一覧などのアウトラインを表示する
+  call dein#add('Shougo/unite-outline')
+  " Unite で最近開いたファイルを見れる
+  call dein#add('Shougo/neomru.vim')
+  " ifやdoを入力したら自動的にendを挿入してくれる
+  call dein#add('tpope/vim-endwise')
+  " vimでGitを扱う
+  call dein#add('tpope/vim-fugitive')
+  " Gitの変更を見やすくする
+  call dein#add('airblade/vim-gitgutter')
+  " :RTとかで対応するviewとかに移動できる
+  call dein#add('tpope/vim-rails')
+  " テキストを特定の文字で囲んだりする
+  call dein#add('tpope/vim-surround')
+  " trueとfalseをきりかえたり
+  call dein#add('AndrewRadev/switch.vim')
+  " 視覚的にreplaceできるやつ
+  call dein#add('osyo-manga/vim-over')
+  " 選択範囲を外側に広げて検索できる
+  call dein#add('terryma/vim-expand-region')
+  "行単位でdiffをみるためのプラグイン
+  call dein#add('AndrewRadev/linediff.vim')
+  " シンタックスエラーを見つけてくれるやつ
+  call dein#add('scrooloose/syntastic.git')
+  " 画面上の見えている範囲の移動を早くするためのプラグイン
+  call dein#add('Lokaltog/vim-easymotion')
+  " = の位置とかそろえられるやつ！
+  call dein#add('junegunn/vim-easy-align')
+  " fの検索機能を強化する
+  call dein#add('rhysd/clever-f.vim')
+  " ステータスラインをかっこよく
+  call dein#add('itchyny/lightline.vim')
+  " コーディングのログを収集してくれるサービス
+  call dein#add('wakatime/vim-wakatime')
 
-" You can specify revision/branch/tag.
-call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-" Emmet
-call dein#add('mattn/emmet-vim')
-" 補完
-call dein#add('Shougo/neocomplete.vim')
-" スニペット
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-" ファイラー的な
-call dein#add('Shougo/unite.vim')
-" Uniteで関数一覧などのアウトラインを表示する
-call dein#add('Shougo/unite-outline')
-" Unite で最近開いたファイルを見れる
-call dein#add('Shougo/neomru.vim')
-" ifやdoを入力したら自動的にendを挿入してくれる
-call dein#add('tpope/vim-endwise')
-" vimでGitを扱う
-call dein#add('tpope/vim-fugitive')
-" Gitの変更を見やすくする
-call dein#add('airblade/vim-gitgutter')
-" :RTとかで対応するviewとかに移動できる
-call dein#add('tpope/vim-rails')
-" テキストを特定の文字で囲んだりする
-call dein#add('tpope/vim-surround')
-" trueとfalseをきりかえたり
-call dein#add('AndrewRadev/switch.vim')
-" 視覚的にreplaceできるやつ
-call dein#add('osyo-manga/vim-over')
-" 選択範囲を外側に広げて検索できる
-call dein#add('terryma/vim-expand-region')
-"行単位でdiffをみるためのプラグイン
-call dein#add('AndrewRadev/linediff.vim')
-" シンタックスエラーを見つけてくれるやつ
-call dein#add('scrooloose/syntastic.git')
-" 画面上の見えている範囲の移動を早くするためのプラグイン
-call dein#add('Lokaltog/vim-easymotion')
-" = の位置とかそろえられるやつ！
-call dein#add('junegunn/vim-easy-align')
-" fの検索機能を強化する
-call dein#add('rhysd/clever-f.vim')
-" ステータスラインをかっこよく
-call dein#add('itchyny/lightline.vim')
-" コーディングのログを収集してくれるサービス
-call dein#add('wakatime/vim-wakatime')
+  call dein#add('Shougo/vimproc.vim')
 
-call dein#add('Shougo/vimproc.vim', {
-  \ 'build' : {
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ })
+  " ==================================================
+  " テキストオブジェクト
+  " ==================================================
+  " テキストオブジェクト系のプラグインが依存しているプラグイン
+  call dein#add('kana/vim-textobj-user')
+  " [ al, il ] カーソル行
+  call dein#add('kana/vim-textobj-line')
+  " [ ae, ie ] バッファ全体
+  call dein#add('kana/vim-textobj-entire')
+  " [ au, iu ] Url
+  call dein#add('mattn/vim-textobj-url')
+  " [ ac, ic ] コメント
+  call dein#add("thinca/vim-textobj-comment")
+  " [ a, , i, ] 引数
+  call dein#add("sgur/vim-textobj-parameter")
 
-" ==================================================
-" テキストオブジェクト
-" ==================================================
-" テキストオブジェクト系のプラグインが依存しているプラグイン
-call dein#add('kana/vim-textobj-user')
-" [ al, il ] カーソル行
-call dein#add('kana/vim-textobj-line')
-" [ ae, ie ] バッファ全体
-call dein#add('kana/vim-textobj-entire')
-" [ au, iu ] Url
-call dein#add('mattn/vim-textobj-url')
-" [ ac, ic ] コメント
-call dein#add("thinca/vim-textobj-comment")
-" [ a, , i, ] 引数
-call dein#add("sgur/vim-textobj-parameter")
-
-" ==================================================
-" シンタックスハイライト
-" ==================================================
-" Coffee
-call dein#add('kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}})
-" Scala
-call dein#add('derekwyatt/vim-scala')
-" React
-call dein#add('pangloss/vim-javascript')
-call dein#add('mxw/vim-jsx')
-" haml
-call dein#add('tpope/vim-haml')
+  " ==================================================
+  " シンタックスハイライト
+  " ==================================================
+  " Coffee
+  call dein#add('kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}})
+  " Scala
+  call dein#add('derekwyatt/vim-scala')
+  " React
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('mxw/vim-jsx')
+  " haml
+  call dein#add('tpope/vim-haml')
 
 call dein#end()
 
@@ -239,10 +234,6 @@ nnoremap <silent> [fugitive]cv :Gcommit -v<CR>
 nnoremap <silent> [fugitive]cam :Gcommit --amend<CR>
 nnoremap <silent> [fugitive]bl :Gblame<CR>
 nnoremap <silent> [fugitive]st :Gstatus<CR>
-
-" ==================================================
-" surround.vim
-" ==================================================
 
 " ==================================================
 " switch.vim
