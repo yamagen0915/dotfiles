@@ -1,7 +1,5 @@
 " シンタックスハイライトを有効にする
 syntax on
-" 魔法の設定
-set nocompatible
 " インサートモードでバックスペースを有効にする
 set backspace=indent,eol,start
 " 折り畳み文字を有効化

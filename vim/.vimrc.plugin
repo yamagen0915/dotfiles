@@ -1,96 +1,98 @@
+set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-if has("vim_starting")
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-endif
+set nocompatible
+
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/dein.vim')
+
+" You can specify revision/branch/tag.
+call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+" Emmet
+call dein#add('mattn/emmet-vim')
+" 補完
+call dein#add('Shougo/neocomplete.vim')
+" スニペット
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+" ファイラー的な
+call dein#add('Shougo/unite.vim')
+" Uniteで関数一覧などのアウトラインを表示する
+call dein#add('Shougo/unite-outline')
+" Unite で最近開いたファイルを見れる
+call dein#add('Shougo/neomru.vim')
+" ifやdoを入力したら自動的にendを挿入してくれる
+call dein#add('tpope/vim-endwise')
+" vimでGitを扱う
+call dein#add('tpope/vim-fugitive')
+" Gitの変更を見やすくする
+call dein#add('airblade/vim-gitgutter')
+" :RTとかで対応するviewとかに移動できる
+call dein#add('tpope/vim-rails')
+" テキストを特定の文字で囲んだりする
+call dein#add('tpope/vim-surround')
+" trueとfalseをきりかえたり
+call dein#add('AndrewRadev/switch.vim')
+" 視覚的にreplaceできるやつ
+call dein#add('osyo-manga/vim-over')
+" 選択範囲を外側に広げて検索できる
+call dein#add('terryma/vim-expand-region')
+"行単位でdiffをみるためのプラグイン
+call dein#add('AndrewRadev/linediff.vim')
+" シンタックスエラーを見つけてくれるやつ
+call dein#add('scrooloose/syntastic.git')
+" 画面上の見えている範囲の移動を早くするためのプラグイン
+call dein#add('Lokaltog/vim-easymotion')
+" = の位置とかそろえられるやつ！
+call dein#add('junegunn/vim-easy-align')
+" fの検索機能を強化する
+call dein#add('rhysd/clever-f.vim')
+" ステータスラインをかっこよく
+call dein#add('itchyny/lightline.vim')
+" コーディングのログを収集してくれるサービス
+call dein#add('wakatime/vim-wakatime')
+
+call dein#add('Shougo/vimproc.vim', {
+  \ 'build' : {
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ })
+
+" ==================================================
+" テキストオブジェクト
+" ==================================================
+" テキストオブジェクト系のプラグインが依存しているプラグイン
+call dein#add('kana/vim-textobj-user')
+" [ al, il ] カーソル行
+call dein#add('kana/vim-textobj-line')
+" [ ae, ie ] バッファ全体
+call dein#add('kana/vim-textobj-entire')
+" [ au, iu ] Url
+call dein#add('mattn/vim-textobj-url')
+" [ ac, ic ] コメント
+call dein#add("thinca/vim-textobj-comment")
+" [ a, , i, ] 引数
+call dein#add("sgur/vim-textobj-parameter")
+
+" ==================================================
+" シンタックスハイライト
+" ==================================================
+" Coffee
+call dein#add('kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}})
+" Scala
+call dein#add('derekwyatt/vim-scala')
+" React
+call dein#add('pangloss/vim-javascript')
+call dein#add('mxw/vim-jsx')
+" haml
+call dein#add('tpope/vim-haml')
+
+call dein#end()
 
 filetype plugin on
-filetype plugin indent on " required!
+filetype plugin indent on
 filetype indent on
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-  " NeoBundleをNeoBundle自体で管理する
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  " Emmet
-  NeoBundle 'mattn/emmet-vim'
-  " 補完
-  NeoBundle 'Shougo/neocomplete.vim'
-  " スニペット
-  NeoBundle 'Shougo/neosnippet'
-  NeoBundle 'Shougo/neosnippet-snippets'
-  " ファイラー的な
-  NeoBundle 'Shougo/unite.vim'
-  " Uniteで関数一覧などのアウトラインを表示する
-  NeoBundle 'Shougo/unite-outline'
-  " Unite で最近開いたファイルを見れる
-  NeoBundle 'Shougo/neomru.vim'
-  " ifやdoを入力したら自動的にendを挿入してくれる
-  NeoBundle 'tpope/vim-endwise'
-  " vimでGitを扱う
-  NeoBundle 'tpope/vim-fugitive'
-  " Gitの変更を見やすくする
-  NeoBundle 'airblade/vim-gitgutter'
-  " :RTとかで対応するviewとかに移動できる
-  NeoBundle 'tpope/vim-rails'
-  " テキストを特定の文字で囲んだりする
-  NeoBundle 'tpope/vim-surround'
-  " trueとfalseをきりかえたり
-  NeoBundle 'AndrewRadev/switch.vim'
-  " 視覚的にreplaceできるやつ
-  NeoBundle 'osyo-manga/vim-over'
-  " 選択範囲を外側に広げて検索できる
-  NeoBundle 'terryma/vim-expand-region'
-  "行単位でdiffをみるためのプラグイン
-  NeoBundle 'AndrewRadev/linediff.vim'
-  " シンタックスエラーを見つけてくれるやつ
-  NeoBundle 'scrooloose/syntastic.git'
-  " 画面上の見えている範囲の移動を早くするためのプラグイン
-  NeoBundle 'Lokaltog/vim-easymotion'
-  " = の位置とかそろえられるやつ！
-  NeoBundle 'junegunn/vim-easy-align'
-  " fの検索機能を強化する
-  NeoBundle 'rhysd/clever-f.vim'
-  " ステータスラインをかっこよく
-  NeoBundle 'itchyny/lightline.vim'
-  " コーディングのログを収集してくれるサービス
-  NeoBundle 'wakatime/vim-wakatime'
-
-  NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-    \ },
-  \ }
-
-  " ==================================================
-  " テキストオブジェクト
-  " ==================================================
-  " テキストオブジェクト系のプラグインが依存しているプラグイン
-  NeoBundle 'kana/vim-textobj-user'
-  " [ al, il ] カーソル行
-  NeoBundle 'kana/vim-textobj-line'
-  " [ ae, ie ] バッファ全体
-  NeoBundle 'kana/vim-textobj-entire'
-  " [ au, iu ] Url
-  NeoBundle 'mattn/vim-textobj-url'
-  " [ ac, ic ] コメント
-  NeoBundle "thinca/vim-textobj-comment"
-  " [ a, , i, ] 引数
-  NeoBundle "sgur/vim-textobj-parameter"
-
-  " ==================================================
-  " シンタックスハイライト
-  " ==================================================
-  " Coffee
-  NeoBundle 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
-  " Scala
-  NeoBundle 'derekwyatt/vim-scala'
-  " React
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'mxw/vim-jsx'
-  " haml
-  NeoBundle 'tpope/vim-haml'
-
-call neobundle#end()
 
 " ==================================================
 " Unite
