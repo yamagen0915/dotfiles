@@ -6,6 +6,8 @@ call dein#begin(expand('~/.vim/dein'))
 
   " dein自身をdeinで管理する
   call dein#add('Shougo/dein.vim')
+  " vim上でコマンドを実行できるようにするプラグイン
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
   " Emmet
@@ -51,8 +53,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('itchyny/lightline.vim')
   " コーディングのログを収集してくれるサービス
   call dein#add('wakatime/vim-wakatime')
-
-  call dein#add('Shougo/vimproc.vim')
 
   " ==================================================
   " テキストオブジェクト
