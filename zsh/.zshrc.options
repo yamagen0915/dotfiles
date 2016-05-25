@@ -53,7 +53,7 @@ setopt globdots
 # #の後をコメントとして扱う
 setopt interactive_comments
 # ctrl+wで､直前の/までを削除する｡
-wordchars='*?_-.[]~=&;!#$%^(){}<>'
+export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 #cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls; }
