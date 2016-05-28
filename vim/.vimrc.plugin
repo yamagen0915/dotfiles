@@ -59,15 +59,15 @@ call dein#begin(expand('~/.vim/dein'))
   " ==================================================
   " テキストオブジェクト系のプラグインが依存しているプラグイン
   call dein#add('kana/vim-textobj-user')
-  " [ al, il ] カーソル行
+  " [ l ] カーソル行
   call dein#add('kana/vim-textobj-line')
-  " [ ae, ie ] バッファ全体
+  " [ e ] バッファ全体
   call dein#add('kana/vim-textobj-entire')
-  " [ au, iu ] Url
+  " [ u ] Url
   call dein#add('mattn/vim-textobj-url')
-  " [ ac, ic ] コメント
+  " [ c ] コメント
   call dein#add("thinca/vim-textobj-comment")
-  " [ a, , i, ] 引数
+  " [ , ] 引数
   call dein#add("sgur/vim-textobj-parameter")
 
   " ==================================================
