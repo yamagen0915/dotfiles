@@ -56,7 +56,7 @@ setopt interactive_comments
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 #cdを打ったら自動的にlsを打ってくれる関数
-function chpwd(){ ls; }
+function chpwd(){ ls -A; }
 
 export TERM=xterm-256color
 
