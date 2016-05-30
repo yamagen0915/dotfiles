@@ -53,6 +53,8 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('itchyny/lightline.vim')
   " コーディングのログを収集してくれるサービス
   call dein#add('wakatime/vim-wakatime')
+  " jsonの表示がおかしいのを治す
+  call dein#add('elzr/vim-json')
 
   " ==================================================
   " テキストオブジェクト
@@ -392,3 +394,8 @@ endfunction
 " Emmet
 " ==================================================
 let g:user_emmet_expandabbr_key='<c-e>'
+
+" ==================================================
+" vim-json
+" ==================================================
+let g:vim_json_syntax_conceal = 0
