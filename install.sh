@@ -13,18 +13,6 @@ function main()
   for file in ${dotfiles[@]}; do
     install $file
   done
-
-  # NeoBundleのインストール
-  echo "------ intstall NeoBundle to ${HOME}/.vim/bundle/neobundle.vim ------"
-  if [ ! -d $HOME/.vim/bundle ]; then
-    mkdir -p ~/.vim/bundle
-  fi
-
-  if [ ! -d $HOME/.vim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-  else
-    echo '既にNeoBundleがインストールされています。'
-  fi
 }
 
 function install()
