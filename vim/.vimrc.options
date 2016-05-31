@@ -36,6 +36,8 @@ set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 " 常にタブラインを表示
 set showtabline=2
+" スクロールが始まるまでの残り行数を設定
+set scrolloff=10
 
 " ファイル保存時に行末の不要な空白を取り除く
 au BufWritePre * :%s/\s\+$//ge
