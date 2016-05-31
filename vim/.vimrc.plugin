@@ -250,6 +250,21 @@ inoremap [switch] :Switch<CR>
 nnoremap [switch] :Switch<CR>
 vnoremap [switch] :Switch<CR>
 
+autocmd FileType *  let b:switch_custom_definitions = [
+      \   ['true', 'false'],
+      \ ]
+
+autocmd FileType ruby,eruby,haml let b:switch_custom_definitions = [
+      \   ['if', 'unless'],
+      \   ['while', 'until'],
+      \   ['.blank?', '.present?'],
+      \   ['include', 'extend'],
+      \   ['class', 'module'],
+      \   ['.inject', '.delete_if'],
+      \   ['.map', '.map!'],
+      \   ['attr_accessor', 'attr_reader', 'attr_writer'],
+      \ ]
+
 " ==================================================
 " vim-over
 " ==================================================
