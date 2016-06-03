@@ -109,41 +109,24 @@ nnoremap <silent> [unite]fr :<C-u>UniteWithBufferDir -tab -buffer-name=files fil
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]fm :<C-u>Unite -tab file_mru buffer<CR>
 
-" Ruby
-" Controller
-nnoremap <silent> [unite]co :call UniteFileRec('/app/controllers')<CR>
-" Model
-nnoremap <silent> [unite]mo :call UniteFileRec('/app/models')<CR>
-" View
-nnoremap <silent> [unite]vi :call UniteFileRec('/app/views')<CR>
-" Helper
-nnoremap <silent> [unite]he :call UniteFileRec('/app/helpers')<CR>
-" Decorator
-nnoremap <silent> [unite]de :call UniteFileRec('/app/decorators')<CR>
-" Validator
-nnoremap <silent> [unite]va :call UniteFileRec('/app/validators')<CR>
-" Factory
-nnoremap <silent> [unite]fa :call UniteFileRec('/app/factories')<CR>
-" Form
-nnoremap <silent> [unite]fo :call UniteFileRec('/app/forms')<CR>
-" Service
-nnoremap <silent> [unite]se :call UniteFileRec('/app/services')<CR>
-" Css
-nnoremap <silent> [unite]cs :call UniteFileRec('/app/assets/stylesheets')<CR>
-nnoremap <silent> [unite]fc :call UniteFileRec('/app/frontend/stylesheets')<CR>
-" JavaScript
-nnoremap <silent> [unite]js :call UniteFileRec('/app/assets/javascripts')<CR>
-nnoremap <silent> [unite]fj :call UniteFileRec('/app/frontend/javascripts')<CR>
-" Config
-nnoremap <silent> [unite]cf :call UniteFileRec('/config')<CR>
-" Lib
-nnoremap <silent> [unite]li :call UniteFileRec('/lib')<CR>
-" Spec
-nnoremap <silent> [unite]sp :call UniteFileRec('/spec')<CR>
-" Db
-nnoremap <silent> [unite]db :call UniteFileRec('/db')<CR>
-" Test
-nnoremap <silent> [unite]tj :call UniteFileRec('/test/js/unit')<CR>
+nnoremap <silent> [unite]co :call UniteFileRec(b:rails_root.'/app/controllers')<CR>
+nnoremap <silent> [unite]mo :call UniteFileRec(b:rails_root.'/app/models')<CR>
+nnoremap <silent> [unite]vi :call UniteFileRec(b:rails_root.'/app/views')<CR>
+nnoremap <silent> [unite]he :call UniteFileRec(b:rails_root.'/app/helpers')<CR>
+nnoremap <silent> [unite]de :call UniteFileRec(b:rails_root.'/app/decorators')<CR>
+nnoremap <silent> [unite]va :call UniteFileRec(b:rails_root.'/app/validators')<CR>
+nnoremap <silent> [unite]fa :call UniteFileRec(b:rails_root.'/app/factories')<CR>
+nnoremap <silent> [unite]fo :call UniteFileRec(b:rails_root.'/app/forms')<CR>
+nnoremap <silent> [unite]se :call UniteFileRec(b:rails_root.'/app/services')<CR>
+nnoremap <silent> [unite]cs :call UniteFileRec(b:rails_root.'/app/assets/stylesheets')<CR>
+nnoremap <silent> [unite]fc :call UniteFileRec(b:rails_root.'/app/frontend/stylesheets')<CR>
+nnoremap <silent> [unite]js :call UniteFileRec(b:rails_root.'/app/assets/javascripts')<CR>
+nnoremap <silent> [unite]fj :call UniteFileRec(b:rails_root.'/app/frontend/javascripts')<CR>
+nnoremap <silent> [unite]cf :call UniteFileRec(b:rails_root.'/config')<CR>
+nnoremap <silent> [unite]li :call UniteFileRec(b:rails_root.'/lib')<CR>
+nnoremap <silent> [unite]sp :call UniteFileRec(b:rails_root.'/spec')<CR>
+nnoremap <silent> [unite]db :call UniteFileRec(b:rails_root.'/db')<CR>
+nnoremap <silent> [unite]tj :call UniteFileRec(b:rails_root.'/test/js/unit')<CR>
 
 " Grep
 nnoremap <silent> [unite]g :<C-u>Unite -tab grep -buffer-name=grep<CR>
@@ -154,7 +137,7 @@ if executable('ag')
 endif
 
 function! UniteFileRec(path)
-  call unite#start#standard([[ 'file_rec/async', b:rails_root.a:path ]], {"tab": 1})
+  call unite#start#standard([[ 'file_rec/async', a:path ]], {"tab": 1})
 endfunction
 
 " ==================================================
