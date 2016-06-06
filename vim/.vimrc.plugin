@@ -102,6 +102,7 @@ nmap <space>u [unite]
 let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
+let g:unite_cursor_line_highlight = 7
 
 " Unite
 nnoremap <silent> [unite]ff :<C-u>UniteWithBufferDir -tab -buffer-name=files file<CR>
@@ -254,18 +255,11 @@ augroup END
 
 nnoremap [over] <Nop>
 nmap <Space>s [over]
+vmap <Space>s [over]
 
 nnoremap <silent> [over]s :OverCommandLine<CR>s/
+vnoremap <silent> [over]s :OverCommandLine<CR>s/
 nnoremap <silent> [over]% :OverCommandLine<CR>%s/
-nnoremap <silent> [over]1 :OverCommandLine<CR>1
-nnoremap <silent> [over]2 :OverCommandLine<CR>2
-nnoremap <silent> [over]3 :OverCommandLine<CR>3
-nnoremap <silent> [over]4 :OverCommandLine<CR>4
-nnoremap <silent> [over]5 :OverCommandLine<CR>5
-nnoremap <silent> [over]6 :OverCommandLine<CR>6
-nnoremap <silent> [over]7 :OverCommandLine<CR>7
-nnoremap <silent> [over]8 :OverCommandLine<CR>8
-nnoremap <silent> [over]9 :OverCommandLine<CR>9
 
 " ==================================================
 " vim-rails
