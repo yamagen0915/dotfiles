@@ -1,9 +1,8 @@
 
-alias vi="vim"
-alias view=vim -R
+alias vi='vim'
+alias view='vim -R'
 alias g="git"
 alias pd='popd'
-alias his='history'
 alias reload='source ~/.zshrc'
 
 alias la='ls -A'
