@@ -2,19 +2,16 @@
 autoload colors
 colors
 
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-# ../ の後は今いるディレクトリを補完しない
-zstyle ':completion:*' ignore-parents parent pwd ..
-# 補完にもLS_COLORS の設定を反映する
-if [ -n "$LS_COLORS" ]; then
-  zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
-fi
-# sudo の後ろでコマンド名を補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/x11r6/bin
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+# 色の設定
+export TERM=xterm-256color
+
+# ctrl+wで､直前の/までを削除する｡
+export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
+
+# ヒストリーの設定
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
 
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
@@ -52,18 +49,9 @@ setopt auto_param_slash
 setopt globdots
 # #の後をコメントとして扱う
 setopt interactive_comments
-# ctrl+wで､直前の/までを削除する｡
-export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 #cdを打ったら自動的にlsを打ってくれる関数
 function chpwd(){ ls -GF; }
-
-export TERM=xterm-256color
-
-# ヒストリーの設定
-export HISTFILE=~/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=100000
 
 # VCSの情報を取得するzshの便利関数 vcs_infoを使う
 autoload -Uz vcs_info
@@ -91,6 +79,20 @@ show_buffer_stack() {
   zle push-line-or-edit
 }
 zle -N show_buffer_stack
+
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# ../ の後は今いるディレクトリを補完しない
+zstyle ':completion:*' ignore-parents parent pwd ..
+# 補完にもLS_COLORS の設定を反映する
+if [ -n "$LS_COLORS" ]; then
+  zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
+fi
+# sudo の後ろでコマンド名を補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                   /usr/sbin /usr/bin /sbin /bin /usr/x11r6/bin
+# ps コマンドのプロセス名補完
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 # =============================================================
 # ^rを拡張
