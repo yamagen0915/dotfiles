@@ -385,6 +385,3 @@ let g:vim_json_syntax_conceal = 0
 let g:clever_f_smart_case = 1
 " 現在行のみを検索対象に
 let g:clever_f_across_no_line = 1
-
-nnoremap ff F
-vnoremap ff F
