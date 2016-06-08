@@ -104,45 +104,30 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 let g:unite_cursor_line_highlight = 7
 
-" デフォルトでtabで開くように
-call unite#custom#default_action('file', 'tabopen')
-
-" Unite
-nnoremap <silent> [unite]ff :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]fr :<C-u>UniteWithBufferDir -buffer-name=files file_rec<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]fm :<C-u>Unite file_mru buffer<CR>
-
-nnoremap <silent> [unite]co :call UniteFileRec(b:rails_root.'/app/controllers')<CR>
-nnoremap <silent> [unite]mo :call UniteFileRec(b:rails_root.'/app/models')<CR>
-nnoremap <silent> [unite]vi :call UniteFileRec(b:rails_root.'/app/views')<CR>
-nnoremap <silent> [unite]he :call UniteFileRec(b:rails_root.'/app/helpers')<CR>
-nnoremap <silent> [unite]de :call UniteFileRec(b:rails_root.'/app/decorators')<CR>
-nnoremap <silent> [unite]va :call UniteFileRec(b:rails_root.'/app/validators')<CR>
-nnoremap <silent> [unite]fa :call UniteFileRec(b:rails_root.'/app/factories')<CR>
-nnoremap <silent> [unite]fo :call UniteFileRec(b:rails_root.'/app/forms')<CR>
-nnoremap <silent> [unite]se :call UniteFileRec(b:rails_root.'/app/services')<CR>
-nnoremap <silent> [unite]cs :call UniteFileRec(b:rails_root.'/app/assets/stylesheets')<CR>
-nnoremap <silent> [unite]fc :call UniteFileRec(b:rails_root.'/app/frontend/stylesheets')<CR>
-nnoremap <silent> [unite]js :call UniteFileRec(b:rails_root.'/app/assets/javascripts')<CR>
-nnoremap <silent> [unite]fj :call UniteFileRec(b:rails_root.'/app/frontend/javascripts')<CR>
-nnoremap <silent> [unite]cf :call UniteFileRec(b:rails_root.'/config')<CR>
-nnoremap <silent> [unite]li :call UniteFileRec(b:rails_root.'/lib')<CR>
-nnoremap <silent> [unite]sp :call UniteFileRec(b:rails_root.'/spec')<CR>
-nnoremap <silent> [unite]db :call UniteFileRec(b:rails_root.'/db')<CR>
-nnoremap <silent> [unite]tj :call UniteFileRec(b:rails_root.'/test/js/unit')<CR>
-
 " Grep
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=grep<CR>
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
 endif
 
-function! UniteFileRec(path)
-  call unite#start#standard([['file_rec/async', a:path]])
-endfunction
+" デフォルトでtabで開くように
+call unite#custom#default_action('file', 'tabopen')
+call unite#custom#default_action('directory', 'rec/async')
+
+" 画像ファイルを検索対象から外す
+let s:unite_ignore_patterns='\.\(gif\|jpe\?g\|png\|webp\|woff\|psd\|ico\|DS_Store\)$'
+call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignore_patterns)
+call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
+
+" Unite
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
+
+nnoremap <silent> [unite]ra :call unite#start#standard([['file', b:rails_root.'/app']])<CR>
+nnoremap <silent> [unite]rr :call unite#start#standard([['file', b:rails_root]])<CR>
+
 
 " ==================================================
 " neocomplete
