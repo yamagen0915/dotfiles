@@ -98,18 +98,6 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
-
-" ==================================================
-" デバッグコードを挿入
-" ==================================================
-function! InsertBrake()
-  :let line = line('.') - 1
-  :call append(line, 'binding.pry')
-  :call setpos('.', line)
-endfunction
-
-nnoremap <silent> ,b :call InsertBrake()<CR>k
-
 " ==================================================
 " 数字を選択し、自動的にインクリメントする
 " ==================================================
