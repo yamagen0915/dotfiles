@@ -122,11 +122,9 @@ call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patter
 
 " Unite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]p :<C-u>UniteWithProjectDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
-
-nnoremap <silent> [unite]ra :call unite#start#standard([['file', b:rails_root.'/app']])<CR>
-nnoremap <silent> [unite]rr :call unite#start#standard([['file', b:rails_root]])<CR>
 
 
 " ==================================================
