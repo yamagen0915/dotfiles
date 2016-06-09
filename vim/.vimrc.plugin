@@ -152,11 +152,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
-" ファイルタイプ毎の補完のディクショナリを指定
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
 " 補完をキャンセルし元に戻す
 inoremap <expr><C-g> neocomplete#undo_completion()
 
