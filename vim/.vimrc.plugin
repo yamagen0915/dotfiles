@@ -16,6 +16,7 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('Shougo/neocomplete.vim')
   " スニペット
   call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
   " ファイラー的な
   call dein#add('Shougo/unite.vim')
   " Uniteで関数一覧などのアウトラインを表示する
@@ -176,7 +177,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " neosnippet
 " ==================================================
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/dotfiles/vim/snippets/'
 
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
