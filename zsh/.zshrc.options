@@ -109,7 +109,6 @@ if [ `which peco` ]; then
           eval $tac | \
           peco --query "$LBUFFER")
       CURSOR=$#BUFFER
-      zle clear-screen
   }
   zle -N peco-select-history
 
