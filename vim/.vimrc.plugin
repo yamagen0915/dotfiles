@@ -22,6 +22,8 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('Shougo/unite.vim')
   " Uniteで関数一覧などのアウトラインを表示する
   call dein#add('Shougo/unite-outline')
+  " Unite からgitを利用できるように
+  call dein#add('kmnk/vim-unite-giti.git')
   " Unite で最近開いたファイルを見れる
   call dein#add('Shougo/neomru.vim')
   " ifやdoを入力したら自動的にendを挿入してくれる
