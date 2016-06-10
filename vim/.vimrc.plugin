@@ -17,6 +17,7 @@ call dein#begin(expand('~/.vim/dein'))
   " スニペット
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('honza/vim-snippets')
   " ファイラー的な
   call dein#add('Shougo/unite.vim')
   " Uniteで関数一覧などのアウトラインを表示する
@@ -172,7 +173,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " ==================================================
 " neosnippet
 " ==================================================
-" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
 
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
