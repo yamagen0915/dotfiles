@@ -113,6 +113,8 @@ endif
 " デフォルトでtabで開くように
 call unite#custom#default_action('file', 'tabopen')
 call unite#custom#default_action('directory', 'rec/async')
+" ドットファイルが表示されるように
+call unite#custom#source('file', 'matchers', "matcher_default")
 
 " 画像ファイルを検索対象から外す
 let s:unite_ignore_extensions = join(['gif', 'jpg', 'jpeg', 'png', 'webp', 'woff', 'svg', 'psd', 'ico', 'DS_Store', 'keep'],'\|')
