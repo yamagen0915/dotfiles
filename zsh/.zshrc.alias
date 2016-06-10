@@ -10,7 +10,12 @@ alias ll='ls -la'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
-alias grep='grep -n --color'
+
+if [[ -x `whence -p ag` ]]; then
+  alias grep='ag --hidden'
+else
+  alias grep='grep -n --color'
+fi
 
 alias ...='cd ../../'
 alias ....='cd ../../../'
