@@ -128,10 +128,14 @@ nnoremap <silent> [unite]p :<C-u>UniteWithProjectDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
 
-autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
-autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
-autocmd FileType unite inoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
-autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
+augroup UniteSelectAction
+  autocmd!
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
+augroup END
+
 
 " ==================================================
 " neocomplete
