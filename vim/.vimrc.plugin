@@ -116,7 +116,8 @@ call unite#custom#default_action('file', 'tabopen')
 call unite#custom#default_action('directory', 'rec/async')
 
 " 画像ファイルを検索対象から外す
-let s:unite_ignore_patterns='\.\(gif\|jpe\?g\|png\|webp\|woff\|psd\|ico\|DS_Store\)$'
+let s:unite_ignore_extensions = join(['gif', 'jpg', 'jpeg', 'png', 'webp', 'woff', 'svg', 'psd', 'ico', 'DS_Store', 'keep'],'\|')
+let s:unite_ignore_patterns='\.\('.s:unite_ignore_extensions.'\)$'
 call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignore_patterns)
 call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
 
