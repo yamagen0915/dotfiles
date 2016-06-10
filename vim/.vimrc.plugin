@@ -225,6 +225,7 @@ nnoremap [switch] :Switch<CR>
 vnoremap [switch] :Switch<CR>
 
 augroup SwitchConfig
+  autocmd!
   autocmd FileType *  let b:switch_custom_definitions = [
         \   ['true', 'false'],
         \ ]

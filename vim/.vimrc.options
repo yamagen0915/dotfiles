@@ -41,6 +41,7 @@ set scrolloff=10
 
 " ファイル保存時に行末の不要な空白を取り除く
 augroup DeleteTailSpace
+  autocmd!
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
 
@@ -48,6 +49,7 @@ augroup END
 " ファイル識別設定
 " ==================================================
 augroup SetFileType
+  autocmd!
   autocmd BufRead,BufNewFile *.coffee set filetype=javascript syntax=javascript
   autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
   autocmd BufRead,BufNewFile *.haml set filetype=haml syntax=haml
