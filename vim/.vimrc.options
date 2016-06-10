@@ -38,6 +38,8 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 set showtabline=2
 " スクロールが始まるまでの残り行数を設定
 set scrolloff=10
+" swapファイルを作成しない
+set noswapfile
 
 " ファイル保存時に行末の不要な空白を取り除く
 augroup DeleteTailSpace
