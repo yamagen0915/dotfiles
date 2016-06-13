@@ -118,7 +118,7 @@ endif
 " ファイルはデフォルトでtabで開くように
 call unite#custom#default_action('file', 'tabopen')
 " ディレクトリはデフォルトで再帰的にファイルを表示するように
-call unite#custom#default_action('directory', 'rec/async')
+call unite#custom#default_action('directory', 'file')
 " ドットファイルが表示されるように
 call unite#custom#source('file', 'matchers', "matcher_default")
 
@@ -136,8 +136,8 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
 
 augroup UniteSelectAction
   autocmd!
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('file')
+  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('rec/async')
+  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('rec/async')
   autocmd FileType unite inoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
   autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
 augroup END
