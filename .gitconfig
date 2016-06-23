@@ -2,84 +2,84 @@
   path=~/.gitconfig.local
 
 [core]
-    # Windows, Linux, Mac の間で改行コードを変換してくれる。
-    # autocrlf = input
-    # 改行コードについて非可逆的なコミットは拒否する。
-    # こちらを参照: http://d.hatena.ne.jp/couichi/20110207/1297101115
-    safecrlf = true
-    editor = vim
+  # Windows, Linux, Mac の間で改行コードを変換してくれる。
+  # autocrlf = input
+  # 改行コードについて非可逆的なコミットは拒否する。
+  # こちらを参照: http://d.hatena.ne.jp/couichi/20110207/1297101115
+  safecrlf = true
+  editor = vim
 
 [color]
-    ui = auto
+  ui = auto
 
 [i18n]
-    commitencoding = utf-8
+  commitencoding = utf-8
 
 [merge]
-    ff = false
-    tool = extMerge
+  ff = false
+  tool = extMerge
 
 [mergetool "extMerge"]
-    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGE"
-    trustExitCode = false
+  cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGE"
+  trustExitCode = false
 
 [tig "bind"]
-    generic = g move-first-line
-    generic = G move-last-line
+  generic = g move-first-line
+  generic = G move-last-line
 
 [push]
-    default = simple
+  default = simple
 
 [alias]
-    alias = !git config --get-regexp alias
-    ad = add
-    ci = commit
-    cm = commit -m
-    cv = commit -v
-    cam = commit --amend
-    ref = reflog
-    sh = show
-    br = branch
-    st = status --branch --short
-    gr = grep --line-number --show-function --color --heading --break
-    fe = fetch
-    pl = pull origin HEAD
-    pr = pull --rebase origin HEAD
-    ps = push origin HEAD
-    df = diff --ignore-space-change
-    dm = diff master
-    hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
-    hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-    type = cat-file -t
-    dump = cat-file -p
-    cancel = reset HEAD~
-    refresh = fetch --prune
-    find = "!git ls-files | grep -i --color"
-    me = !git config --get-regexp user
-    # リモートブランチをローカルにチェックアウト
-    cr = "!f () { git checkout -b ${1} origin/${1}; };f"
-    # cherry-pick
-    cp = "!f () {\
-      if [ $# -eq 0 -a `which peco` ]; then\
-        git log --branches --oneline | peco --prompt 'cherry-pick\\> ' | awk '{print $1}' | xargs git cherry-pick;\
-      elif [ $# -ge 1 ]; then\
-        git cherry-pick ${@};\
-      fi;\
-    };f"
-    # checkout
-    co = "!f () {\
-      if [ $# -eq 0 -a `which peco` ]; then\
-        git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
-      elif [ $# -ge 1 ]; then\
-        git checkout ${@};\
-      fi;\
-    };f"
-    # merge
-    mb = "!f () {\
-      if [ $# -eq 0 -a `which peco` ]; then\
-        git branch | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'merge\\> ' | tr -d ' \\*' | xargs -n 1 git merge;\
-      elif [ $# -ge 1 ]; then\
-        git merge ${@};\
-      fi;\
-    };f"
+  alias = !git config --get-regexp alias
+  ad = add
+  ci = commit
+  cm = commit -m
+  cv = commit -v
+  cam = commit --amend
+  ref = reflog
+  sh = show
+  br = branch
+  st = status --branch --short
+  gr = grep --line-number --show-function --color --heading --break
+  fe = fetch
+  pl = pull origin HEAD
+  pr = pull --rebase origin HEAD
+  ps = push origin HEAD
+  df = diff --ignore-space-change
+  dm = diff master
+  hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
+  hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
+  type = cat-file -t
+  dump = cat-file -p
+  cancel = reset HEAD~
+  refresh = fetch --prune
+  find = "!git ls-files | grep -i --color"
+  me = !git config --get-regexp user
+  # リモートブランチをローカルにチェックアウト
+  cr = "!f () { git checkout -b ${1} origin/${1}; };f"
+  # cherry-pick
+  cp = "!f () {\
+    if [ $# -eq 0 -a `which peco` ]; then\
+      git log --branches --oneline | peco --prompt 'cherry-pick\\> ' | awk '{print $1}' | xargs git cherry-pick;\
+    elif [ $# -ge 1 ]; then\
+      git cherry-pick ${@};\
+    fi;\
+  };f"
+  # checkout
+  co = "!f () {\
+    if [ $# -eq 0 -a `which peco` ]; then\
+      git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
+    elif [ $# -ge 1 ]; then\
+      git checkout ${@};\
+    fi;\
+  };f"
+  # merge
+  mb = "!f () {\
+    if [ $# -eq 0 -a `which peco` ]; then\
+      git branch | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'merge\\> ' | tr -d ' \\*' | xargs -n 1 git merge;\
+    elif [ $# -ge 1 ]; then\
+      git merge ${@};\
+    fi;\
+  };f"
 
