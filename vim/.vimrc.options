@@ -7,7 +7,7 @@ set foldmethod=marker
 " インデント
 set autoindent
 set expandtab
-set tabstop=2 shiftwidth=2
+set tabstop=2 shiftwidth=2 softtabstop=2
 " 行数表示
 set number
 " 行の端までいっても折り返さない
