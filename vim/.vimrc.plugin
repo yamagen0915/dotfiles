@@ -227,8 +227,12 @@ nnoremap <silent> [fugitive]st :Gstatus<CR>
 
 nnoremap [github] <Nop>
 nmap <Space>g [github]
-
 nnoremap <silent> [github]g :OpenGithubFile<CR>
+
+vnoremap [github] <Nop>
+vmap <Space>g [github]
+
+vnoremap <silent> [github]g :OpenGithubFile<CR>
 
 " ==================================================
 " switch.vim
