@@ -58,6 +58,9 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('wakatime/vim-wakatime')
   " jsonの表示がおかしいのを治す
   call dein#add('elzr/vim-json')
+  " 編集しているファイルをGitHubで開く
+  call dein#add('tyru/open-browser.vim')
+  call dein#add('tyru/open-browser-github.vim')
 
   " ==================================================
   " テキストオブジェクト
@@ -217,6 +220,15 @@ nnoremap <silent> [fugitive]cv :Gcommit -v<CR>
 nnoremap <silent> [fugitive]cam :Gcommit --amend<CR>
 nnoremap <silent> [fugitive]bl :Gblame<CR>
 nnoremap <silent> [fugitive]st :Gstatus<CR>
+
+" ==================================================
+" open-browser-github
+" ==================================================
+
+nnoremap [github] <Nop>
+nmap <Space>g [github]
+
+nnoremap <silent> [github]g :OpenGithubFile<CR>
 
 " ==================================================
 " switch.vim
