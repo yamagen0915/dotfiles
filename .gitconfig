@@ -43,7 +43,7 @@
   pl = pull origin HEAD
   pr = pull --rebase origin HEAD
   ps = push origin HEAD
-  df = diff --ignore-space-change
+  df = diff
   dm = diff master
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
