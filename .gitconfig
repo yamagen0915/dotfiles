@@ -13,7 +13,6 @@
   commitencoding = utf-8
 
 [merge]
-  ff = false
   tool = extMerge
 
 [mergetool "extMerge"]
