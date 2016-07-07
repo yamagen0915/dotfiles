@@ -4,7 +4,7 @@ dotfiles=(
   'zsh/.zshrc'
   'bash/.bashrc'
   '.gitconfig'
-  '.tmux.conf'
+  'tmux/.tmux.conf'
 )
 
 function main()
