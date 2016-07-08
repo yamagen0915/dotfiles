@@ -3,7 +3,7 @@ dotfiles=(
   'vim/.vimrc'
   'zsh/.zshrc'
   'bash/.bashrc'
-  '.gitconfig'
+  'git/.gitconfig'
   'tmux/.tmux.conf'
 )
 
