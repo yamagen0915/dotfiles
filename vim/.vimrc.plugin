@@ -211,27 +211,23 @@ endif
 " vim-fugitive
 " ==================================================
 
-nnoremap [fugitive] <Nop>
-nmap <Space>g [fugitive]
+nnoremap [git] <Nop>
+vnoremap [git] <Nop>
+nmap <Space>g [git]
+vmap <Space>g [git]
 
-nnoremap <silent> [fugitive]df :Gdiff<CR>
-nnoremap <silent> [fugitive]ad :Gwrite<CR>
-nnoremap <silent> [fugitive]cv :Gcommit -v<CR>
-nnoremap <silent> [fugitive]cam :Gcommit --amend<CR>
-nnoremap <silent> [fugitive]bl :Gblame<CR>
-nnoremap <silent> [fugitive]st :Gstatus<CR>
+nnoremap <silent> [git]df :Gdiff<CR>
+nnoremap <silent> [git]ad :Gwrite<CR>
+nnoremap <silent> [git]cv :Gcommit -v<CR>
+nnoremap <silent> [git]cam :Gcommit --amend<CR>
+nnoremap <silent> [git]bl :Gblame<CR>
+nnoremap <silent> [git]st :Gstatus<CR>
 
 " ==================================================
 " open-browser-github
 " ==================================================
 
-nnoremap [github] <Nop>
-nmap <Space>g [github]
-nnoremap <silent> [github]g :OpenGithubFile<CR>
-
-vnoremap [github] <Nop>
-vmap <Space>g [github]
-
+nnoremap <silent> [git]g :OpenGithubFile<CR>
 vnoremap <silent> [github]g :OpenGithubFile<CR>
 
 " ==================================================
