@@ -12,13 +12,6 @@
 [i18n]
   commitencoding = utf-8
 
-[merge]
-  tool = extMerge
-
-[mergetool "extMerge"]
-  cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGE"
-  trustExitCode = false
-
 [tig "bind"]
   generic = g move-first-line
   generic = G move-last-line
