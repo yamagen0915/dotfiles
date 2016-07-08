@@ -1,4 +1,4 @@
 
 alias ls='ls --color=auto -F'
 
-eval $(dircolors $HOME/dotfiles/dircolors.ansi-light)
+eval $(dircolors $HOME/dotfiles/zsh/linux/dircolors.ansi-light)
