@@ -2,4 +2,5 @@ snippet print
   print ${0}, "\n";
 
 snippet dump
-  use Data::Dumper; print Dumper ${0};
+  use Data::Dumper;
+  warn Dumper ${0};
