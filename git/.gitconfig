@@ -12,10 +12,6 @@
 [i18n]
   commitencoding = utf-8
 
-[tig "bind"]
-  generic = g move-first-line
-  generic = G move-last-line
-
 [push]
   default = simple
 
