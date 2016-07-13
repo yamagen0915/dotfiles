@@ -111,13 +111,6 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 let g:unite_cursor_line_highlight = 7
 
-" Grep
-nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=grep<CR>
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-endif
-
 " ファイルはデフォルトでtabで開くように
 call unite#custom#default_action('file', 'tabopen')
 " ディレクトリはデフォルトで再帰的にファイルを表示するように
@@ -136,6 +129,14 @@ nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]p :<C-u>UniteWithProjectDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+
+" Grep
+nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=grep<CR>
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+endif
 
 augroup UniteSelectAction
   autocmd!
