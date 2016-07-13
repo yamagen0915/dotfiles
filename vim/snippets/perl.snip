@@ -2,9 +2,13 @@ snippet print
   print ${0}, "\n";
 
 snippet dump
-  warn Dumper ${0};
-
-snippet dumpu
   use Data::Dumper;
   warn Dumper ${0};
 
+snippet umouse
+  use Mouse;
+
+  ${0}
+
+  no Mouse;
+  __PACKAGE__->meta->make_immutable;
