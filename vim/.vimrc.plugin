@@ -229,7 +229,7 @@ nnoremap <silent> [git]st :Gstatus<CR>
 " ==================================================
 
 nnoremap <silent> [git]g :OpenGithubFile<CR>
-vnoremap <silent> [github]g :OpenGithubFile<CR>
+vnoremap <silent> [git]g :OpenGithubFile<CR>
 
 " ==================================================
 " switch.vim
