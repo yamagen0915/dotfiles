@@ -20,8 +20,6 @@ setopt hist_save_nodups
 setopt hist_ignore_space
 # ヒストリに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
-# 同時に起動したzshの間でヒストリを共有する
-setopt share_history
 
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
