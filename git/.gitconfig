@@ -28,8 +28,7 @@
   st = status --branch --short
   gr = grep --line-number --show-function --color --heading --break
   fe = fetch
-  pl = pull origin HEAD
-  pr = pull --rebase origin HEAD
+  pr = pull --prune origin HEAD
   ps = push origin HEAD
   df = diff
   dm = diff master
