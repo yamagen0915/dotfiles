@@ -131,7 +131,9 @@ let s:unite_ignores = join([
     \  '\.ico',
     \  '\.DS_Store',
     \  '\.keep',
-    \  'extlib\/'
+    \  'extlib$',
+    \  'extlibs$',
+    \  'blib$',
   \  ],'\|')
 call unite#custom#source('file', 'ignore_pattern', s:unite_ignores)
 call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignores)
