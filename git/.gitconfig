@@ -66,6 +66,14 @@
       git merge ${@};\
     fi;\
   };f"
+  # rebase
+  rb = "!f () {\
+    if [ $# -eq 0 -a `which peco` ]; then\
+      git branch | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'rebase\\> ' | tr -d ' \\*' | xargs -n 1 git rebase;\
+    elif [ $# -ge 1 ]; then\
+      git rebase ${@};\
+    fi;\
+  };f"
 
 [include]
   path=~/.gitconfig.local
