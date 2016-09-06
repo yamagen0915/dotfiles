@@ -41,6 +41,8 @@ set scrolloff=10
 " swapファイルを作成しない
 set noswapfile
 
+set iskeyword +=-
+
 " ファイル保存時に行末の不要な空白を取り除く
 augroup DeleteTailSpace
   autocmd!
