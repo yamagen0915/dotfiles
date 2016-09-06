@@ -119,10 +119,23 @@ call unite#custom#default_action('directory', 'file')
 call unite#custom#source('file', 'matchers', "matcher_default")
 
 " 画像ファイルを検索対象から外す
-let s:unite_ignore_extensions = join(['gif', 'jpg', 'jpeg', 'png', 'webp', 'woff', 'svg', 'psd', 'ico', 'DS_Store', 'keep'],'\|')
-let s:unite_ignore_patterns='\.\('.s:unite_ignore_extensions.'\)$'
-call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignore_patterns)
-call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignore_patterns)
+let s:unite_ignores = join([
+    \  '\.gif',
+    \  '\.jpg',
+    \  '\.jpeg',
+    \  '\.png',
+    \  '\.webp',
+    \  '\.woff',
+    \  '\.svg',
+    \  '\.psd',
+    \  '\.ico',
+    \  '\.DS_Store',
+    \  '\.keep',
+    \  'extlib\/'
+  \  ],'\|')
+call unite#custom#source('file', 'ignore_pattern', s:unite_ignores)
+call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignores)
+call unite#custom#source('file_rec/git', 'ignore_pattern', s:unite_ignores)
 
 " Unite
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
