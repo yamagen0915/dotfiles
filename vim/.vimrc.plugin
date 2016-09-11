@@ -261,16 +261,21 @@ vnoremap [switch] :Switch<CR>
 augroup SwitchConfig
   autocmd!
   autocmd FileType *  let b:switch_custom_definitions = [
-        \   ['true', 'false'],
-        \ ]
+    \   ['true', 'false'],
+    \ ]
 
+  " Ruby
   autocmd FileType ruby,eruby,haml let b:switch_custom_definitions = [
-        \   ['if', 'unless'],
-        \   ['.blank?', '.present?'],
-        \   ['include', 'extend'],
-        \   ['class', 'module'],
-        \   ['attr_accessor', 'attr_reader', 'attr_writer'],
-        \ ]
+    \   ['if', 'unless'],
+    \   ['.blank?', '.present?'],
+    \   ['include', 'extend'],
+    \   ['class', 'module'],
+    \   ['attr_accessor', 'attr_reader', 'attr_writer'],
+    \ ]
+
+  autocmd FileType perl let b:switch_custom_definitions = [
+    \   ['if', 'unless'],
+    \ ]
 augroup END
 
 
