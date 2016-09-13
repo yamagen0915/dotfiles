@@ -44,6 +44,7 @@ set noswapfile
 augroup SetIsKeyword
   autocmd!
   autocmd BufRead,BufNewFile *.html setlocal iskeyword +=-
+  autocmd BufRead,BufNewFile *.tt setlocal iskeyword +=-
   autocmd BufRead,BufNewFile *.css  setlocal iskeyword +=-
   autocmd BufRead,BufNewFile *.js   setlocal iskeyword +=-
 augroup END
