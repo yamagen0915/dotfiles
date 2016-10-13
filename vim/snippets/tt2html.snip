@@ -1,0 +1,13 @@
+snippet ife
+  [% IF ${1} %]
+    ${0}
+  [% ELSE %]
+    ${2}
+  [% END %]
+snippet ifi
+  [% IF ${1} %]${0}[% END %]
+
+snippet fore
+  [% FOREACH ${2} IN ${1} %]
+    ${1}
+  [% END %]
