@@ -40,8 +40,6 @@ set showtabline=2
 set scrolloff=10
 " swapファイルを作成しない
 set noswapfile
-" 最後まで検索しても先頭に戻らないように
-set nowrapscan
 
 augroup SetIsKeyword
   autocmd!
