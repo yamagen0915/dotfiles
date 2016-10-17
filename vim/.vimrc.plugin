@@ -272,6 +272,7 @@ augroup SwitchConfig
 
   autocmd FileType perl let b:switch_custom_definitions = [
     \   ['if', 'unless'],
+    \   ['eq', 'ne'],
     \ ]
 augroup END
 
