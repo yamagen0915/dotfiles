@@ -41,6 +41,11 @@
   me = !git config --get-regexp user
   # リモートブランチをローカルにチェックアウト
   cr = "!f () { git checkout -b ${1} origin/${1}; };f"
+  openpr = "!f() { \
+    if [ `which hub` ]; then\
+      hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`;\
+    fi;\
+  };f"
   # cherry-pick
   cp = "!f () {\
     if [ $# -eq 0 -a `which peco` ]; then\
