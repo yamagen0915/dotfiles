@@ -17,28 +17,17 @@
 
 [alias]
   alias = !git config --get-regexp alias
-  ad = add
-  ci = commit
   cm = commit -m
   cv = commit -v
   cam = commit --amend
-  ref = reflog
   sh = show
   br = branch
   st = status --branch --short
-  gr = grep --line-number --show-function --color --heading --break
-  fe = fetch
   ps = push origin HEAD
   df = diff
-  dm = diff master
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  type = cat-file -t
-  dump = cat-file -p
   cancel = reset HEAD~
-  refresh = fetch --prune
-  find = "!git ls-files | grep -i --color"
-  me = !git config --get-regexp user
   # リモートブランチをローカルにチェックアウト
   cr = "!f () { git checkout -b ${1} origin/${1}; };f"
   openpr = "!f() { \
