@@ -243,6 +243,9 @@ nnoremap <silent> [git]st :Gstatus<CR>
 nnoremap <silent> [git]g :OpenGithubFile<CR>
 vnoremap <silent> [git]g :OpenGithubFile<CR>
 
+" https://github.com/tyru/open-browser-github.vim/issues/12
+let g:openbrowser_github_url_exists_check = 'ignore'
+
 " ==================================================
 " switch.vim
 " ==================================================
