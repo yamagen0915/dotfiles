@@ -61,6 +61,8 @@ call dein#begin(expand('~/.vim/dein'))
   " 編集しているファイルをGitHubで開く
   call dein#add('tyru/open-browser.vim')
   call dein#add('tyru/open-browser-github.vim')
+  " CSS のカラーコードをプレビューする
+  call dein#add('ap/vim-css-color')
 
   " ==================================================
   " テキストオブジェクト
