@@ -61,9 +61,10 @@ augroup END
 augroup SetFileType
   autocmd!
   autocmd BufRead,BufNewFile *.coffee set filetype=javascript syntax=javascript
-  autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
-  autocmd BufRead,BufNewFile *.haml set filetype=haml syntax=haml
-  autocmd BufRead,BufNewFile *.scala set filetype=scala
+  autocmd BufRead,BufNewFile *.jsx    set filetype=javascript.jsx
+  autocmd BufRead,BufNewFile *.haml   set filetype=haml syntax=haml
+  autocmd BufRead,BufNewFile *.scala  set filetype=scala
+  autocmd BufRead,BufNewFile *.ts     set filetype=tsc
 augroup END
 
 " ==================================================

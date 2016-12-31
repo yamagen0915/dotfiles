@@ -68,6 +68,7 @@ call dein#begin(expand('~/.vim/dein'))
   " シンタックスハイライト
   " ==================================================
   call dein#add('pangloss/vim-javascript')
+  call dein#add('leafgarland/typescript-vim')
 
   " 未インンストールのプラグインがあったらインストールする
   if dein#check_install()
