@@ -127,6 +127,7 @@ let s:unite_ignores = join([
     \  'extlib$',
     \  'extlibs$',
     \  'blib$',
+    \  'node_modules$',
   \  ],'\|')
 call unite#custom#source('file', 'ignore_pattern', s:unite_ignores)
 call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignores)
