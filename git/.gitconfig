@@ -15,6 +15,9 @@
 [push]
   default = simple
 
+[merge]
+  ff = false
+
 [alias]
   alias = !git config --get-regexp alias
   cm = commit -m
