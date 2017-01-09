@@ -14,8 +14,6 @@ nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
 " Escの2回押しでハイライト消去
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-nnoremap <Space><Space> *
-
 " ==================================================
 " 早く移動する移動系
 " ==================================================
