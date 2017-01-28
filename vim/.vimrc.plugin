@@ -78,11 +78,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('pangloss/vim-javascript')
   call dein#add('leafgarland/typescript-vim')
 
-  " 未インンストールのプラグインがあったらインストールする
-  if dein#check_install()
-    call dein#install()
-  endif
-
 call dein#end()
 
 filetype plugin on
