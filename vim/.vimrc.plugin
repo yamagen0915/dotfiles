@@ -61,8 +61,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('tpope/vim-rails')
   " do end などを補完してくれる
   call dein#add('tpope/vim-endwise')
-  " { :key => value } <-> { key: value }
-  call dein#add('ck3g/vim-change-hash-syntax')
 
   " ==================================================
   " テキストオブジェクト
