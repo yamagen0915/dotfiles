@@ -36,8 +36,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('osyo-manga/vim-over')
   " 選択範囲を外側に広げて検索できる
   call dein#add('terryma/vim-expand-region')
-  " シンタックスエラーを見つけてくれるやつ
-  call dein#add('scrooloose/syntastic.git')
   " 画面上の見えている範囲の移動を早くするためのプラグイン
   call dein#add('Lokaltog/vim-easymotion')
   " = の位置とかそろえられるやつ！
@@ -312,7 +310,7 @@ let g:lightline = {
   \   'mode_map': {'c': 'NORMAL'},
   \   'active': {
   \     'right': [
-  \        [ 'syntastic', 'lineinfo'],
+  \        [ 'lineinfo'],
   \        [ 'percent' ],
   \        [ 'fileformat', 'fileencoding', 'filetype' ]
   \      ],
@@ -327,12 +325,6 @@ let g:lightline = {
   \     'filetype': 'LightLineFiletype',
   \     'mode': 'LightLineMode',
   \   },
-  \   'component_expand': {
-  \     'syntastic': 'SyntasticStatuslineFlag'
-  \   },
-  \   'component_type': {
-  \     'syntastic': 'error'
-  \   }
   \ }
 
 function! LightLineModified()
@@ -376,28 +368,6 @@ endfunction
 
 function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-" ==================================================
-" syntastic
-" ==================================================
-"  mode に active を指定すると保存するたびに、
-"          passiveを指定すると :SyntasticCheck を実行時に検出されます
-let g:syntastic_ruby_checkers = [ 'rubocop' ]
-let g:syntastic_javascript_checkers = [ 'jshint' ]
-let g:syntastic_scss_checkers = ['scss_lint']
-
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'podchecker']
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost * call s:syntastic()
-augroup END
-
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
 endfunction
 
 " ==================================================
