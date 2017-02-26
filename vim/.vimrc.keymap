@@ -1,7 +1,3 @@
-" ; と : の入れ替え。英字配列用
-noremap : ;
-noremap ; :
-
 " インサートモードでjjとうつとEscできる
 inoremap <silent> jj <Esc>
 
