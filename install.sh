@@ -1,10 +1,9 @@
 
 dotfiles=(
-  'vim/.vimrc'
-  'zsh/.zshrc'
-  'bash/.bashrc'
-  'git/.gitconfig'
-  'tmux/.tmux.conf'
+  'vim/vimrc'
+  'zsh/zshrc'
+  'git/gitconfig'
+  'tmux/tmux.conf'
 )
 
 function main()
@@ -21,7 +20,7 @@ function install()
   # ホームディレクトリにファイルがなければ作成する
   if [ ! -e ~/`filename ${1}` ]; then
     echo "`filename ${1}`を作成します"
-    ln -s ~/dotfiles/$1 ~/`filename ${1}`
+    ln -s ~/dotfiles/$1 ~/.`filename ${1}`
     return 0
   fi
 
@@ -31,9 +30,9 @@ function install()
   case "$answer" in
     Y)
       echo "`filename ${1}` を `filename ${1}`.`today` へリネーム."
-      mv ~/`filename ${1}` ~/`filename ${1}`.`today`
+      mv ~/.`filename ${1}` ~/.`filename ${1}`.`today`
       echo "~/dotfiles/${1}へのシンボリックリンクを作成"
-      ln -s ~/dotfiles/$1 ~/`filename ${1}`
+      ln -s ~/dotfiles/$1 ~/.`filename ${1}`
       ;;
     *)
       ;;
