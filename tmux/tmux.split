@@ -13,3 +13,20 @@ select-pane -t 0
 
 resize-pane -R 20
 
+new-window
+
+select-pane -t 0
+
+split-window -h
+
+select-pane -t 1
+
+split-window -v
+
+select-pane -t 1
+
+select-pane -t 0
+
+resize-pane -R 20
+
+select-window -t 0
