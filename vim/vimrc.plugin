@@ -44,8 +44,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('rhysd/clever-f.vim')
   " ステータスラインをかっこよく
   call dein#add('itchyny/lightline.vim')
-  " コーディングのログを収集してくれるサービス
-  call dein#add('wakatime/vim-wakatime')
   " jsonの表示がおかしいのを治す
   call dein#add('elzr/vim-json')
   " 編集しているファイルをGitHubで開く
