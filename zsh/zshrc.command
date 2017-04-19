@@ -1,7 +1,6 @@
 
 alias vi='vim'
 alias view='vim -R'
-alias g="git"
 alias pd='popd'
 alias reload='source ~/.zshrc'
 
