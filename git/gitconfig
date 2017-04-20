@@ -23,11 +23,9 @@
   sh = show
   br = branch
   st = status --branch --short
-  ps = push origin HEAD
   df = diff
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  cancel = reset HEAD~
   # リモートブランチをローカルにチェックアウト
   cr = "!f () { git checkout -b ${1} origin/${1}; };f"
   openpr = "!f() { \
