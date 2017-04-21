@@ -17,9 +17,7 @@
 
 [alias]
   alias = !git config --get-regexp alias
-  cm = commit -m
-  cv = commit -v
-  cam = commit --amend
+  ci = commit
   sh = show
   br = branch
   st = status --branch --short
