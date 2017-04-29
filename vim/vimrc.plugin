@@ -57,6 +57,8 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('tpope/vim-rails')
   " do end などを補完してくれる
   call dein#add('tpope/vim-endwise')
+  " シンタックスチェッカー
+  call dein#add('vim-syntastic/syntastic')
 
   " ==================================================
   " テキストオブジェクト
@@ -395,3 +397,13 @@ let g:clever_f_fix_key_direction = 1
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" ==================================================
+" syntastic
+" ==================================================
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_css_checkers = ['scss-lint']
