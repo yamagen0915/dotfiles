@@ -65,6 +65,7 @@ augroup SetFileType
   autocmd BufRead,BufNewFile *.haml   set filetype=haml syntax=haml
   autocmd BufRead,BufNewFile *.scala  set filetype=scala
   autocmd BufRead,BufNewFile *.ts     set filetype=tsc
+  autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 augroup END
 
 " ==================================================
