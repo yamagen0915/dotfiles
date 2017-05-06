@@ -2,7 +2,6 @@
 alias vi='vim'
 alias view='vim -R'
 alias pd='popd'
-alias reload='source ~/.zshrc'
 
 alias la='ls -A'
 alias ll='ls -la'

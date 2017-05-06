@@ -24,18 +24,6 @@
   df = diff
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  # リモートブランチをローカルにチェックアウト
-  cr = "!f () { git checkout -b ${1} origin/${1}; };f"
-  openpr = "!f() { \
-    if [ `which hub` ]; then\
-      hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`;\
-    fi;\
-  };f"
-  openci = "!f() { \
-    if [ `which hub` ]; then\
-      hub browse -- commit/$1;\
-    fi;\
-  };f"
   # cherry-pick
   cp = "!f () {\
     if [ $# -eq 0 -a `which peco` ]; then\
@@ -50,22 +38,6 @@
       git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
     elif [ $# -ge 1 ]; then\
       git checkout ${@};\
-    fi;\
-  };f"
-  # merge
-  mb = "!f () {\
-    if [ $# -eq 0 -a `which peco` ]; then\
-      git branch | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'merge\\> ' | tr -d ' \\*' | xargs -n 1 git merge;\
-    elif [ $# -ge 1 ]; then\
-      git merge ${@};\
-    fi;\
-  };f"
-  # rebase
-  rb = "!f () {\
-    if [ $# -eq 0 -a `which peco` ]; then\
-      git branch | grep -v '\\->' | sed -e 's/remotes\\///g' | peco --prompt 'rebase\\> ' | tr -d ' \\*' | xargs -n 1 git rebase;\
-    elif [ $# -ge 1 ]; then\
-      git rebase ${@};\
     fi;\
   };f"
 
