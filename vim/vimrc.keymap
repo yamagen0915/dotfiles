@@ -1,26 +1,5 @@
-" インサートモードでjjとうつとEscできる
-inoremap <silent> jj <Esc>
-
 " Escの2回押しでハイライト消去
 nnoremap <ESC><ESC> :nohlsearch<CR>
-
-" ==================================================
-" 早く移動する移動系
-" ==================================================
-nnoremap <Space>h  ^
-vnoremap <Space>h  ^
-nnoremap <Space>l  $
-vnoremap <Space>l  $h
-
-nnoremap <C-h> 10h
-nnoremap <C-j> 3j
-nnoremap <C-k> 3k
-nnoremap <C-l> 10l
-
-vnoremap <C-h> 10h
-vnoremap <C-j> 3j
-vnoremap <C-k> 3k
-vnoremap <C-l> 10l
 
 " ==================================================
 " タブ
