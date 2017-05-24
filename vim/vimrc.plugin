@@ -72,8 +72,6 @@ call dein#begin(expand('~/.vim/dein'))
   " シンタックスハイライト
   " ==================================================
   call dein#add('pangloss/vim-javascript')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('kchmck/vim-coffee-script')
   call dein#add('posva/vim-vue')
 
 call dein#end()
@@ -311,30 +309,23 @@ set t_Co=256
 let g:lightline = {
   \   'mode_map': {'c': 'NORMAL'},
   \   'active': {
+  \     'left':  [ [ 'mode' ], [ 'relativepath' ] ],
   \     'right': [
-  \        [ 'lineinfo'],
-  \        [ 'percent' ],
-  \        [ 'fileformat', 'fileencoding', 'filetype' ]
-  \      ],
-  \     'left':  [ [ 'mode'], ['fugitive'] ]
+  \        [ 'fileformat', 'fileencoding', 'filetype', 'fugitive' ]
+  \      ]
   \   },
   \   'component_function': {
-  \     'modified': 'LightLineModified',
-  \     'readonly': 'LightLineReadonly',
-  \     'fugitive': 'LightLineFugitive',
-  \     'filename': 'LightLineFilename',
+  \     'modified':   'LightLineModified',
+  \     'fugitive':   'LightLineFugitive',
+  \     'filename':   'LightLineFilename',
   \     'fileformat': 'LightLineFileformat',
-  \     'filetype': 'LightLineFiletype',
-  \     'mode': 'LightLineMode',
+  \     'filetype':   'LightLineFiletype',
+  \     'mode':       'LightLineMode',
   \   },
   \ }
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '🔒 ' : ''
 endfunction
 
 function! LightLineFilename()
@@ -344,6 +335,10 @@ function! LightLineFilename()
         \  &ft == 'vimshell' ? vimshell#get_status_string() :
         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '<U+1F512> ' : ''
 endfunction
 
 function! LightLineFugitive()
