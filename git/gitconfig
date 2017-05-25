@@ -24,29 +24,6 @@
   df = diff
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  # cherry-pick
-  cp = "!f () {\
-    if [ $# -eq 0 -a `which peco` ]; then\
-      git log --branches --oneline | peco --prompt 'cherry-pick\\> ' | awk '{print $1}' | xargs git cherry-pick;\
-    elif [ $# -ge 1 ]; then\
-      git cherry-pick ${@};\
-    fi;\
-  };f"
-  # checkout
-  co = "!f () {\
-    if [ $# -eq 0 -a `which peco` ]; then\
-      git branch | peco --prompt 'checkout\\> ' | tr -d ' \\*' | xargs -n 1 git checkout;\
-    elif [ $# -ge 1 ]; then\
-      git checkout ${@};\
-    fi;\
-  };f"
-  ri = "!f () {\
-    if [ $# -eq 0 -a `which peco` ]; then\
-      git log --oneline | peco --prompt 'rebase -i\\> ' | awk '{print $1}' | xargs -o git rebase -i;\
-    elif [ $# -ge 1 ]; then\
-      git rebase -i ${@};\
-    fi;\
-  };f"
 
 [include]
   path=~/.gitconfig.local
