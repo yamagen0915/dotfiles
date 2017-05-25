@@ -40,6 +40,13 @@
       git checkout ${@};\
     fi;\
   };f"
+  ri = "!f () {\
+    if [ $# -eq 0 -a `which peco` ]; then\
+      git log --oneline | peco --prompt 'rebase -i\\> ' | awk '{print $1}' | xargs -o git rebase -i;\
+    elif [ $# -ge 1 ]; then\
+      git rebase -i ${@};\
+    fi;\
+  };f"
 
 [include]
   path=~/.gitconfig.local
