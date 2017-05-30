@@ -17,6 +17,7 @@
 
 [alias]
   alias = !git config --get-regexp alias
+  co = checkout
   ci = commit
   sh = show
   br = branch
