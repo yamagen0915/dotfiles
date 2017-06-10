@@ -1,6 +1,11 @@
 " Escの2回押しでハイライト消去
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+nnoremap <Space>h ^
+nnoremap <Space>l $
+vnoremap <Space>h ^
+vnoremap <Space>l $
+
 " ==================================================
 " タブ
 " ==================================================
