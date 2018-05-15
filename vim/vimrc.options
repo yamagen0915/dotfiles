@@ -39,6 +39,8 @@ set showtabline=2
 set scrolloff=10
 " swapファイルを作成しない
 set noswapfile
+" synax highlight する横幅を設定(高速化のため)
+set synmaxcol=100
 
 " ファイル保存時に行末の不要な空白を取り除く
 augroup DeleteTailSpace
