@@ -70,7 +70,7 @@ call dein#begin(expand('~/.vim/dein'))
   " シンタックスハイライト
   " ==================================================
   call dein#add('pangloss/vim-javascript')
-  call dein#add('posva/vim-vue')
+  call dein#add('leafgarland/typescript-vim')
 
 call dein#end()
 
