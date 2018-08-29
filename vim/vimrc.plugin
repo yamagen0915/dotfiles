@@ -34,8 +34,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('AndrewRadev/switch.vim')
   " 視覚的にreplaceできるやつ
   call dein#add('osyo-manga/vim-over')
-  " 選択範囲を外側に広げて検索できる
-  call dein#add('terryma/vim-expand-region')
   " 画面上の見えている範囲の移動を早くするためのプラグイン
   call dein#add('Lokaltog/vim-easymotion')
   " = の位置とかそろえられるやつ！
@@ -53,10 +51,6 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('ap/vim-css-color')
   " インデントなどのエディタの設定を読み込む
   call dein#add('editorconfig/editorconfig-vim')
-  " rails 用のプラグイン
-  call dein#add('tpope/vim-rails')
-  " do end などを補完してくれる
-  call dein#add('tpope/vim-endwise')
 
   " ==================================================
   " テキストオブジェクト
@@ -71,6 +65,7 @@ call dein#begin(expand('~/.vim/dein'))
   " ==================================================
   call dein#add('pangloss/vim-javascript')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('posva/vim-vue')
 
 call dein#end()
 
@@ -273,15 +268,6 @@ vnoremap <silent> [over]s :OverCommandLine<CR>s/
 nnoremap <silent> [over]% :OverCommandLine<CR>%s/
 
 " ==================================================
-" vim-rails
-" ==================================================
-
-nnoremap [rails] <Nop>
-nmap <Space>r [rails]
-
-nnoremap <silent> gp :bp<CR>
-
-" ==================================================
 " vim-easymotion
 " ==================================================
 
@@ -384,10 +370,4 @@ let g:clever_f_smart_case = 1
 let g:clever_f_across_no_line = 1
 " fとFの移動方向を固定する
 let g:clever_f_fix_key_direction = 1
-
-" ==================================================
-" vim-expand-region
-" ==================================================
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
