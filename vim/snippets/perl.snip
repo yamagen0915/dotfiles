@@ -1,22 +1,6 @@
-snippet print
-  print ${0}, "\n";
-
 snippet dump
   use Data::Dumper;
   warn Dumper ${0};
-
-snippet umouse
-  use Mouse;
-
-  ${0}
-
-  no Mouse;
-  __PACKAGE__->meta->make_immutable;
-
-snippet uuu
-  use strict;
-  use warnings;
-  use utf8;
 
 snippet var
   my $${1} = ${0};
@@ -25,6 +9,9 @@ snippet args
   my (${0}) = @_;
 
 snippet fore
-  for ${1} (${2}) {
+  for my ${2} (${1}) {
       ${0}
   }
+
+snippet param
+  my $params = $c->req->parameters->mixed;
