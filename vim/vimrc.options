@@ -53,12 +53,17 @@ augroup END
 " ==================================================
 augroup SetFileType
   autocmd!
-  autocmd BufRead,BufNewFile *.coffee set filetype=javascript syntax=javascript
-  autocmd BufRead,BufNewFile *.jsx    set filetype=javascript.jsx
-  autocmd BufRead,BufNewFile *.haml   set filetype=haml syntax=haml
-  autocmd BufRead,BufNewFile *.scala  set filetype=scala
-  autocmd BufRead,BufNewFile *.ts     set filetype=tsc
-  autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+  autocmd BufRead,BufNewFile *.ts  set filetype=typescript
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescript
+augroup END
+
+" ==================================================
+" インデント
+" ==================================================
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.ts  setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.tsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " ==================================================
