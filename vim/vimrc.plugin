@@ -18,12 +18,14 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('honza/vim-snippets')
-  " ファイラー的な
+  " ファイル検索
   call dein#add('Shougo/unite.vim')
   " Uniteで関数一覧などのアウトラインを表示する
   call dein#add('Shougo/unite-outline')
   " Unite で最近開いたファイルを見れる
   call dein#add('Shougo/neomru.vim')
+  " Denite : Unite の後継、Unite も unite-outline などを利用するために必要
+  call dein#add('Shougo/denite.nvim')
   " vimでGitを扱う
   call dein#add('tpope/vim-fugitive')
   " Gitの変更を見やすくする
@@ -65,7 +67,6 @@ call dein#begin(expand('~/.vim/dein'))
   " ==================================================
   " シンタックスハイライト
   " ==================================================
-  call dein#add('pangloss/vim-javascript')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('posva/vim-vue')
 
@@ -76,65 +77,67 @@ filetype plugin indent on
 filetype indent on
 
 " ==================================================
-" Unite
+" Denite
 " ==================================================
 
 " Prefix
-nnoremap [unite] <nop>
-nmap <space>u [unite]
+nnoremap [denite] <nop>
+nmap <space>u [denite]
 
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]p :<C-u>UniteWithProjectDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline -default-action=open<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=grep<CR>
+nnoremap <silent> [denite]f :<C-u>Denite file_rec -default-action=tabopen<CR>
+nnoremap <silent> [denite]c :<C-u>DeniteBufferDir file -default-action=tabopen<CR>
+nnoremap <silent> [denite]o :<C-u>Denite unite:outline -default-action=open<CR>
+nnoremap <silent> [denite]m :<C-u>Denite file_mru -default-action=tabopen<CR>
+nnoremap <silent> [denite]g :<C-u>Denite grep -default-action=tabopen<CR>
+nnoremap <silent> [denite]p :<C-u>DeniteProjectDir file -default-action=tabopen<CR>
 
-let g:unite_enable_start_insert = 1
-let g:unite_enable_split_vertically = 0
-let g:unite_winwidth = 40
-let g:unite_cursor_line_highlight = 7
+" grep で ag を利用するように
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
 
-" デフォルトのアクションを設定
-call unite#custom#default_action('file', 'tabopen')
-call unite#custom#default_action('jump_list', 'tabopen')
-call unite#custom#default_action('directory', 'rec/async')
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
-" ドットファイルが表示されるように
-call unite#custom#source('file', 'matchers', "matcher_default")
+call denite#custom#source('file,file_rec,file_mru', 'matchers', [ 'matcher/regexp' ])
 
-" 画像ファイルを検索対象から外す
-let s:unite_ignores = join([
-    \  '\.gif',
-    \  '\.jpg',
-    \  '\.jpeg',
-    \  '\.png',
-    \  '\.webp',
-    \  '\.woff',
-    \  '\.svg',
-    \  '\.psd',
-    \  '\.ico',
-    \  '\.DS_Store',
-    \  '\.keep',
-    \  'extlib$',
-    \  'extlibs$',
-    \  'blib$',
-    \  'node_modules$',
-  \  ],'\|')
-call unite#custom#source('file', 'ignore_pattern', s:unite_ignores)
-call unite#custom#source('file_rec/async', 'ignore_pattern', s:unite_ignores)
+call denite#custom#option('default', {
+\   'prompt': '>',
+\ })
 
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-endif
-
-augroup UniteSelectAction
-  autocmd!
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-g> unite#do_action('grep')
-augroup END
-
+" 検索から除外するパターン
+call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', [
+\   '*~',
+\   '*.o',
+\   '*.exe',
+\   '*.bak',
+\   '.DS_Store',
+\   '*.pyc',
+\   '*.sw[po]',
+\   '*.class',
+\   '.hg/',
+\   '.git/',
+\   '.bzr/',
+\   '.svn/',
+\   'tags',
+\   'tags-*',
+\   '.gif',
+\   '.jpg',
+\   '.jpeg',
+\   '.png',
+\   '.webp',
+\   '.woff',
+\   '.svg',
+\   '.psd',
+\   '.ico',
+\   '.keep',
+\   'node_modules/',
+\   '__pycache__/',
+\ ])
 
 " ==================================================
 " neocomplete
@@ -250,9 +253,15 @@ augroup SwitchConfig
     \   ['attr_accessor', 'attr_reader', 'attr_writer'],
     \ ]
 
+  " Perl
   autocmd FileType perl let b:switch_custom_definitions = [
     \   ['if', 'unless'],
     \   ['eq', 'ne'],
+    \ ]
+
+  " TypeScript
+  autocmd FileType perl let b:switch_custom_definitions = [
+    \   ['toBeTruthly', 'toBeFalsy'],
     \ ]
 augroup END
 
