@@ -1,0 +1,63 @@
+snippet import-react
+	import * as React from 'react'
+
+snippet import-styled-components
+	import styled from 'styled-components'
+
+snippet import-mobx
+	import { ${0} } from 'mobx'
+
+snippet import-mobx-react
+	import { ${0} } from 'mobx-react'
+
+snippet import-material-ui
+	import ${1} from '@material-ui/core/${0}'
+
+snippet components
+	import * as React from 'react'
+
+	interface Props {}
+
+	interface State {}
+
+	export default class ${0} extends React.Component<Props, State> {
+		public render() {
+			return (
+				${0}
+			)
+		}
+  }
+
+snippet components-with-api
+	import * as React from 'react'
+	import { inject } from 'mobx-react'
+	import Api from 'src/services/Api'
+
+	interface Props {}
+
+	interface State {}
+
+	interface Inject {
+		api: Api
+	}
+
+	@inject('api')
+	export default class ${0} extends React.Component<Props, State> {
+
+		private get injected() : Inject {
+			return this.props as Inject
+		}
+
+		public render() {
+			return (
+				${0}
+			)
+		}
+  }
+
+snippet constructor
+	public constructor(props: Props) {
+		super(props)
+		${0}
+	}
+
