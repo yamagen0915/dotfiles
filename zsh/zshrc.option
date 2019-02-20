@@ -1,9 +1,6 @@
-# 色を使用出来るようにする
-autoload colors
-colors
-
 # 色の設定
 export TERM=xterm-256color
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 # ctrl+wで､直前の/までを削除する｡
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
@@ -12,6 +9,19 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
+
+# 色を使用出来るようにする
+autoload -Uz colors colors
+# zsh の補完を拡張する
+autoload -Uz compinit; compinit
+# git の情報を zsh で利用できるようにする
+autoload -Uz vcs_info; vcs_info
+
+# kubectl の補完を読み込む
+if [ `which kubectl` ]; then
+  source <(kubectl completion zsh)
+fi
+
 # 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
 # ヒストリファイルに保存するとき、すでに重複したコマンドがあったら古い方を削除する
@@ -20,7 +30,6 @@ setopt hist_save_nodups
 setopt hist_ignore_space
 # ヒストリに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
-
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
 # beep を無効にする
@@ -47,68 +56,63 @@ setopt auto_param_slash
 setopt globdots
 # #の後をコメントとして扱う
 setopt interactive_comments
+# 語の途中でもカーソル位置で補完
+setopt complete_in_word
+setopt list_packed
 
-#cdを打ったら自動的にlsを打ってくれる関数
-function chpwd(){ ls -GF; }
+# cd を打ったら自動的に ls を表示
+function chpwd() {
+  ls -GF;
+}
 
-# VCSの情報を取得するzshの便利関数 vcs_infoを使う
-autoload -Uz vcs_info
+function precmd() {
+  psvar=()
+  vcs_info
+  [[ -n $vcs_info_msg_0_ ]] && print -v 'psvar[1]' -Pr -- "$vcs_info_msg_0_"
+}
 
 # 表示フォーマットの指定
 # %b ブランチ情報
 # %a アクション名(mergeなど)
 zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b|%a'
-precmd () {
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
 
 # プロンプト
 PROMPT="[%*] [%~/]
-%{${fg[cyan]}%}%n $ %{${reset_color}%}"
-RPROMPT="%{${fg[cyan]}%}%1(v|%1v|)%{${reset_color}%}"
+%F{cyan}$%f "
+RPROMPT="%F{cyan}%1(v|%1v|)%f"
 
-# コマンドラインスタック
-show_buffer_stack() {
-  POSTDISPLAY="
-  stack: $LBUFFER"
-  zle push-line-or-edit
-}
-zle -N show_buffer_stack
-
+# 補完を Tab で選択できるように
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
 # 補完にもLS_COLORS の設定を反映する
-if [ -n "$LS_COLORS" ]; then
-  zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
-fi
-# sudo の後ろでコマンド名を補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/x11r6/bin
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+## 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # =============================================================
 # ^rを拡張
 # =============================================================
 if [ `which peco` ]; then
-  function peco-select-history() {
-      local tac
-      if which tac > /dev/null; then
-          tac="tac"
-      else
-          tac="tail -r"
-      fi
-      BUFFER=$(history -n 1 | \
-          eval $tac | \
-          peco --query "$LBUFFER")
-      CURSOR=$#BUFFER
+  function peco_select_history() {
+    local tac
+    if which tac > /dev/null; then
+      tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+      eval $tac | \
+      peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
   }
-  zle -N peco-select-history
 
-  bindkey '^r' peco-select-history
+  zle -N peco_select_history
+  bindkey '^r' peco_select_history
 fi
+

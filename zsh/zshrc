@@ -19,8 +19,3 @@ load_file ~/dotfiles/zsh/zshrc.option
 load_file ~/dotfiles/zsh/zshrc.command
 load_file ~/.zshrc.local
 
-# git-completetionのロード
-fpath=(~/.zsh/contrib/completion/ $fpath)
-autoload -U compinit
-compinit -u
-
