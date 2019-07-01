@@ -15,7 +15,7 @@ case ${OSTYPE} in
 esac
 
 # 共通設定を読み込む
+load_file ~/.zshrc.local
 load_file ~/dotfiles/zsh/zshrc.option
 load_file ~/dotfiles/zsh/zshrc.command
-load_file ~/.zshrc.local
 
