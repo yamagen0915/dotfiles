@@ -23,8 +23,8 @@
   br = branch
   st = status --branch --short
   df = diff
-  hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
-  hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
+  hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset'
+  hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset'
 
 [include]
   path=~/.gitconfig.local
