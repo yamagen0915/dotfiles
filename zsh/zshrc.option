@@ -8,7 +8,7 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 # ヒストリーの設定
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
-export SAVEHIST=100000
+export SAVEHIST=50000
 
 # 色を使用出来るようにする
 autoload -Uz colors colors
