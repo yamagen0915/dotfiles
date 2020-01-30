@@ -4,16 +4,6 @@ function load_file() {
   fi
 }
 
-# OS別の設定ファイルを読み込む
-case ${OSTYPE} in
-  darwin*)
-    load_file ~/dotfiles/zsh/mac/zshrc
-    ;;
-  linux*)
-    load_file ~/dotfiles/zsh/linux/zshrc
-    ;;
-esac
-
 # 共通設定を読み込む
 load_file ~/.zshrc.local
 load_file ~/dotfiles/zsh/zshrc.option

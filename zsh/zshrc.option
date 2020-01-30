@@ -17,14 +17,8 @@ autoload -Uz compinit; compinit
 # git の情報を zsh で利用できるようにする
 autoload -Uz vcs_info; vcs_info
 
-# kubectl の補完を読み込む
-if [ `which kubectl` ]; then
-  source <(kubectl completion zsh)
-fi
-
 # 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
-# ヒストリファイルに保存するとき、すでに重複したコマンドがあったら古い方を削除する
 setopt hist_save_nodups
 # スペースから始まるコマンド行はヒストリに残さない
 setopt hist_ignore_space
@@ -34,13 +28,13 @@ setopt hist_reduce_blanks
 setopt print_eight_bit
 # beep を無効にする
 setopt no_beep
-# ディレクトリ名だけでcdする
+# ディレクトリ名だけで cd する
 setopt auto_cd
-# cd したら自動的にpushdする
+# cd したら自動的に pushd する
 setopt auto_pushd
 # 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
-# push, popd したときにdirsを表示しないようにする
+# push, popd したときにディレクトリを表示しないようにする
 setopt pushd_silent
 # = の後はパス名として補完する
 setopt magic_equal_subst
@@ -96,7 +90,7 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # =============================================================
-# ^rを拡張
+# ^r で peco を利用する
 # =============================================================
 if [ `which peco` ]; then
   function peco_select_history() {
