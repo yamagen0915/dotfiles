@@ -4,8 +4,7 @@ function load_file() {
   fi
 }
 
-# 共通設定を読み込む
-load_file ~/.zshrc.local
-load_file ~/dotfiles/zsh/zshrc.option
-load_file ~/dotfiles/zsh/zshrc.command
+load_file $HOME/.zshrc.local
+load_file $DOTFILES_PATH/zsh/zshrc.option
+load_file $DOTFILES_PATH/zsh/zshrc.command
 

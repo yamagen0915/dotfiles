@@ -2,11 +2,13 @@
 
 cd `dirname $0`;
 
+export DOTFILES_PATH=`pwd`
+
 paths=(
-  "`pwd`/zsh/zshrc ${HOME}/.zshrc"
-  "`pwd`/git/gitconfig ${HOME}/.gitconfig"
-  "`pwd`/vim/vimrc ${HOME}/.vimrc"
-  "`pwd`/peco/config.json ${HOME}/.config/config.json"
+  "${DOTFILES_PATH}/zsh/zshrc ${HOME}/.zshrc"
+  "${DOTFILES_PATH}/git/gitconfig ${HOME}/.gitconfig"
+  "${DOTFILES_PATH}/vim/vimrc ${HOME}/.vimrc"
+  "${DOTFILES_PATH}/peco/config.json ${HOME}/.config/peco/config.json"
 )
 
 function main()
@@ -22,6 +24,8 @@ function main()
 
     ln -s $src $dst
   done
+
+  echo "Please set \"export DOTFILES_PATH=`pwd`\" on your .zshrc.local"
 }
 
 main

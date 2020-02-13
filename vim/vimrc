@@ -1,6 +1,6 @@
 
 " 分割した設定ファイルの読み込み
-set runtimepath+=$HOME/dotfiles/vim
+set runtimepath+=$DOTFILES_PATH/vim
 runtime! vimrc.*
 
 " ローカルファイルを読み込む
