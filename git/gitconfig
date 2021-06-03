@@ -4,6 +4,7 @@
   # 改行コードについて非可逆的なコミットは拒否する。
   # こちらを参照: http://d.hatena.ne.jp/couichi/20110207/1297101115
   safecrlf = true
+  editor = code --wait
 
 [color]
   ui = auto
