@@ -9,6 +9,7 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=500
 export SAVEHIST=500
+export HISTORY_IGNORE='(git add *|git df *|poetry run task test *)'
 
 # 色を使用出来るようにする
 autoload -Uz colors colors
@@ -53,6 +54,8 @@ setopt interactive_comments
 # 語の途中でもカーソル位置で補完
 setopt complete_in_word
 setopt list_packed
+# ヒストリを呼び出してから実行する間に一旦編集可能
+setopt hist_verify
 
 # cd を打ったら自動的に ls を表示
 function chpwd() {
