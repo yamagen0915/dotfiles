@@ -25,7 +25,7 @@
   df = diff
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  cleanup = "!f () { git branch --merged|egrep -v '\\*|master'|xargs git branch -d; };f"
+  prune = "!f () { git branch --merged|egrep -v '\\*|master'|xargs git branch -d; };f"
 
 [include]
   path=~/.gitconfig.local
