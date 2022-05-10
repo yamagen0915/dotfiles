@@ -9,7 +9,7 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=500
 export SAVEHIST=500
-export HISTORY_IGNORE='(git add *|git df *|poetry run task test *)'
+export HISTORY_IGNORE='(git add *|git df *|git co *|poetry run task test *)'
 
 # 色を使用出来るようにする
 autoload -Uz colors colors
