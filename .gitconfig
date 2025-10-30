@@ -25,7 +25,7 @@
   df = diff
   hist = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short -20
   hists = log --graph --pretty=format:'%Cred%h%Creset - %cd | %s %Cgreen(%cr)%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --stat -20
-  clear = "!f () { git branch --merged|egrep -v '\\*|master'|xargs git branch -d; };f"
+  clear = "!f () { git fetch --prune && git reset --hard origin/main && git branch --merged|egrep -v '\\*|main'|xargs git branch -d; };f"
 
 [init]
   defaultBranch = main
